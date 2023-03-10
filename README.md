@@ -97,7 +97,7 @@ import { createI18n } from 'vue-i18n'
 import { makeZodVueI18n } from 'zod-vue-i18n'
 import { z } from 'zod'
 import en from 'zod-vue-i18n/dist/locales/en.json'
-import it from 'zod-vue-i18n/dist/locales/it.json'q
+import it from 'zod-vue-i18n/dist/locales/it.json'
 
 const i18n = createI18n({
   locale: 'en',
