@@ -36,8 +36,8 @@ npm install zod-vue-i18n --save
 This libray provides a function that permit to use the translation of [vue-i18n](https://github.com/intlify/vue-i18n-next/) with the validation error of [zod](https://github.com/colinhacks/zod).
 
 ```typescript
-import { makeZodVueI18n } from 'zod-vue-i18n'
 import { z } from 'zod'
+import { makeZodVueI18n } from 'zod-vue-i18n'
 import { createI18n } from 'vue-i18n'
 
 const i18n = createI18n({
@@ -64,9 +64,9 @@ z.setErrorMap(makeZodVueI18n(i18n))
 We provide a set of json files with the translation of the errors of zod. You can use them in your project.
 
 ```typescript
+import { z } from 'zod'
 import { createI18n } from 'vue-i18n'
 import { makeZodVueI18n } from 'zod-vue-i18n'
-import { z } from 'zod'
 import en from 'zod-vue-i18n/dist/locales/en.json'
 import it from 'zod-vue-i18n/dist/locales/it.json'
 
@@ -88,9 +88,10 @@ Messages using `maximum`, `minimum` or `keys` can be converted to the plural for
 ```json
 {
   "exact_one": "String must contain exactly {{minimum}} character",
-  "exact_other": "String must contain exactly {{minimum}} characters",
+  "exact_other": "String must contain exactly {{minimum}} characters"
 }
 ```
+
 ```typescript
 import { createI18n } from 'vue-i18n'
 import { makeZodVueI18n } from 'zod-vue-i18n'
@@ -111,4 +112,3 @@ z.setErrorMap(makeZodVueI18n(i18n))
 z.string().length(1).safeParse('123') // String must contain exactly 1 character
 z.string().length(3).safeParse('1234') // String must contain exactly 3 characters
 ```
-

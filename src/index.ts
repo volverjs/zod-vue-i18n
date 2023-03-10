@@ -5,17 +5,16 @@ import {
 	ZodIssueCode,
 	ZodParsedType,
 	defaultErrorMap,
-	z as Zod,
+	z,
 } from 'zod'
 import type {
 	ComposerDateTimeFormatting,
 	ComposerTranslation,
 	I18n,
 } from 'vue-i18n'
+import { joinValues, jsonStringifyReplacer } from './utils'
 
-import { getDefaults, joinValues, jsonStringifyReplacer } from './utils'
-
-const zDate = Zod.string().regex(/(\d{4})-\d{2}-(\d{2})/)
+const zDate = z.string().regex(/(\d{4})-\d{2}-(\d{2})/)
 
 const makeZodI18nMap =
 	(i18n: I18n): ZodErrorMap =>
@@ -143,4 +142,4 @@ const makeZodI18nMap =
 		return { message }
 	}
 
-export { Zod, zDate, makeZodI18nMap, getDefaults }
+export { zDate, makeZodI18nMap }

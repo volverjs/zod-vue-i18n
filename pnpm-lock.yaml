@@ -13,7 +13,6 @@ specifiers:
   jest-fetch-mock: ^3.0.3
   jest-localstorage-mock: ^2.4.26
   prettier: ^2.8.4
-  ts-deepmerge: ^6.0.2
   ts-jest: ^29.0.5
   typescript: ^4.9.5
   vue: ^3.2.47
@@ -21,7 +20,6 @@ specifiers:
   zod: ^3.21.4
 
 dependencies:
-  ts-deepmerge: 6.0.2
   vue: 3.2.47
   vue-i18n: 9.2.2_vue@3.2.47
   zod: 3.21.4
@@ -3512,11 +3510,6 @@ packages:
   /tr46/0.0.3:
     resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==}
     dev: true
-
-  /ts-deepmerge/6.0.2:
-    resolution: {integrity: sha512-/GPCwZfJylLU3i00vFwHa36YYvKY9F1Es/VhRESre7betW2cvxF05qwAD0vGlsKl93FEAB+2DoN/QrUw9VyBcg==}
-    engines: {node: '>=14.13.1'}
-    dev: false
 
   /ts-jest/29.0.5_doipufordlnvh5g4adbwayvyvy:
     resolution: {integrity: sha512-PL3UciSgIpQ7f6XjVOmbi96vmDHUqAyqDr8YxzopDqX3kfgYtX1cuNeBjP+L9sFXi6nzsGGA6R3fP3DDDJyrxA==}

@@ -1,6 +1,6 @@
-import { makeZodI18nMap, Zod } from '../src'
+import { makeZodI18nMap } from '../src'
 import { createI18n } from 'vue-i18n'
-import type { SafeParseReturnType } from 'zod'
+import { type SafeParseReturnType, z } from 'zod'
 
 const messages = {
 	en: {
@@ -40,8 +40,8 @@ describe('makeZodI18nMap', () => {
 		})
 		i18n.global.setLocaleMessage('en', messages.en)
 		expect(makeZodI18nMap(i18n)).toBeInstanceOf(Function)
-		Zod.setErrorMap(makeZodI18nMap(i18n))
-		const result = getErrorMessage(Zod.string().min(5).safeParse('12'))
+		z.setErrorMap(makeZodI18nMap(i18n))
+		const result = getErrorMessage(z.string().min(5).safeParse('12'))
 		expect(result).toEqual('Must be at least 5 characters')
 	})
 })
