@@ -1,0 +1,80 @@
+{
+  "invalidType": "Previsto {expected}, ricevuto {received}",
+  "invalidTypeReceivedUndefined": "Obbligatorio",
+  "invalidLiteral": "Valore non valido, previsto {expected}",
+  "unrecognizedKeys": "'Chiavi non riconosciute: {keys}'",
+  "invalidUnion": "Valore non valido",
+  "invalidUnionDiscriminator": "Discriminatore non valido. Previsti: {options}",
+  "invalidEnumValue": "'Opzione non valida. Previste: {options}'",
+  "invalidArguments": "Parametri della funzione non validi",
+  "invalidReturnType": "Il valore restituito dalla funzione non è valido",
+  "invalidDate": "Data non valida",
+  "custom": "Valore non valido",
+  "invalidIntersectionTypes": "I risultati non possono essere uniti",
+  "notMultipleOf": "Il numero dev'essere un multiplo di {multipleOf}",
+  "notFinite": "Il numero dev'essere finito",
+  "invalidString": {
+    "email": "{validation} non valida",
+    "url": "{validation} non valido",
+    "uuid": "{validation} non valido",
+    "cuid": "{validation} non valido",
+    "regex": "Il valore inserito non è valido",
+    "datetime": "{validation} non valide",
+    "startsWith": "Valore non valido: deve iniziare con {startsWith}",
+    "endsWith": "Valore non valido: deve terminare com {endsWith}"
+  },
+  "tooSmall": {
+    "array": {
+      "exact": "Inserire {minimum} elemento/i",
+      "inclusive": "Inserire almeno {minimum} elemento/i",
+      "notInclusive": "Inserire più di {minimum} elemento/i"
+    },
+    "string": {
+      "exact": "La lunghezza dev'essere di {minimum} carattere/i",
+      "inclusive": "Lunghezza minima {minimum} carattere/i",
+      "notInclusive": "Inserire più di {minimum} carattere/i"
+    },
+    "number": {
+      "exact": "Il valore dev'essere {minimum}",
+      "inclusive": "Inserire un valore maggiore o uguale a {minimum}",
+      "notInclusive": "Inserire un valore maggiore di {minimum}"
+    },
+    "set": {
+      "exact": "Valore non valido",
+      "inclusive": "Valore non valido",
+      "notInclusive": "Valore non valido"
+    },
+    "date": {
+      "exact": "La data dev'essere {minimum}",
+      "inclusive": "La data dev'essere successiva o uguale al {minimum}",
+      "notInclusive": "La data dev'essere successiva al {minimum}}"
+    },
+    "tooBig": {
+      "array": {
+        "exact": "Inserire {maximum} elemento/i",
+        "inclusive": "Inserire al massimo {maximum} elemento/i",
+        "notInclusive": "Inserire meno di {maximum} elemento/i"
+      },
+      "string": {
+        "exact": "La lunghezza dev'essere di {maximum} carattere/i",
+        "inclusive": "Lunghezza massima {maximum} carattere/i",
+        "notInclusive": "Inserire meno di {maximum} carattere/i"
+      },
+      "number": {
+        "exact": "Il valore dev'essere {maximum}",
+        "inclusive": "Inserire un valore minore o uguale a {maximum}",
+        "notInclusive": "Inserie un valore minore di {maximum}"
+      },
+      "set": {
+        "exact": "Valore non valido",
+        "inclusive": "Valore non valido",
+        "notInclusive": "Valore non valido"
+      },
+      "date": {
+        "exact": "La data dev'essere {maximum}",
+        "inclusive": "La data dev'essere precedente o uguale al {maximum}",
+        "notInclusive": "La data dev'essere precedente al {maximum}"
+      }
+    }
+  }
+}

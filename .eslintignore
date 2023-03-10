@@ -1,0 +1,6 @@
+.eslintrc.js
+.vscode
+dist
+coverage
+node
+test/*.js
