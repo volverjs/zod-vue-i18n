@@ -115,6 +115,8 @@ z.setErrorMap(makeZodVueI18n(i18n))
 
 if you want to add a set of error labels in your `vue-i18n` instance, you can use two different ways:
 
+### 1. Merge the messages when you create the instance
+
 ```typescript
 import { z } from 'zod'
 import { createI18n } from 'vue-i18n'
@@ -123,7 +125,6 @@ import en from 'zod-vue-i18n/dist/locales/en.json'
 import it from 'zod-vue-i18n/dist/locales/it.json'
 import myProjectMessages from './i18n'
 
-// 1. merge the messages
 const i18n = createI18n({
   locale: 'en',
   messages: {
@@ -140,12 +141,38 @@ const i18n = createI18n({
 
 z.setErrorMap(makeZodVueI18n(i18n))
 
-// 2. add the messages when you need
+```
+
+### 2. Add the messages when you need
+
+```typescript
+import { z } from 'zod'
+import { createI18n } from 'vue-i18n'
+import { makeZodVueI18n } from 'zod-vue-i18n'
+
+const i18n = createI18n({
+  locale: 'en',
+  messages: {
+    en: {
+      //...
+    },
+    it: {
+      //...
+    }
+  }
+})
+
+z.setErrorMap(makeZodVueI18n(i18n))
+
+// add the messages in any file you want
+import en from 'zod-vue-i18n/dist/locales/en.json'
+
 i18n.global.mergeLocaleMessage(
   'en', // the locale you want to add
   en // the error messages you want to add
 )
 ```
+
 
 ## Custom error messages
 
@@ -171,8 +198,10 @@ z.string()
   .refine(() => false, { params: { i18n: 'my_custom_key' } })
   .safeParse(123) // This is not a string
 ```
+> **Note**
+> To use this functionality you need to add the `i18n` key to the `params` object.
 
-## Use `handlePath` to validate zod schema
+## Use `WithPath` to validate zod schema
 
 When you use `z.object` to create a schema, you can handle the object key to customize the error message.
 
@@ -186,8 +215,8 @@ const i18n = createI18n({
   messages: {
     en: {
       errors: {
-        invalid_type: 'Expected {expected}, received {received}',
-        invalit_type_with_path:
+        invalidType: 'Expected {expected}, received {received}',
+        invalitTypeWithPath:
           'The {path} property expected {expected}, received {received}'
       }
     }
@@ -203,8 +232,8 @@ z.object({
 }).parse({ name: 1 }) // => The name property expected string, received number
 ```
 
-If `_with_path` is suffixed to the key of the message, that message will be adopted in the case of an object type schema.
-If there is no message key with \_with_path, fall back to the normal error message.
+If `WithPath` is suffixed to the key of the message, that message will be adopted in the case of an object type schema.
+If there is no message key with \WithPath, fall back to the normal error message.
 
 ## Acknoledgements
 
