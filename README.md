@@ -2,7 +2,7 @@
   
 [![volverjs](docs/static/zod-vue-i18n.svg)](https://volverjs.github.io/zod-vue-i18n)
 
-## zod-vue-i18n
+# zod-vue-i18n
 
 `zod` `vue3` `i18n` `vue-i18n`
 
@@ -33,7 +33,7 @@ npm install zod-vue-i18n --save
 
 ## Usage
 
-This libray provides a function that permit to use the translation of [vue-i18n](https://github.com/intlify/vue-i18n-next/) with the validation error of [zod](https://github.com/colinhacks/zod).
+This libray is used to translate [Zod](https://github.com/colinhacks/zod)'s default error messages with [vue-i18n](https://github.com/intlify/vue-i18n-next/).
 
 ```typescript
 import { z } from 'zod'
@@ -91,7 +91,6 @@ z.string().length(1).safeParse('123') // String must contain exactly 1 character
 z.string().length(3).safeParse('1234') // String must contain exactly 3 characters
 ```
 
-
 ## Locales
 
 We provide a set of json files with the translation of the errors of `zod`. You can use them in your project.
@@ -143,10 +142,9 @@ z.setErrorMap(makeZodVueI18n(i18n))
 
 // 2. add the messages when you need
 i18n.global.mergeLocaleMessage(
-    'en', // the locale you want to add
-    en, // the error messages you want to add
+  'en', // the locale you want to add
+  en // the error messages you want to add
 )
-
 ```
 
 ## Custom error messages
@@ -169,7 +167,9 @@ const i18n = createI18n({
 
 z.setErrorMap(makeZodVueI18n(i18n))
 
-z.string().refine(() => false, { params: { i18n: 'my_custom_key' }}).safeParse(123) // This is not a string
+z.string()
+  .refine(() => false, { params: { i18n: 'my_custom_key' } })
+  .safeParse(123) // This is not a string
 ```
 
 ## Use `handlePath` to validate zod schema
@@ -187,7 +187,8 @@ const i18n = createI18n({
     en: {
       errors: {
         invalid_type: 'Expected {expected}, received {received}',
-        invalit_type_with_path: 'The {path} property expected {expected}, received {received}'
+        invalit_type_with_path:
+          'The {path} property expected {expected}, received {received}'
       }
     }
   }
@@ -203,8 +204,11 @@ z.object({
 ```
 
 If `_with_path` is suffixed to the key of the message, that message will be adopted in the case of an object type schema.
-If there is no message key with _with_path, fall back to the normal error message.
+If there is no message key with \_with_path, fall back to the normal error message.
 
+## Acknoledgements
+
+`zod-vue-i18n` is inspired by [`zod-i18n-map`](https://github.com/aiji42/zod-i18n).
 
 ## License
 
