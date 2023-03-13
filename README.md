@@ -59,28 +59,6 @@ const i18n = createI18n({
 z.setErrorMap(makeZodVueI18n(i18n))
 ```
 
-## Locales
-
-We provide a set of json files with the translation of the errors of zod. You can use them in your project.
-
-```typescript
-import { z } from 'zod'
-import { createI18n } from 'vue-i18n'
-import { makeZodVueI18n } from 'zod-vue-i18n'
-import en from 'zod-vue-i18n/dist/locales/en.json'
-import it from 'zod-vue-i18n/dist/locales/it.json'
-
-const i18n = createI18n({
-  locale: 'en',
-  messages: {
-    en,
-    it
-  }
-})
-
-z.setErrorMap(makeZodVueI18n(i18n))
-```
-
 ## Plurals
 
 Messages using `maximum`, `minimum` or `keys` can be converted to the plural form.
@@ -112,3 +90,122 @@ z.setErrorMap(makeZodVueI18n(i18n))
 z.string().length(1).safeParse('123') // String must contain exactly 1 character
 z.string().length(3).safeParse('1234') // String must contain exactly 3 characters
 ```
+
+
+## Locales
+
+We provide a set of json files with the translation of the errors of `zod`. You can use them in your project.
+
+```typescript
+import { z } from 'zod'
+import { createI18n } from 'vue-i18n'
+import { makeZodVueI18n } from 'zod-vue-i18n'
+import en from 'zod-vue-i18n/dist/locales/en.json'
+import it from 'zod-vue-i18n/dist/locales/it.json'
+
+const i18n = createI18n({
+  locale: 'en',
+  messages: {
+    en,
+    it
+  }
+})
+
+z.setErrorMap(makeZodVueI18n(i18n))
+```
+
+if you want to add a set of error labels in your `vue-i18n` instance, you can use two different ways:
+
+```typescript
+import { z } from 'zod'
+import { createI18n } from 'vue-i18n'
+import { makeZodVueI18n } from 'zod-vue-i18n'
+import en from 'zod-vue-i18n/dist/locales/en.json'
+import it from 'zod-vue-i18n/dist/locales/it.json'
+import myProjectMessages from './i18n'
+
+// 1. merge the messages
+const i18n = createI18n({
+  locale: 'en',
+  messages: {
+    en: {
+      ...en,
+      ...myProjectMessages.en
+    },
+    it: {
+      ...it,
+      ...myProjectMessages.it
+    }
+  }
+})
+
+z.setErrorMap(makeZodVueI18n(i18n))
+
+// 2. add the messages when you need
+i18n.global.mergeLocaleMessage(
+    'en', // the locale you want to add
+    en, // the error messages you want to add
+)
+
+```
+
+## Custom error messages
+
+You can use custom error messages with the `params` property of the `refine` function.
+
+```typescript
+import { z } from 'zod'
+import { createI18n } from 'vue-i18n'
+import { makeZodVueI18n } from 'zod-vue-i18n'
+
+const i18n = createI18n({
+  locale: 'en',
+  messages: {
+    en: {
+      my_custom_key: 'This is not a string'
+    }
+  }
+})
+
+z.setErrorMap(makeZodVueI18n(i18n))
+
+z.string().refine(() => false, { params: { i18n: 'my_custom_key' }}).safeParse(123) // This is not a string
+```
+
+## Use `handlePath` to validate zod schema
+
+When you use `z.object` to create a schema, you can handle the object key to customize the error message.
+
+```typescript
+import { z } from 'zod'
+import { createI18n } from 'vue-i18n'
+import { makeZodVueI18n } from 'zod-vue-i18n'
+
+const i18n = createI18n({
+  locale: 'en',
+  messages: {
+    en: {
+      errors: {
+        invalid_type: 'Expected {expected}, received {received}',
+        invalit_type_with_path: 'The {path} property expected {expected}, received {received}'
+      }
+    }
+  }
+})
+
+z.setErrorMap(makeZodVueI18n(i18n))
+
+z.string().parse(1) // => Expected string, received number
+
+z.object({
+  name: z.string()
+}).parse({ name: 1 }) // => The name property expected string, received number
+```
+
+If `_with_path` is suffixed to the key of the message, that message will be adopted in the case of an object type schema.
+If there is no message key with _with_path, fall back to the normal error message.
+
+
+## License
+
+[MIT](http://opensource.org/licenses/MIT)
