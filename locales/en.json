@@ -31,13 +31,13 @@
     },
     "string": {
       "exact": "The length must be of {minimum} characters",
-      "inclusive": "Lunghezza minima {minimum} carattere",
-      "notInclusive": "Inserire più di {minimum} carattere"
+      "inclusive": "Minumum length {minimum} characters",
+      "notInclusive": "Insert more of {minimum} characters"
     },
     "number": {
-      "exact": "Il valore dev'essere {minimum}",
-      "inclusive": "Inserire un valore maggiore o uguale a {minimum}",
-      "notInclusive": "Inserire un valore maggiore di {minimum}"
+      "exact": "The value must be {minimum}",
+      "inclusive": "Insert a value greater or equal to {minimum}",
+      "notInclusive": "Insert a value greater than {minimum}"
     },
     "set": {
       "exact": "Invalid value",
@@ -45,35 +45,35 @@
       "notInclusive": "Invalid value"
     },
     "date": {
-      "exact": "La data dev'essere {minimum}",
-      "inclusive": "La data dev'essere successiva o uguale al {minimum}",
-      "notInclusive": "La data dev'essere successiva al {minimum}}"
+      "exact": "The date must be {minimum}",
+      "inclusive": "The date must be later or equal to {minimum}",
+      "notInclusive": "The date must be later than {minimum}"
     },
     "tooBig": {
       "array": {
-        "exact": "Inserire {maximum} elemento/i",
-        "inclusive": "Inserire al massimo {maximum} elemento/i",
-        "notInclusive": "Inserire meno di {maximum} elemento/i"
+        "exact": "Insert {maximum} elements",
+        "inclusive": "Insert at most {maximum} elements",
+        "notInclusive": "Insert less of {maximum} elements"
       },
       "string": {
-        "exact": "La lunghezza dev'essere di {maximum} carattere/i",
-        "inclusive": "Lunghezza massima {maximum} carattere/i",
-        "notInclusive": "Inserire meno di {maximum} carattere/i"
+        "exact": "The length must be of {minimum} characters",
+        "inclusive": "Maximum length {maximum} characters",
+        "notInclusive": "Insert less of {maximum} characters"
       },
       "number": {
-        "exact": "Il valore dev'essere {maximum}",
-        "inclusive": "Inserire un valore minore o uguale a {maximum}",
-        "notInclusive": "Inserie un valore minore di {maximum}"
+        "exact": "The value must be {maximum}",
+        "inclusive": "Insert a value less or equal to {maximum}",
+        "notInclusive": "Insert a value less than {maximum}"
       },
       "set": {
-        "exact": "Valore non valido",
-        "inclusive": "Valore non valido",
-        "notInclusive": "Valore non valido"
+        "exact": "Invalid value",
+        "inclusive": "Invalid value",
+        "notInclusive": "Invalid value"
       },
       "date": {
-        "exact": "La data dev'essere {maximum}",
-        "inclusive": "La data dev'essere precedente o uguale al {maximum}",
-        "notInclusive": "La data dev'essere precedente al {maximum}"
+        "exact": "The date must be {maximum}",
+        "inclusive": "The date must be earlier or equal to {maximum}",
+        "notInclusive": "The date must be earlier than {maximum}"
       }
     }
   }
