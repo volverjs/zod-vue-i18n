@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 
 
+## 0.0.2-beta.2 - 2023-03-14
+
+### Fixed
+
+- Fix release workflow
+  
 ## 0.0.2-beta.1 - 2023-03-14
 
 ### Fixed

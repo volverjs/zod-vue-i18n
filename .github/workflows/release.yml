@@ -59,7 +59,7 @@ jobs:
                   name: package-gpr
                   path: '*.tgz'
     publish-npm:
-        needs: build
+        needs: build-npm
         runs-on: ubuntu-latest
         steps:
             - name: Download artifact
@@ -75,7 +75,7 @@ jobs:
                   NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
     publish-gpr:
-        needs: build
+        needs: build-gpr
         runs-on: ubuntu-latest
         permissions:
             contents: read
