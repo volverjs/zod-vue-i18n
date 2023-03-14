@@ -6,7 +6,7 @@ on:
         types: [published]
 
 jobs:
-    build:
+    build-npm:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
@@ -29,7 +29,34 @@ jobs:
             - name: Upload artifact
               uses: actions/upload-artifact@v3
               with:
-                  name: package
+                  name: package-npm
+                  path: '*.tgz'
+    build-gpr:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - uses: pnpm/action-setup@v2.2.2
+              with:
+                  version: 7
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  cache: 'pnpm'
+            - name: Install dependencies
+              run: pnpm install
+            - name: Build release
+              run: pnpm build
+            - name: Bump version with release tag name
+              run: pnpm version --no-git-tag-version ${{ github.event.release.tag_name }}
+            - name: Rename package
+              run: pnpm pkg set name=@volverjs/zod-vue-i18n
+            - name: Pack package
+              run: pnpm pack
+            - name: Upload artifact
+              uses: actions/upload-artifact@v3
+              with:
+                  name: package-gpr
                   path: '*.tgz'
     publish-npm:
         needs: build
@@ -38,7 +65,7 @@ jobs:
             - name: Download artifact
               uses: actions/download-artifact@v3
               with:
-                  name: package
+                  name: package-npm
             - uses: actions/setup-node@v3
               with:
                   node-version: 16
@@ -57,7 +84,7 @@ jobs:
             - name: Download artifact
               uses: actions/download-artifact@v3
               with:
-                  name: package
+                  name: package-gpr
             - uses: actions/setup-node@v3
               with:
                   node-version: 16
