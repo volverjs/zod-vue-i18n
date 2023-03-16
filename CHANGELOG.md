@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 
 
+## 0.0.2-beta.3 - 2023-03-16
+
+### Fixed
+
+- Fix locales exports in package.json
+- Fix locales labels en and it
+  
 ## 0.0.2-beta.2 - 2023-03-14
 
 ### Fixed
