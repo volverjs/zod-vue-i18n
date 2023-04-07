@@ -45,8 +45,8 @@ const makeZodI18nMap =
 				} else {
 					message = 'errors.invalidType'
 					options = {
-						expected: t(`types.${issue.expected}`),
-						received: t(`types.${issue.received}`),
+						expected: te(`types.${issue.expected}`) ? t(`types.${issue.expected}`) : issue.expected,
+						received: te(`types.${issue.received}`) ? t(`types.${issue.received}`) : issue.received,
 					}
 				}
 				break
