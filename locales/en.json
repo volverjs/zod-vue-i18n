@@ -48,33 +48,33 @@
       "exact": "The date must be {minimum}",
       "inclusive": "The date must be later or equal to {minimum}",
       "notInclusive": "The date must be later than {minimum}"
+    }
+  },
+  "tooBig": {
+    "array": {
+      "exact": "Insert {maximum} elements",
+      "inclusive": "Insert at most {maximum} elements",
+      "notInclusive": "Insert less of {maximum} elements"
     },
-    "tooBig": {
-      "array": {
-        "exact": "Insert {maximum} elements",
-        "inclusive": "Insert at most {maximum} elements",
-        "notInclusive": "Insert less of {maximum} elements"
-      },
-      "string": {
-        "exact": "The length must be of {minimum} characters",
-        "inclusive": "Maximum length {maximum} characters",
-        "notInclusive": "Insert less of {maximum} characters"
-      },
-      "number": {
-        "exact": "The value must be {maximum}",
-        "inclusive": "Insert a value less or equal to {maximum}",
-        "notInclusive": "Insert a value less than {maximum}"
-      },
-      "set": {
-        "exact": "Invalid value",
-        "inclusive": "Invalid value",
-        "notInclusive": "Invalid value"
-      },
-      "date": {
-        "exact": "The date must be {maximum}",
-        "inclusive": "The date must be earlier or equal to {maximum}",
-        "notInclusive": "The date must be earlier than {maximum}"
-      }
+    "string": {
+      "exact": "The length must be of {minimum} characters",
+      "inclusive": "Maximum length {maximum} characters",
+      "notInclusive": "Insert less of {maximum} characters"
+    },
+    "number": {
+      "exact": "The value must be {maximum}",
+      "inclusive": "Insert a value less or equal to {maximum}",
+      "notInclusive": "Insert a value less than {maximum}"
+    },
+    "set": {
+      "exact": "Invalid value",
+      "inclusive": "Invalid value",
+      "notInclusive": "Invalid value"
+    },
+    "date": {
+      "exact": "The date must be {maximum}",
+      "inclusive": "The date must be earlier or equal to {maximum}",
+      "notInclusive": "The date must be earlier than {maximum}"
     }
   }
 }

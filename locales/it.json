@@ -48,33 +48,33 @@
       "exact": "La data dev'essere {minimum}",
       "inclusive": "La data dev'essere successiva o uguale al {minimum}",
       "notInclusive": "La data dev'essere successiva al {minimum}}"
+    }
+  },
+  "tooBig": {
+    "array": {
+      "exact": "Inserire {maximum} elemento/i",
+      "inclusive": "Inserire al massimo {maximum} elemento/i",
+      "notInclusive": "Inserire meno di {maximum} elemento/i"
     },
-    "tooBig": {
-      "array": {
-        "exact": "Inserire {maximum} elemento/i",
-        "inclusive": "Inserire al massimo {maximum} elemento/i",
-        "notInclusive": "Inserire meno di {maximum} elemento/i"
-      },
-      "string": {
-        "exact": "La lunghezza dev'essere di {maximum} carattere/i",
-        "inclusive": "Lunghezza massima {maximum} carattere/i",
-        "notInclusive": "Inserire meno di {maximum} carattere/i"
-      },
-      "number": {
-        "exact": "Il valore dev'essere {maximum}",
-        "inclusive": "Inserire un valore minore o uguale a {maximum}",
-        "notInclusive": "Inserie un valore minore di {maximum}"
-      },
-      "set": {
-        "exact": "Valore non valido",
-        "inclusive": "Valore non valido",
-        "notInclusive": "Valore non valido"
-      },
-      "date": {
-        "exact": "La data dev'essere {maximum}",
-        "inclusive": "La data dev'essere precedente o uguale al {maximum}",
-        "notInclusive": "La data dev'essere precedente al {maximum}"
-      }
+    "string": {
+      "exact": "La lunghezza dev'essere di {maximum} carattere/i",
+      "inclusive": "Lunghezza massima {maximum} carattere/i",
+      "notInclusive": "Inserire meno di {maximum} carattere/i"
+    },
+    "number": {
+      "exact": "Il valore dev'essere {maximum}",
+      "inclusive": "Inserire un valore minore o uguale a {maximum}",
+      "notInclusive": "Inserie un valore minore di {maximum}"
+    },
+    "set": {
+      "exact": "Valore non valido",
+      "inclusive": "Valore non valido",
+      "notInclusive": "Valore non valido"
+    },
+    "date": {
+      "exact": "La data dev'essere {maximum}",
+      "inclusive": "La data dev'essere precedente o uguale al {maximum}",
+      "notInclusive": "La data dev'essere precedente al {maximum}"
     }
   }
 }
