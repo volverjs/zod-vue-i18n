@@ -1,0 +1,54 @@
+name: Main pipeline
+
+on:
+    # Runs on release publish
+    release:
+        types: [published]
+
+jobs:
+    analysis:
+        uses: ./.github/workflows/sonarcloud.yml
+        secrets: inherit
+
+    build:
+        needs: analysis
+        uses: ./.github/workflows/build.yml
+
+    test:
+        needs: build
+        uses: ./.github/workflows/test.yml
+
+    publish-npm:
+        needs: test
+        runs-on: ubuntu-latest
+        steps:
+            - name: Download artifact
+              uses: actions/download-artifact@v3
+              with:
+                  name: package
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: 16
+                  registry-url: https://registry.npmjs.org/
+            - run: npm publish $(ls *.tgz) --access=public --tag ${{ github.event.release.prerelease && 'next' || 'latest'}}
+              env:
+                  NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+    publish-gpr:
+        needs: test
+        runs-on: ubuntu-latest
+        permissions:
+            contents: read
+            packages: write
+        steps:
+            - name: Download artifact
+              uses: actions/download-artifact@v3
+              with:
+                  name: package
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: 16
+                  registry-url: https://npm.pkg.github.com/
+            - run: npm publish $(ls *.tgz) --access=public --tag ${{ github.event.release.prerelease && 'next' || 'latest'}}
+              env:
+                  NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
