@@ -1,7 +1,7 @@
 name: Main pipeline
 
 on:
-    # Runs on release publish
+    #  Runs on release publish
     release:
         types: [published]
 
