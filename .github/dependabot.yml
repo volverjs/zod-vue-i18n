@@ -1,0 +1,17 @@
+# Set update schedule for npm packages
+
+version: 2
+updates:
+    - package-ecosystem: 'npm'
+      directory: '/'
+      target-branch: 'develop'
+      schedule:
+          #   interval: 'weelkly'
+          interval: 'daily'
+          time: '14:40'
+          timezone: 'Europe/Rome'
+      ignore:
+          - dependency-name: '*'
+            update-types: ['version-update:semver-major']
+    # Disable all pull requests for npm dependencies
+    #   open-pull-requests-limit: 0
