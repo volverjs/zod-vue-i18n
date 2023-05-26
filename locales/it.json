@@ -14,7 +14,7 @@
   "notMultipleOf": "Il numero dev'essere un multiplo di {multipleOf}",
   "notFinite": "Il numero dev'essere finito",
   "invalidString": {
-    "email": "{validation} non valida",
+    "email": "Email non valida",
     "url": "{validation} non valido",
     "uuid": "{validation} non valido",
     "cuid": "{validation} non valido",
