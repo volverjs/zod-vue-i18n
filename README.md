@@ -1,5 +1,3 @@
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=volverjs_zod-vue-i18n&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=volverjs_zod-vue-i18n) [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=volverjs_zod-vue-i18n&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=volverjs_zod-vue-i18n) [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=volverjs_zod-vue-i18n&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=volverjs_zod-vue-i18n) [![Depfu](https://badges.depfu.com/badges/0fc5114253837ef87562eb64d185a853/status.svg)](https://depfu.com) [![Depfu](https://badges.depfu.com/badges/0fc5114253837ef87562eb64d185a853/overview.svg)](https://depfu.com/github/volverjs/zod-vue-i18n?project_id=38573)
-
 <div align="center">
   
 [![volverjs](docs/static/zod-vue-i18n.svg)](https://volverjs.github.io/zod-vue-i18n)
@@ -7,6 +5,8 @@
 # zod-vue-i18n
 
 `zod` `vue3` `i18n` `vue-i18n`
+  
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=volverjs_zod-vue-i18n&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=volverjs_zod-vue-i18n) [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=volverjs_zod-vue-i18n&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=volverjs_zod-vue-i18n) [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=volverjs_zod-vue-i18n&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=volverjs_zod-vue-i18n) [![Depfu](https://badges.depfu.com/badges/0fc5114253837ef87562eb64d185a853/status.svg)](https://depfu.com) [![Depfu](https://badges.depfu.com/badges/0fc5114253837ef87562eb64d185a853/overview.svg)](https://depfu.com/github/volverjs/zod-vue-i18n?project_id=38573)
 
 <br>
 
