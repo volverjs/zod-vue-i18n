@@ -1,3 +1,5 @@
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=volverjs_zod-vue-i18n&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=volverjs_zod-vue-i18n) [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=volverjs_zod-vue-i18n&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=volverjs_zod-vue-i18n) [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=volverjs_zod-vue-i18n&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=volverjs_zod-vue-i18n) [![Depfu](https://badges.depfu.com/badges/0fc5114253837ef87562eb64d185a853/status.svg)](https://depfu.com) [![Depfu](https://badges.depfu.com/badges/0fc5114253837ef87562eb64d185a853/overview.svg)](https://depfu.com/github/volverjs/zod-vue-i18n?project_id=38573)
+
 <div align="center">
   
 [![volverjs](docs/static/zod-vue-i18n.svg)](https://volverjs.github.io/zod-vue-i18n)
@@ -140,7 +142,6 @@ const i18n = createI18n({
 })
 
 z.setErrorMap(makeZodVueI18n(i18n))
-
 ```
 
 ### 2. Add the messages when you need
@@ -173,7 +174,6 @@ i18n.global.mergeLocaleMessage(
 )
 ```
 
-
 ## Custom error messages
 
 You can use custom error messages with the `params` property of the `refine` function.
@@ -198,6 +198,7 @@ z.string()
   .refine(() => false, { params: { i18n: 'my_custom_key' } })
   .safeParse(123) // This is not a string
 ```
+
 > **Note**
 > To use this functionality you need to add the `i18n` key to the `params` object.
 
