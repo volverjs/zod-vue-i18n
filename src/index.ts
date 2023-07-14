@@ -21,7 +21,7 @@ interface i18nOptions {
 }
 
 const makeZodI18nMap =
-	(i18n: I18n): ZodErrorMap =>
+	(i18n: I18n, key: string = "errors"): ZodErrorMap =>
 	(issue: ZodIssueOptionalMessage, ctx: ErrorMapCtx): { message: string } => {
 		let message: string
 		message = defaultErrorMap(issue, ctx).message
@@ -33,17 +33,17 @@ const makeZodI18nMap =
 		const d = i18n.global.d as ComposerDateTimeFormatting
 
 		const translateLabel = (message: string, options: i18nOptions) => {
-			return te(`${message}WithPath`)
-				? t(`${message}WithPath`, options)
-				: t(message, options)
+			return te(`${key}.${message}WithPath`)
+				? t(`${key}.${message}WithPath`, options)
+				: t(`${key}.${message}`, options);
 		}
 
 		switch (issue.code) {
 			case ZodIssueCode.invalid_type:
 				if (issue.received === ZodParsedType.undefined) {
-					message = 'errors.invalidTypeReceivedUndefined'
+					message = 'invalidTypeReceivedUndefined'
 				} else {
-					message = 'errors.invalidType'
+					message = 'invalidType'
 					options = {
 						expected: te(`types.${issue.expected}`) ? t(`types.${issue.expected}`) : issue.expected,
 						received: te(`types.${issue.received}`) ? t(`types.${issue.received}`) : issue.received,
@@ -51,7 +51,7 @@ const makeZodI18nMap =
 				}
 				break
 			case ZodIssueCode.invalid_literal:
-				message = 'errors.invalidLiteral'
+				message = 'invalidLiteral'
 				options = {
 					expected: JSON.stringify(
 						issue.expected,
@@ -60,58 +60,58 @@ const makeZodI18nMap =
 				}
 				break
 			case ZodIssueCode.unrecognized_keys:
-				message = 'errors.unrecognizedKeys'
+				message = 'unrecognizedKeys'
 				options = {
 					keys: joinValues(issue.keys, ', '),
 				}
 				break
 			case ZodIssueCode.invalid_union:
-				message = 'errors.invalidUnion'
+				message = 'invalidUnion'
 				break
 			case ZodIssueCode.invalid_union_discriminator:
-				message = 'errors.invalidUnionDiscriminator'
+				message = 'invalidUnionDiscriminator'
 				options = {
 					options: joinValues(issue.options),
 				}
 				break
 			case ZodIssueCode.invalid_enum_value:
-				message = 'errors.invalidEnumValue'
+				message = 'invalidEnumValue'
 				options = {
 					options: joinValues(issue.options),
 					received: issue.received,
 				}
 				break
 			case ZodIssueCode.invalid_arguments:
-				message = 'errors.invalidArguments'
+				message = 'invalidArguments'
 				break
 			case ZodIssueCode.invalid_return_type:
-				message = 'errors.invalidReturnType'
+				message = 'invalidReturnType'
 				break
 			case ZodIssueCode.invalid_date:
-				message = 'errors.invalidDate'
+				message = 'invalidDate'
 				break
 			case ZodIssueCode.invalid_string:
 				if (typeof issue.validation === 'object') {
 					if ('startsWith' in issue.validation) {
-						message = `errors.invalidString.startsWith`
+						message = `invalidString.startsWith`
 						options = {
 							startsWith: issue.validation.startsWith,
 						}
 					} else if ('endsWith' in issue.validation) {
-						message = `errors.invalidString.endsWith`
+						message = `invalidString.endsWith`
 						options = {
 							endsWith: issue.validation.endsWith,
 						}
 					}
 				} else {
-					message = `errors.invalidString.${issue.validation}`
+					message = `invalidString.${issue.validation}`
 					options = {
 						validation: t(`validations.${issue.validation}`),
 					}
 				}
 				break
 			case ZodIssueCode.too_small:
-				message = `errors.tooSmall.${issue.type}.${
+				message = `tooSmall.${issue.type}.${
 					issue.exact
 						? 'exact'
 						: issue.inclusive
@@ -127,7 +127,7 @@ const makeZodI18nMap =
 
 				break
 			case ZodIssueCode.too_big:
-				message = `errors.tooBig.${issue.type}.${
+				message = `tooBig.${issue.type}.${
 					issue.exact
 						? 'exact'
 						: issue.inclusive
@@ -142,22 +142,22 @@ const makeZodI18nMap =
 				}
 				break
 			case ZodIssueCode.custom:
-				message = 'errors.custom'
+				message = 'custom'
 				if (issue.params?.i18n) {
 					message = issue.params.i18n
 				}
 				break
 			case ZodIssueCode.invalid_intersection_types:
-				message = 'errors.invalidIntersectionTypes'
+				message = 'invalidIntersectionTypes'
 				break
 			case ZodIssueCode.not_multiple_of:
-				message = 'errors.notMultipleOf'
+				message = 'notMultipleOf'
 				options = {
 					multipleOf: issue.multipleOf,
 				}
 				break
 			case ZodIssueCode.not_finite:
-				message = 'errors.notFinite'
+				message = 'notFinite'
 				break
 		}
 		options.path = issue.path.join('.') || ''
