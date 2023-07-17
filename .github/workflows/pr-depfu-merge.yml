@@ -1,0 +1,28 @@
+name: Merge Depfu PR
+
+on:
+    workflow_call:
+
+permissions:
+    pull-requests: write
+    contents: write
+
+jobs:
+    approve-pr:
+        runs-on: ubuntu-latest
+        if: ${{ github.event.pull_request.user.login == 'depfu[bot]' }}
+        steps:
+            - name: Approve PR
+              run: gh pr review --approve "$PR_URL"
+              env:
+                  PR_URL: ${{github.event.pull_request.html_url}}
+                  GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+    merge-pr:
+        runs-on: ubuntu-latest
+        if: ${{ github.event.pull_request.user.login == 'depfu[bot]' }}
+        steps:
+            - name: Squash PR
+              run: gh pr merge --auto --squash "$PR_URL"
+              env:
+                  PR_URL: ${{github.event.pull_request.html_url}}
+                  GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}

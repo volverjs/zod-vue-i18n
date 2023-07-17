@@ -5,21 +5,18 @@ on:
 
 jobs:
     sonarcloud:
+        name: SonarCloud
         runs-on: ubuntu-latest
-
         steps:
-            - name: Analyze with SonarCloud
-
-              # You can pin the exact commit or the version.
-              # uses: SonarSource/sonarcloud-github-action@de2e56b42aa84d0b1c5b622644ac17e505c9a049
-              uses: SonarSource/sonarcloud-github-action@de2e56b42aa84d0b1c5b622644ac17e505c9a049
+            - uses: actions/checkout@v3
+              if: env.SONAR_TOKEN
               env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information
-                  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} # Generate a token on Sonarcloud.io, add it to the secrets of this repo with the name SONAR_TOKEN (Settings > Secrets > Actions > add new repository secret)
+                  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
               with:
-                  # Additional arguments for the sonarcloud scanner
-                  args:
-                      # Unique keys of your project and organization. You can find them in SonarCloud > Information (bottom-left menu)
-                      # mandatory
-                      -Dsonar.projectKey=volverjs_zod-vue-i18n
-                      -Dsonar.organization=volverjs
+                  fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
+            - name: SonarCloud Scan
+              if: env.SONAR_TOKEN
+              uses: SonarSource/sonarcloud-github-action@master
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
+                  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

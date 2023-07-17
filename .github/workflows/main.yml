@@ -11,7 +11,6 @@ jobs:
         secrets: inherit
 
     build:
-        needs: analysis
         uses: ./.github/workflows/build.yml
 
     test:
@@ -19,7 +18,7 @@ jobs:
         uses: ./.github/workflows/test.yml
 
     publish-npm:
-        needs: test
+        needs: [test, analysis]
         runs-on: ubuntu-latest
         steps:
             - name: Download artifact
@@ -35,7 +34,7 @@ jobs:
                   NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
     publish-gpr:
-        needs: test
+        needs: [test, analysis]
         runs-on: ubuntu-latest
         permissions:
             contents: read
