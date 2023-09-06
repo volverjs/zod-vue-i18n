@@ -35,11 +35,11 @@ npm install zod-vue-i18n --save
 
 ## Usage
 
-This libray is used to translate [Zod](https://github.com/colinhacks/zod)'s default error messages with [vue-i18n](https://github.com/intlify/vue-i18n-next/).
+This library is used to translate [Zod](https://github.com/colinhacks/zod)'s default error messages with [vue-i18n](https://github.com/intlify/vue-i18n-next/).
 
 ```typescript
 import { z } from 'zod'
-import { makeZodVueI18n } from 'zod-vue-i18n'
+import { makeZodI18nMap } from 'zod-vue-i18n'
 import { createI18n } from 'vue-i18n'
 
 const i18n = createI18n({
@@ -58,7 +58,7 @@ const i18n = createI18n({
   }
 })
 
-z.setErrorMap(makeZodVueI18n(i18n))
+z.setErrorMap(makeZodI18nMap(i18n))
 ```
 
 ## Plurals
@@ -74,7 +74,7 @@ Messages using `maximum`, `minimum` or `keys` can be converted to the plural for
 
 ```typescript
 import { createI18n } from 'vue-i18n'
-import { makeZodVueI18n } from 'zod-vue-i18n'
+import { makeZodI18nMap } from 'zod-vue-i18n'
 import { z } from 'zod'
 import en from 'zod-vue-i18n/dist/locales/en.json'
 import it from 'zod-vue-i18n/dist/locales/it.json'
@@ -87,7 +87,7 @@ const i18n = createI18n({
   }
 })
 
-z.setErrorMap(makeZodVueI18n(i18n))
+z.setErrorMap(makeZodI18nMap(i18n))
 
 z.string().length(1).safeParse('123') // String must contain exactly 1 character
 z.string().length(3).safeParse('1234') // String must contain exactly 3 characters
@@ -100,7 +100,7 @@ We provide a set of json files with the translation of the errors of `zod`. You 
 ```typescript
 import { z } from 'zod'
 import { createI18n } from 'vue-i18n'
-import { makeZodVueI18n } from 'zod-vue-i18n'
+import { makeZodI18nMap } from 'zod-vue-i18n'
 import en from 'zod-vue-i18n/dist/locales/en.json'
 import it from 'zod-vue-i18n/dist/locales/it.json'
 
@@ -112,7 +112,7 @@ const i18n = createI18n({
   }
 })
 
-z.setErrorMap(makeZodVueI18n(i18n))
+z.setErrorMap(makeZodI18nMap(i18n))
 ```
 
 if you want to add a set of error labels in your `vue-i18n` instance, you can use two different ways:
@@ -122,7 +122,7 @@ if you want to add a set of error labels in your `vue-i18n` instance, you can us
 ```typescript
 import { z } from 'zod'
 import { createI18n } from 'vue-i18n'
-import { makeZodVueI18n } from 'zod-vue-i18n'
+import { makeZodI18nMap } from 'zod-vue-i18n'
 import en from 'zod-vue-i18n/dist/locales/en.json'
 import it from 'zod-vue-i18n/dist/locales/it.json'
 import myProjectMessages from './i18n'
@@ -141,7 +141,7 @@ const i18n = createI18n({
   }
 })
 
-z.setErrorMap(makeZodVueI18n(i18n))
+z.setErrorMap(makeZodI18nMap(i18n))
 ```
 
 ### 2. Add the messages when you need
@@ -149,7 +149,7 @@ z.setErrorMap(makeZodVueI18n(i18n))
 ```typescript
 import { z } from 'zod'
 import { createI18n } from 'vue-i18n'
-import { makeZodVueI18n } from 'zod-vue-i18n'
+import { makeZodI18nMap } from 'zod-vue-i18n'
 
 const i18n = createI18n({
   locale: 'en',
@@ -163,7 +163,7 @@ const i18n = createI18n({
   }
 })
 
-z.setErrorMap(makeZodVueI18n(i18n))
+z.setErrorMap(makeZodI18nMap(i18n))
 
 // add the messages in any file you want
 import en from 'zod-vue-i18n/dist/locales/en.json'
@@ -181,7 +181,7 @@ You can use custom error messages with the `params` property of the `refine` fun
 ```typescript
 import { z } from 'zod'
 import { createI18n } from 'vue-i18n'
-import { makeZodVueI18n } from 'zod-vue-i18n'
+import { makeZodI18nMap } from 'zod-vue-i18n'
 
 const i18n = createI18n({
   locale: 'en',
@@ -192,7 +192,7 @@ const i18n = createI18n({
   }
 })
 
-z.setErrorMap(makeZodVueI18n(i18n))
+z.setErrorMap(makeZodI18nMap(i18n))
 
 z.string()
   .refine(() => false, { params: { i18n: 'my_custom_key' } })
@@ -209,7 +209,7 @@ When you use `z.object` to create a schema, you can handle the object key to cus
 ```typescript
 import { z } from 'zod'
 import { createI18n } from 'vue-i18n'
-import { makeZodVueI18n } from 'zod-vue-i18n'
+import { makeZodI18nMap } from 'zod-vue-i18n'
 
 const i18n = createI18n({
   locale: 'en',
@@ -224,7 +224,7 @@ const i18n = createI18n({
   }
 })
 
-z.setErrorMap(makeZodVueI18n(i18n))
+z.setErrorMap(makeZodI18nMap(i18n))
 
 z.string().parse(1) // => Expected string, received number
 
