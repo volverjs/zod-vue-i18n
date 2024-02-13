@@ -10,11 +10,11 @@
 
 <br>
 
-#### proudly powered by
+maintained with ❤️ by
 
 <br>
 
-[![24/Consulting](docs/static/24consulting.svg)](https://24consulting.it)
+[![8 Wave](docs/static/8wave.svg)](https://8wave.it)
 
 <br>
 

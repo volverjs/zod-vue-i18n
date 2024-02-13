@@ -1,7 +1,7 @@
 {
   "name": "@volverjs/zod-vue-i18n",
   "description": "Translating zod error messages with vue-i18n.",
-  "author": "24/Consulting",
+  "author": "8 Wave",
   "license": "MIT",
   "keywords": [
     "zod",
