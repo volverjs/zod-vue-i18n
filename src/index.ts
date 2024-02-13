@@ -16,12 +16,12 @@ import { joinValues, jsonStringifyReplacer } from './utils'
 
 const zDate = z.string().regex(/(\d{4})-\d{2}-(\d{2})/)
 
-interface i18nOptions {
+type i18nOptions = {
 	[key: string]: unknown
 }
 
 const makeZodI18nMap =
-	(i18n: I18n, key: string = "errors"): ZodErrorMap =>
+	(i18n: I18n, key = 'errors'): ZodErrorMap =>
 	(issue: ZodIssueOptionalMessage, ctx: ErrorMapCtx): { message: string } => {
 		let message: string
 		message = defaultErrorMap(issue, ctx).message
@@ -33,9 +33,16 @@ const makeZodI18nMap =
 		const d = i18n.global.d as ComposerDateTimeFormatting
 
 		const translateLabel = (message: string, options: i18nOptions) => {
-			return te(`${key}.${message}WithPath`)
-				? t(`${key}.${message}WithPath`, options)
-				: t(`${key}.${message}`, options);
+			if (te(`${key}.${message}WithPath`)) {
+				return t(`${key}.${message}WithPath`, options)
+			}
+			if (te(`${key}.${message}`)) {
+				return t(`${key}.${message}`, options)
+			}
+			if (te(message)) {
+				return t(message, options)
+			}
+			return message
 		}
 
 		switch (issue.code) {
@@ -45,8 +52,12 @@ const makeZodI18nMap =
 				} else {
 					message = 'invalidType'
 					options = {
-						expected: te(`types.${issue.expected}`) ? t(`types.${issue.expected}`) : issue.expected,
-						received: te(`types.${issue.received}`) ? t(`types.${issue.received}`) : issue.received,
+						expected: te(`types.${issue.expected}`)
+							? t(`types.${issue.expected}`)
+							: issue.expected,
+						received: te(`types.${issue.received}`)
+							? t(`types.${issue.received}`)
+							: issue.received,
 					}
 				}
 				break
@@ -144,7 +155,19 @@ const makeZodI18nMap =
 			case ZodIssueCode.custom:
 				message = 'custom'
 				if (issue.params?.i18n) {
-					message = issue.params.i18n
+					if (typeof issue.params.i18n === 'string') {
+						message = issue.params.i18n
+						break
+					}
+					if (
+						typeof issue.params.i18n === 'object' &&
+						issue.params.i18n?.key
+					) {
+						message = issue.params.i18n.key
+						if (issue.params.i18n?.options) {
+							options = issue.params.i18n.options
+						}
+					}
 				}
 				break
 			case ZodIssueCode.invalid_intersection_types:
