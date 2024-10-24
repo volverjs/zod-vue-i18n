@@ -21,7 +21,7 @@
   "engines": {
     "node": ">= 16.x"
   },
-  "packageManager": "pnpm@7.8.0",
+  "packageManager": "pnpm@9.12.2",
   "scripts": {
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "type-check": "tsc --noEmit",
