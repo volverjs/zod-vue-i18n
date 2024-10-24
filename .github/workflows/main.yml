@@ -25,9 +25,9 @@ jobs:
               uses: actions/download-artifact@v3
               with:
                   name: package
-            - uses: actions/setup-node@v3
+            - uses: actions/setup-node@v4
               with:
-                  node-version: 16
+                  node-version: 20
                   registry-url: https://registry.npmjs.org/
             - run: npm publish $(ls *.tgz) --access=public --tag ${{ github.event.release.prerelease && 'next' || 'latest'}}
               env:
@@ -44,9 +44,9 @@ jobs:
               uses: actions/download-artifact@v3
               with:
                   name: package
-            - uses: actions/setup-node@v3
+            - uses: actions/setup-node@v4
               with:
-                  node-version: 16
+                  node-version: 20
                   registry-url: https://npm.pkg.github.com/
             - run: npm publish $(ls *.tgz) --access=public --tag ${{ github.event.release.prerelease && 'next' || 'latest'}}
               env:
