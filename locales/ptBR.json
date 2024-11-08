@@ -1,80 +1,80 @@
 {
-  "invalidType": "Tipo inválido. Esperado {expected}, recebido {received}",
-  "invalidTypeReceivedUndefined": "Obrigatório",
-  "invalidLiteral": "Valor inválido. Esperado {expected}",
-  "unrecognizedKeys": "Chaves não reconhecidas: {keys}",
-  "invalidUnion": "Valor inválido",
-  "invalidUnionDiscriminator": "Valor de discriminador inválido. Esperado {options}",
-  "invalidEnumValue": "Opção inválida. Esperado: {options}",
-  "invalidArguments": "Parâmetros de função inválidos",
-  "invalidReturnType": "Valor de retorno de função inválido",
-  "invalidDate": "Data inválida",
-  "custom": "Valor inválido",
-  "invalidIntersectionTypes": "Os resultados de interseção não puderam ser mesclados",
-  "notMultipleOf": "O número deve ser um múltiplo de {multipleOf}",
-  "notFinite": "O número deve ser finito",
-  "invalidString": {
-    "email": "E-mail inválido: {validation}",
-    "url": "URL inválida: {validation}",
-    "uuid": "UUID inválido: {validation}",
-    "cuid": "CUID inválido: {validation}",
-    "regex": "Valor inválido",
-    "datetime": "Data e hora inválidas: {validation}",
-    "startsWith": "Valor inválido: deve começar com {startsWith}",
-    "endsWith": "Valor inválido: deve terminar com {endsWith}"
-  },
-  "tooSmall": {
-    "array": {
-      "exact": "Insira {minimum} elementos",
-      "inclusive": "Insira pelo menos {minimum} elementos",
-      "notInclusive": "Insira mais de {minimum} elementos"
+    "invalidType": "Tipo inválido. Esperado {expected}, recebido {received}",
+    "invalidTypeReceivedUndefined": "Obrigatório",
+    "invalidLiteral": "Valor inválido. Esperado {expected}",
+    "unrecognizedKeys": "Chaves não reconhecidas: {keys}",
+    "invalidUnion": "Valor inválido",
+    "invalidUnionDiscriminator": "Valor de discriminador inválido. Esperado {options}",
+    "invalidEnumValue": "Opção inválida. Esperado: {options}",
+    "invalidArguments": "Parâmetros de função inválidos",
+    "invalidReturnType": "Valor de retorno de função inválido",
+    "invalidDate": "Data inválida",
+    "custom": "Valor inválido",
+    "invalidIntersectionTypes": "Os resultados de interseção não puderam ser mesclados",
+    "notMultipleOf": "O número deve ser um múltiplo de {multipleOf}",
+    "notFinite": "O número deve ser finito",
+    "invalidString": {
+        "email": "E-mail inválido: {validation}",
+        "url": "URL inválida: {validation}",
+        "uuid": "UUID inválido: {validation}",
+        "cuid": "CUID inválido: {validation}",
+        "regex": "Valor inválido",
+        "datetime": "Data e hora inválidas: {validation}",
+        "startsWith": "Valor inválido: deve começar com {startsWith}",
+        "endsWith": "Valor inválido: deve terminar com {endsWith}"
     },
-    "string": {
-      "exact": "O comprimento deve ser de {minimum} caracteres",
-      "inclusive": "Comprimento mínimo de {minimum} caracteres",
-      "notInclusive": "Insira mais de {minimum} caracteres"
+    "tooSmall": {
+        "array": {
+            "exact": "Insira {minimum} elementos",
+            "inclusive": "Insira pelo menos {minimum} elementos",
+            "notInclusive": "Insira mais de {minimum} elementos"
+        },
+        "string": {
+            "exact": "O comprimento deve ser de {minimum} caracteres",
+            "inclusive": "Comprimento mínimo de {minimum} caracteres",
+            "notInclusive": "Insira mais de {minimum} caracteres"
+        },
+        "number": {
+            "exact": "O valor deve ser {minimum}",
+            "inclusive": "Insira um valor maior ou igual a {minimum}",
+            "notInclusive": "Insira um valor maior que {minimum}"
+        },
+        "set": {
+            "exact": "Valor inválido",
+            "inclusive": "Valor inválido",
+            "notInclusive": "Valor inválido"
+        },
+        "date": {
+            "exact": "A data deve ser {minimum}",
+            "inclusive": "A data deve ser posterior ou igual a {minimum}",
+            "notInclusive": "A data deve ser posterior a {minimum}"
+        }
     },
-    "number": {
-      "exact": "O valor deve ser {minimum}",
-      "inclusive": "Insira um valor maior ou igual a {minimum}",
-      "notInclusive": "Insira um valor maior que {minimum}"
-    },
-    "set": {
-      "exact": "Valor inválido",
-      "inclusive": "Valor inválido",
-      "notInclusive": "Valor inválido"
-    },
-    "date": {
-      "exact": "A data deve ser {minimum}",
-      "inclusive": "A data deve ser posterior ou igual a {minimum}",
-      "notInclusive": "A data deve ser posterior a {minimum}"
+    "tooBig": {
+        "array": {
+            "exact": "Insira {maximum} elementos",
+            "inclusive": "Insira no máximo {maximum} elementos",
+            "notInclusive": "Insira menos de {maximum} elementos"
+        },
+        "string": {
+            "exact": "O comprimento deve ser de {minimum} caracteres",
+            "inclusive": "Comprimento máximo de {maximum} caracteres",
+            "notInclusive": "Insira menos de {maximum} caracteres"
+        },
+        "number": {
+            "exact": "O valor deve ser {maximum}",
+            "inclusive": "Insira um valor menor ou igual a {maximum}",
+            "notInclusive": "Insira um valor menor que {maximum}"
+        },
+        "set": {
+            "exact": "Valor inválido",
+            "inclusive": "Valor inválido",
+            "notInclusive": "Valor inválido"
+        },
+        "date": {
+            "exact": "A data deve ser {maximum}",
+            "inclusive": "A data deve ser anterior ou igual a {maximum}",
+            "notInclusive": "A data deve ser anterior a {maximum}"
+        }
     }
-  },
-  "tooBig": {
-    "array": {
-      "exact": "Insira {maximum} elementos",
-      "inclusive": "Insira no máximo {maximum} elementos",
-      "notInclusive": "Insira menos de {maximum} elementos"
-    },
-    "string": {
-      "exact": "O comprimento deve ser de {minimum} caracteres",
-      "inclusive": "Comprimento máximo de {maximum} caracteres",
-      "notInclusive": "Insira menos de {maximum} caracteres"
-    },
-    "number": {
-      "exact": "O valor deve ser {maximum}",
-      "inclusive": "Insira um valor menor ou igual a {maximum}",
-      "notInclusive": "Insira um valor menor que {maximum}"
-    },
-    "set": {
-      "exact": "Valor inválido",
-      "inclusive": "Valor inválido",
-      "notInclusive": "Valor inválido"
-    },
-    "date": {
-      "exact": "A data deve ser {maximum}",
-      "inclusive": "A data deve ser anterior ou igual a {maximum}",
-      "notInclusive": "A data deve ser anterior a {maximum}"
-    }
-  }
 }

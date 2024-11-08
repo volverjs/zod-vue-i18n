@@ -1,80 +1,80 @@
 {
-  "invalidType": "Expected {expected}, received {received}",
-  "invalidTypeReceivedUndefined": "Mandadory",
-  "invalidLiteral": "Invalid value, expected {expected}",
-  "unrecognizedKeys": "'Keys doesn't recognized {keys}'",
-  "invalidUnion": "Invalid value",
-  "invalidUnionDiscriminator": "Invalid discriminator value. Expected {options}",
-  "invalidEnumValue": "Invalid option. Expected: {options}",
-  "invalidArguments": "Invalid funciont parameters",
-  "invalidReturnType": "Invalid function value returned",
-  "invalidDate": "Invalid date",
-  "custom": "Invalid value",
-  "invalidIntersectionTypes": "Intersection results could not be merged",
-  "notMultipleOf": "The number must be a multiple of {multipleOf}",
-  "notFinite": "The number must be finite",
-  "invalidString": {
-    "email": "Invalid {validation}",
-    "url": "Invalid {validation}",
-    "uuid": "Invalid {validation}",
-    "cuid": "Invalid {validation}",
-    "regex": "Invalid value",
-    "datetime": "Invalid {validation}",
-    "startsWith": "Invalid value: must start with {startsWith}",
-    "endsWith": "Invalid value: must end with {endsWith}"
-  },
-  "tooSmall": {
-    "array": {
-      "exact": "Insert {minimum} elements",
-      "inclusive": "Insert at least {minimum} elements",
-      "notInclusive": "Insert more of {minimum} elements"
+    "invalidType": "Expected {expected}, received {received}",
+    "invalidTypeReceivedUndefined": "Mandadory",
+    "invalidLiteral": "Invalid value, expected {expected}",
+    "unrecognizedKeys": "'Keys doesn't recognized {keys}'",
+    "invalidUnion": "Invalid value",
+    "invalidUnionDiscriminator": "Invalid discriminator value. Expected {options}",
+    "invalidEnumValue": "Invalid option. Expected: {options}",
+    "invalidArguments": "Invalid funciont parameters",
+    "invalidReturnType": "Invalid function value returned",
+    "invalidDate": "Invalid date",
+    "custom": "Invalid value",
+    "invalidIntersectionTypes": "Intersection results could not be merged",
+    "notMultipleOf": "The number must be a multiple of {multipleOf}",
+    "notFinite": "The number must be finite",
+    "invalidString": {
+        "email": "Invalid {validation}",
+        "url": "Invalid {validation}",
+        "uuid": "Invalid {validation}",
+        "cuid": "Invalid {validation}",
+        "regex": "Invalid value",
+        "datetime": "Invalid {validation}",
+        "startsWith": "Invalid value: must start with {startsWith}",
+        "endsWith": "Invalid value: must end with {endsWith}"
     },
-    "string": {
-      "exact": "The length must be of {minimum} characters",
-      "inclusive": "Minumum length {minimum} characters",
-      "notInclusive": "Insert more of {minimum} characters"
+    "tooSmall": {
+        "array": {
+            "exact": "Insert {minimum} elements",
+            "inclusive": "Insert at least {minimum} elements",
+            "notInclusive": "Insert more of {minimum} elements"
+        },
+        "string": {
+            "exact": "The length must be of {minimum} characters",
+            "inclusive": "Minumum length {minimum} characters",
+            "notInclusive": "Insert more of {minimum} characters"
+        },
+        "number": {
+            "exact": "The value must be {minimum}",
+            "inclusive": "Insert a value greater or equal to {minimum}",
+            "notInclusive": "Insert a value greater than {minimum}"
+        },
+        "set": {
+            "exact": "Invalid value",
+            "inclusive": "Invalid value",
+            "notInclusive": "Invalid value"
+        },
+        "date": {
+            "exact": "The date must be {minimum}",
+            "inclusive": "The date must be later or equal to {minimum}",
+            "notInclusive": "The date must be later than {minimum}"
+        }
     },
-    "number": {
-      "exact": "The value must be {minimum}",
-      "inclusive": "Insert a value greater or equal to {minimum}",
-      "notInclusive": "Insert a value greater than {minimum}"
-    },
-    "set": {
-      "exact": "Invalid value",
-      "inclusive": "Invalid value",
-      "notInclusive": "Invalid value"
-    },
-    "date": {
-      "exact": "The date must be {minimum}",
-      "inclusive": "The date must be later or equal to {minimum}",
-      "notInclusive": "The date must be later than {minimum}"
+    "tooBig": {
+        "array": {
+            "exact": "Insert {maximum} elements",
+            "inclusive": "Insert at most {maximum} elements",
+            "notInclusive": "Insert less of {maximum} elements"
+        },
+        "string": {
+            "exact": "The length must be of {minimum} characters",
+            "inclusive": "Maximum length {maximum} characters",
+            "notInclusive": "Insert less of {maximum} characters"
+        },
+        "number": {
+            "exact": "The value must be {maximum}",
+            "inclusive": "Insert a value less or equal to {maximum}",
+            "notInclusive": "Insert a value less than {maximum}"
+        },
+        "set": {
+            "exact": "Invalid value",
+            "inclusive": "Invalid value",
+            "notInclusive": "Invalid value"
+        },
+        "date": {
+            "exact": "The date must be {maximum}",
+            "inclusive": "The date must be earlier or equal to {maximum}",
+            "notInclusive": "The date must be earlier than {maximum}"
+        }
     }
-  },
-  "tooBig": {
-    "array": {
-      "exact": "Insert {maximum} elements",
-      "inclusive": "Insert at most {maximum} elements",
-      "notInclusive": "Insert less of {maximum} elements"
-    },
-    "string": {
-      "exact": "The length must be of {minimum} characters",
-      "inclusive": "Maximum length {maximum} characters",
-      "notInclusive": "Insert less of {maximum} characters"
-    },
-    "number": {
-      "exact": "The value must be {maximum}",
-      "inclusive": "Insert a value less or equal to {maximum}",
-      "notInclusive": "Insert a value less than {maximum}"
-    },
-    "set": {
-      "exact": "Invalid value",
-      "inclusive": "Invalid value",
-      "notInclusive": "Invalid value"
-    },
-    "date": {
-      "exact": "The date must be {maximum}",
-      "inclusive": "The date must be earlier or equal to {maximum}",
-      "notInclusive": "The date must be earlier than {maximum}"
-    }
-  }
 }

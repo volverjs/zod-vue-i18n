@@ -26,4 +26,15 @@ jobs:
               uses: actions/upload-artifact@v3
               with:
                   name: package
-                  path: '*.tgz'
+                  path: 'volverjs-zod-vue-i18n-*.tgz'
+            - name: Replace name for alias
+              run: sed -i -e 's/@volverjs\///g' package.json
+            - name: Update package-lock alias
+              run: pnpm install --no-frozen-lockfile
+            - name: Pack package alias
+              run: pnpm pack
+            - name: Upload artifact alias
+              uses: actions/upload-artifact@v3
+              with:
+                  name: package-alias
+                  path: 'zod-vue-i18n-*.tgz'
