@@ -32,6 +32,22 @@ jobs:
             - run: npm publish $(ls *.tgz) --access=public --tag ${{ github.event.release.prerelease && 'next' || 'latest'}}
               env:
                   NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+    
+    publish-npm-alias:
+        needs: [test, analysis]
+        runs-on: ubuntu-latest
+        steps:
+            - name: Download artifact alias
+              uses: actions/download-artifact@v3
+              with:
+                  name: package-alias
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+                  registry-url: https://registry.npmjs.org/
+            - run: npm publish $(ls *.tgz) --access=public --tag ${{ github.event.release.prerelease && 'next' || 'latest'}}
+              env:
+                  NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
     publish-gpr:
         needs: [test, analysis]
