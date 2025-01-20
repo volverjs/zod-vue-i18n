@@ -7,12 +7,10 @@ jobs:
     build:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v3
-            - uses: pnpm/action-setup@v2.2.4
-              with:
-                  version: 7
+            - uses: actions/checkout@v4
+            - uses: pnpm/action-setup@v4
             - name: Use Node.js ${{ matrix.node-version }}
-              uses: actions/setup-node@v3
+              uses: actions/setup-node@v4
               with:
                   node-version: ${{ matrix.node-version }}
                   cache: 'pnpm'
@@ -28,4 +26,15 @@ jobs:
               uses: actions/upload-artifact@v3
               with:
                   name: package
-                  path: '*.tgz'
+                  path: 'volverjs-zod-vue-i18n-*.tgz'
+            - name: Replace name for alias
+              run: sed -i -e 's/@volverjs\///g' package.json
+            - name: Update package-lock alias
+              run: pnpm install --no-frozen-lockfile
+            - name: Pack package alias
+              run: pnpm pack
+            - name: Upload artifact alias
+              uses: actions/upload-artifact@v3
+              with:
+                  name: package-alias
+                  path: 'zod-vue-i18n-*.tgz'

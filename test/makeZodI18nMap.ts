@@ -18,8 +18,10 @@ const messages = {
 
 const getErrorMessage = (
 	parsed: SafeParseReturnType<unknown, unknown>,
-): string => {
-	if ('error' in parsed) return parsed.error.issues[0].message
+) => {
+	if (parsed && 'error' in parsed) {
+		return parsed?.error?.issues[0].message
+	}
 	throw new Error()
 }
 

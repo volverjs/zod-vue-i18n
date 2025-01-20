@@ -8,7 +8,7 @@ jobs:
         name: SonarCloud
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v3
+            - uses: actions/checkout@v4
               if: env.SONAR_TOKEN
               env:
                   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
