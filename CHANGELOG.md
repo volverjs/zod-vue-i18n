@@ -2,11 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
-## [0.0.5] - 2023-10-20
+## [0.0.5] - 2025-01-20
 
 ### Added
 
-- Custom error message with options.
+- Custom error message with options;
+- prBR language.
+
+### Fixed
+
+- vue-i18n version.
 
 ## [0.0.4] - 2023-07-17
 
