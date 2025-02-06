@@ -61,7 +61,7 @@
         "zod": "^3.*"
     },
     "devDependencies": {
-        "@antfu/eslint-config": "^3.14.0",
+        "@antfu/eslint-config": "^4.1.1",
         "@types/jest": "^29.5.14",
         "@types/qs": "^6.9.18",
         "@typescript-eslint/eslint-plugin": "^8.21.0",
