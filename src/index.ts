@@ -25,7 +25,7 @@ const PLURAL_KEYS = [
     'minimum',
     'maximum',
     'keys',
-    'value'
+    'value',
 ]
 
 function retrieveCount(options: i18nOptions): number | undefined {
@@ -56,7 +56,7 @@ function makeZodI18nMap(i18n: I18n, key = 'errors'): ZodErrorMap {
             const messageKey = [
                 `${key}.${message}WithPath`,
                 `${key}.${message}`,
-                message
+                message,
             ].find(k => te(k))
 
             if (!messageKey)
