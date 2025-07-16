@@ -60,7 +60,7 @@ importers:
         specifier: ^11.x
         version: 11.1.10(vue@3.5.17(typescript@5.8.3))
       zod:
-        specifier: 3.x
+        specifier: ^3.x
         version: 3.23.8
 
 packages:
