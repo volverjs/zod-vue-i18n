@@ -3,13 +3,11 @@ import type {
     ComposerTranslation,
     I18n,
 } from 'vue-i18n'
+import type { ErrorMapCtx, ZodErrorMap, ZodIssueOptionalMessage } from 'zod'
 import {
     defaultErrorMap,
-    type ErrorMapCtx,
     z,
-    type ZodErrorMap,
     ZodIssueCode,
-    type ZodIssueOptionalMessage,
     ZodParsedType,
 } from 'zod'
 import { joinValues, jsonStringifyReplacer } from './utils'
@@ -29,12 +27,11 @@ const PLURAL_KEYS = [
 ]
 
 function retrieveCount(options: i18nOptions): number | undefined {
-    for (const k of PLURAL_KEYS) {
-        if (k in options && typeof options[k] === 'number') {
-            return options[k]
+    for (const key of PLURAL_KEYS) {
+        if (key in options && typeof options[key] === 'number') {
+            return options[key]
         }
     }
-
     return undefined
 }
 
@@ -49,9 +46,8 @@ function makeZodI18nMap(i18n: I18n, key = 'errors'): ZodErrorMap {
         const te = i18n.global.te
         const d = i18n.global.d as ComposerDateTimeFormatting
 
-        const translateLabel = (message: string, _options: i18nOptions) => {
-            const options = { named: _options }
-            const count: number | undefined = retrieveCount(options.named)
+        const translateLabel = (message: string, named: i18nOptions) => {
+            const count = retrieveCount(named)
 
             const messageKey = [
                 `${key}.${message}WithPath`,
@@ -63,8 +59,8 @@ function makeZodI18nMap(i18n: I18n, key = 'errors'): ZodErrorMap {
                 return message
 
             return count !== undefined
-                ? t(messageKey, count, options)
-                : t(messageKey, options)
+                ? t(messageKey, count, { named })
+                : t(messageKey, named)
         }
 
         switch (issue.code) {
