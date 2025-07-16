@@ -20,6 +20,24 @@ type i18nOptions = {
     [key: string]: unknown
 }
 
+const PLURAL_KEYS = [
+    'count',
+    'minimum',
+    'maximum',
+    'keys',
+    'value',
+]
+
+function retrieveCount(options: i18nOptions): number | undefined {
+    for (const k of PLURAL_KEYS) {
+        if (k in options && typeof options[k] === 'number') {
+            return options[k]
+        }
+    }
+
+    return undefined
+}
+
 function makeZodI18nMap(i18n: I18n, key = 'errors'): ZodErrorMap {
     return (issue: ZodIssueOptionalMessage, ctx: ErrorMapCtx): { message: string } => {
         let message: string
@@ -31,17 +49,22 @@ function makeZodI18nMap(i18n: I18n, key = 'errors'): ZodErrorMap {
         const te = i18n.global.te
         const d = i18n.global.d as ComposerDateTimeFormatting
 
-        const translateLabel = (message: string, options: i18nOptions) => {
-            if (te(`${key}.${message}WithPath`)) {
-                return t(`${key}.${message}WithPath`, options)
-            }
-            if (te(`${key}.${message}`)) {
-                return t(`${key}.${message}`, options)
-            }
-            if (te(message)) {
-                return t(message, options)
-            }
-            return message
+        const translateLabel = (message: string, _options: i18nOptions) => {
+            const options = { named: _options }
+            const count: number | undefined = retrieveCount(options.named)
+
+            const messageKey = [
+                `${key}.${message}WithPath`,
+                `${key}.${message}`,
+                message,
+            ].find(k => te(k))
+
+            if (!messageKey)
+                return message
+
+            return count !== undefined
+                ? t(messageKey, count, options)
+                : t(messageKey, options)
         }
 
         switch (issue.code) {

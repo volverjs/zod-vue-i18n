@@ -63,12 +63,11 @@ z.setErrorMap(makeZodI18nMap(i18n))
 
 ## Plurals
 
-Messages using `maximum`, `minimum` or `keys` can be converted to the plural form.
+Messages using `count`, `maximum`, `minimum`, `keys` or `value` can be converted to the plural form using [vue-i18n pluralization feature](https://vue-i18n.intlify.dev/guide/essentials/pluralization.html#basic-usage)
 
 ```json
 {
-    "exact_one": "String must contain exactly {{minimum}} character",
-    "exact_other": "String must contain exactly {{minimum}} characters"
+    "exact": "String must contain exactly {{minimum}} character | String must contain exactly {{minimum}} characters"
 }
 ```
 
