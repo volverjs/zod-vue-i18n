@@ -56,9 +56,9 @@
         "credits": "npx @opengovsg/credits-generator"
     },
     "peerDependencies": {
-        "vue": "^3.5.x",
-        "vue-i18n": "^11.x",
-        "zod": "^3.x"
+        "vue": "^3.5.0",
+        "vue-i18n": "^11.0.0",
+        "zod": "^3.0.0"
     },
     "devDependencies": {
         "@antfu/eslint-config": "^4.17.0",
