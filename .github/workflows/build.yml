@@ -23,7 +23,7 @@ jobs:
             - name: Pack package
               run: pnpm pack
             - name: Upload artifact
-              uses: actions/upload-artifact@v3
+              uses: actions/upload-artifact@v4
               with:
                   name: package
                   path: 'volverjs-zod-vue-i18n-*.tgz'
@@ -34,7 +34,7 @@ jobs:
             - name: Pack package alias
               run: pnpm pack
             - name: Upload artifact alias
-              uses: actions/upload-artifact@v3
+              uses: actions/upload-artifact@v4
               with:
                   name: package-alias
                   path: 'zod-vue-i18n-*.tgz'
