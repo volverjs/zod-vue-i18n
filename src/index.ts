@@ -3,13 +3,11 @@ import type {
     ComposerTranslation,
     I18n,
 } from 'vue-i18n'
+import type { ErrorMapCtx, ZodErrorMap, ZodIssueOptionalMessage } from 'zod'
 import {
     defaultErrorMap,
-    type ErrorMapCtx,
     z,
-    type ZodErrorMap,
     ZodIssueCode,
-    type ZodIssueOptionalMessage,
     ZodParsedType,
 } from 'zod'
 import { joinValues, jsonStringifyReplacer } from './utils'
@@ -18,6 +16,23 @@ const zDate = z.string().regex(/(\d{4})-\d{2}-(\d{2})/)
 
 type i18nOptions = {
     [key: string]: unknown
+}
+
+const PLURAL_KEYS = [
+    'count',
+    'minimum',
+    'maximum',
+    'keys',
+    'value',
+]
+
+function retrieveCount(options: i18nOptions): number | undefined {
+    for (const key of PLURAL_KEYS) {
+        if (key in options && typeof options[key] === 'number') {
+            return options[key]
+        }
+    }
+    return undefined
 }
 
 function makeZodI18nMap(i18n: I18n, key = 'errors'): ZodErrorMap {
@@ -31,17 +46,21 @@ function makeZodI18nMap(i18n: I18n, key = 'errors'): ZodErrorMap {
         const te = i18n.global.te
         const d = i18n.global.d as ComposerDateTimeFormatting
 
-        const translateLabel = (message: string, options: i18nOptions) => {
-            if (te(`${key}.${message}WithPath`)) {
-                return t(`${key}.${message}WithPath`, options)
-            }
-            if (te(`${key}.${message}`)) {
-                return t(`${key}.${message}`, options)
-            }
-            if (te(message)) {
-                return t(message, options)
-            }
-            return message
+        const translateLabel = (message: string, named: i18nOptions) => {
+            const count = retrieveCount(named)
+
+            const messageKey = [
+                `${key}.${message}WithPath`,
+                `${key}.${message}`,
+                message,
+            ].find(k => te(k))
+
+            if (!messageKey)
+                return message
+
+            return count !== undefined
+                ? t(messageKey, count, { named })
+                : t(messageKey, named)
         }
 
         switch (issue.code) {

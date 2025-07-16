@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.0.6] - 2025-07-16
+
+### Added
+
+- Messages using `count`, `maximum`, `minimum`, `keys` or `value` can be converted to the plural form using [vue-i18n pluralization feature](https://vue-i18n.intlify.dev/guide/essentials/pluralization.html#basic-usage). Thanks to @cxvvs for the contribution.
+
 ## [0.0.5] - 2025-01-20
 
 ### Added
@@ -64,6 +70,7 @@ All notable changes to this project will be documented in this file.
 
 - `makeZodI18nMap` a function to use vue-i18n with zod validation error.
 
+[0.0.6]: https://github.com/volverjs/zod-vue-i18n/compare/v0.0.5...v0.0.6
 [0.0.5]: https://github.com/volverjs/zod-vue-i18n/compare/v0.0.4...v0.0.5
 [0.0.4]: https://github.com/volverjs/zod-vue-i18n/compare/v0.0.3...v0.0.4
 [0.0.3]: https://github.com/volverjs/zod-vue-i18n/compare/v0.0.2...v0.0.3
