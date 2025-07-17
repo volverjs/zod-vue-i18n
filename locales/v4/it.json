@@ -1,0 +1,133 @@
+{
+    "invalidType": "Previsto {expected}, ricevuto {received}",
+    "invalidTypeReceivedUndefined": "Obbligatorio",
+    "invalidTypeReceivedNull": "Obbligatorio",
+    "invalidValue": "Valore non valido, previsto {expected} | Valore non valido, atteso uno tra {expected}",
+    "unrecognizedKeys": "'Chiavi non riconosciute: {keys}'",
+    "invalidKey": "Chiave non valida in {origin}",
+    "invalidUnion": "Valore non valido",
+    "invalidElement": "Valore non valido in {origin}",
+    "custom": "Valore non valido",
+    "notMultipleOf": "Il numero dev'essere un multiplo di {multipleOf}",
+    "invalidFormat": {
+        "starts_with": "Deve iniziare con {prefix}",
+        "ends_with": "Deve terminare con {suffix}",
+        "includes": "Deve includere {includes}",
+        "regex": "Deve corrispondere al pattern {pattern}",
+        "default": "Formato non valido, previsto {format}"
+    },
+    "tooSmall": {
+        "number": {
+            "exact": "Inserire esattamente {minimum}",
+            "inclusive": "Inserire un valore maggiore o uguale a {minimum}",
+            "notInclusive": "Inserire un valore maggiore di {minimum}"
+        },
+        "int": {
+            "exact": "Inserire esattamente {minimum}",
+            "inclusive": "Inserire un valore maggiore o uguale a {minimum}",
+            "notInclusive": "Inserire un valore maggiore di {minimum}"
+        },
+        "bigint": {
+            "exact": "Inserire esattamente {minimum}",
+            "inclusive": "Inserire un valore maggiore o uguale a {minimum}",
+            "notInclusive": "Inserire un valore maggiore di {minimum}"
+        },
+        "date": {
+            "exact": "La data dev'essere esattamente il {minimum}",
+            "inclusive": "La data dev'essere successiva o uguale al {minimum}",
+            "notInclusive": "La data dev'essere successiva al {minimum}}"
+        },
+        "string": {
+            "exact": "Inserire esattamente {minimum} carattere/i",
+            "inclusive": "Lunghezza minima {minimum} carattere/i",
+            "notInclusive": "Inserire più di {minimum} carattere/i"
+        },
+        "array": {
+            "exact": "Inserire esattamente {minimum} elemento/i",
+            "inclusive": "Inserire almeno {minimum} elemento/i",
+            "notInclusive": "Inserire più di {minimum} elemento/i"
+        },
+        "set": {
+            "exact": "Inserire esattamente {minimum} elemento/i",
+            "inclusive": "Inserire almeno {minimum} elemento/i",
+            "notInclusive": "Inserire più di {minimum} elemento/i"
+        },
+        "file": {
+            "exact": "Inserire un file di esattamente {minimum} byte",
+            "inclusive": "Inserire un file di almeno {minimum} byte",
+            "notInclusive": "Inserire un file di più di {minimum} byte"
+        }
+    },
+    "tooBig": {
+        "number": {
+            "exact": "Inserire esattamente {maximum}",
+            "inclusive": "Inserire un valore minore o uguale a {maximum}",
+            "notInclusive": "Inserire un valore minore di {maximum}"
+        },
+        "int": {
+            "exact": "Inserire esattamente {maximum}",
+            "inclusive": "Inserire un valore minore o uguale a {maximum}",
+            "notInclusive": "Inserire un valore minore di {maximum}"
+        },
+        "bigint": {
+            "exact": "Inserire esattamente {maximum}",
+            "inclusive": "Inserire un valore minore o uguale a {maximum}",
+            "notInclusive": "Inserire un valore minore di {maximum}"
+        },
+        "date": {
+            "exact": "La data dev'essere esattamente il {maximum}",
+            "inclusive": "La data dev'essere precedente o uguale al {maximum}",
+            "notInclusive": "La data dev'essere precedente al {maximum}"
+        },
+        "string": {
+            "exact": "Inserire esattamente {maximum} carattere/i",
+            "inclusive": "Lunghezza massima {maximum} carattere/i",
+            "notInclusive": "Inserire meno di {maximum} carattere/i"
+        },
+        "array": {
+            "exact": "Inserire esattamente {maximum} elemento/i",
+            "inclusive": "Inserire al massimo {maximum} elemento/i",
+            "notInclusive": "Inserire meno di {maximum} elemento/i"
+        },
+        "set": {
+            "exact": "Inserire esattamente {maximum} elemento/i",
+            "inclusive": "Inserire al massimo {maximum} elemento/i",
+            "notInclusive": "Inserire meno di {maximum} elemento/i"
+        },
+        "file": {
+            "exact": "Inserire un file di esattamente {maximum} byte",
+            "inclusive": "Inserire un file di al massimo {maximum} byte",
+            "notInclusive": "Inserire un file di meno di {maximum} byte"
+        }
+    },
+    "types": {
+        "regex": "input",
+        "email": "indirizzo email",
+        "url": "URL",
+        "emoji": "emoji",
+        "uuid": "UUID",
+        "uuidv4": "UUIDv4",
+        "uuidv6": "UUIDv6",
+        "nanoid": "nanoid",
+        "guid": "GUID",
+        "cuid": "cuid",
+        "cuid2": "cuid2",
+        "ulid": "ULID",
+        "xid": "XID",
+        "ksuid": "KSUID",
+        "datetime": "data e ora ISO",
+        "date": "data ISO",
+        "time": "ora ISO",
+        "duration": "durata ISO",
+        "ipv4": "indirizzo IPv4",
+        "ipv6": "indirizzo IPv6",
+        "cidrv4": "intervallo IPv4",
+        "cidrv6": "intervallo IPv6",
+        "base64": "stringa codificata in base64",
+        "base64url": "URL codificata in base64",
+        "json_string": "stringa JSON",
+        "e164": "numero E.164",
+        "jwt": "JWT",
+        "template_literal": "input"
+    }
+}

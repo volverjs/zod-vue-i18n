@@ -1,6 +1,7 @@
 {
     "invalidType": "Expected {expected}, received {received}",
     "invalidTypeReceivedUndefined": "Mandadory",
+    "invalidTypeReceivedNull": "Mandadory",
     "invalidLiteral": "Invalid value, expected {expected}",
     "unrecognizedKeys": "'Keys doesn't recognized {keys}'",
     "invalidUnion": "Invalid value",
@@ -76,5 +77,35 @@
             "inclusive": "The date must be earlier or equal to {maximum}",
             "notInclusive": "The date must be earlier than {maximum}"
         }
+    },
+    "types": {
+        "array": "array",
+        "bigint": "bigint",
+        "boolean": "boolean",
+        "date": "date",
+        "float": "float",
+        "function": "function",
+        "integer": "integer",
+        "map": "map",
+        "nan": "nan",
+        "never": "never",
+        "null": "null",
+        "number": "number",
+        "object": "object",
+        "promise": "promise",
+        "set": "set",
+        "string": "string",
+        "symbol": "symbol",
+        "undefined": "undefined",
+        "unknown": "unknown",
+        "void": "void"
+    },
+    "validations": {
+        "cuid": "CUID",
+        "datetime": "Date and time",
+        "email": "Email",
+        "regex": "regex",
+        "url": "URL",
+        "uuid": "UUID"
     }
 }

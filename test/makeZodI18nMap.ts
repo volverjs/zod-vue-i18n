@@ -1,6 +1,6 @@
 import { makeZodI18nMap } from '../src'
 import { createI18n } from 'vue-i18n'
-import { type SafeParseReturnType, z } from 'zod'
+import { type SafeParseReturnType, z } from 'zod/v3'
 
 const messages = {
 	en: {

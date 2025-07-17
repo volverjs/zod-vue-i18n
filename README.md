@@ -61,35 +61,32 @@ const i18n = createI18n({
 z.setErrorMap(makeZodI18nMap(i18n))
 ```
 
-## Plurals
-
-Messages using `count`, `maximum`, `minimum`, `keys` or `value` can be converted to the plural form using [vue-i18n pluralization feature](https://vue-i18n.intlify.dev/guide/essentials/pluralization.html#basic-usage)
-
-```json
-{
-    "exact": "String must contain exactly {{minimum}} character | String must contain exactly {{minimum}} characters"
-}
-```
+### Zod 4
+If you are using Zod 4, you can import the `makeZodI18nMap` from the `v4` subpath:
 
 ```typescript
 import { createI18n } from 'vue-i18n'
-import { z } from 'zod'
-import { makeZodI18nMap } from 'zod-vue-i18n'
-import en from 'zod-vue-i18n/dist/locales/en.json'
-import it from 'zod-vue-i18n/dist/locales/it.json'
+import { z } from 'zod/v4' // zod@3.25.x || zod@4.0.x
+import { makeZodI18nMap } from 'zod-vue-i18n/v4'
 
 const i18n = createI18n({
     locale: 'en',
     messages: {
-        en,
-        it
+        en: {
+            errors: {
+                // ...
+            }
+        },
+        it: {
+            errors: {
+                // ...
+            }
+        }
     }
 })
-
-z.setErrorMap(makeZodI18nMap(i18n))
-
-z.string().length(1).safeParse('123') // String must contain exactly 1 character
-z.string().length(3).safeParse('1234') // String must contain exactly 3 characters
+z.config({
+    localeError: makeZodI18nMap(i18n)
+})
 ```
 
 ## Locales
@@ -100,8 +97,8 @@ We provide a set of json files with the translation of the errors of `zod`. You 
 import { createI18n } from 'vue-i18n'
 import { z } from 'zod'
 import { makeZodI18nMap } from 'zod-vue-i18n'
-import en from 'zod-vue-i18n/dist/locales/en.json'
-import it from 'zod-vue-i18n/dist/locales/it.json'
+import en from 'zod-vue-i18n/locales/en.json'
+import it from 'zod-vue-i18n/locales/it.json'
 
 const i18n = createI18n({
     locale: 'en',
@@ -122,8 +119,8 @@ if you want to add a set of error labels in your `vue-i18n` instance, you can us
 import { createI18n } from 'vue-i18n'
 import { z } from 'zod'
 import { makeZodI18nMap } from 'zod-vue-i18n'
-import en from 'zod-vue-i18n/dist/locales/en.json'
-import it from 'zod-vue-i18n/dist/locales/it.json'
+import en from 'zod-vue-i18n/locales/en.json'
+import it from 'zod-vue-i18n/locales/it.json'
 import myProjectMessages from './i18n'
 
 const i18n = createI18n({
@@ -146,31 +143,51 @@ z.setErrorMap(makeZodI18nMap(i18n))
 ### 2. Add the messages when you need
 
 ```typescript
+import en from 'zod-vue-i18n/locales/en.json'
+
+// Assuming you have a `vue-i18n` instance already created
+i18n.global.mergeLocaleMessage(
+    'en', // the locale you want to add
+    en // the error messages you want to add
+)
+```
+
+### Zod 4
+If you are using Zod 4, you can import the locales from the `v4` subpath:
+
+```typescript
+import en from 'zod-vue-i18n/locales/v4/en.json'
+```
+
+## Plurals
+
+Messages using `count`, `maximum`, `minimum`, `keys` or `value` can be converted to the plural form using [vue-i18n pluralization feature](https://vue-i18n.intlify.dev/guide/essentials/pluralization.html#basic-usage)
+
+```json
+{
+    "exact": "String must contain exactly {{minimum}} character | String must contain exactly {{minimum}} characters"
+}
+```
+
+```typescript
 import { createI18n } from 'vue-i18n'
 import { z } from 'zod'
 import { makeZodI18nMap } from 'zod-vue-i18n'
-
-// add the messages in any file you want
-import en from 'zod-vue-i18n/dist/locales/en.json'
+import en from 'zod-vue-i18n/locales/en.json'
+import it from 'zod-vue-i18n/locales/it.json'
 
 const i18n = createI18n({
     locale: 'en',
     messages: {
-        en: {
-            // ...
-        },
-        it: {
-            // ...
-        }
+        en,
+        it
     }
 })
 
 z.setErrorMap(makeZodI18nMap(i18n))
 
-i18n.global.mergeLocaleMessage(
-    'en', // the locale you want to add
-    en // the error messages you want to add
-)
+z.string().length(1).safeParse('123') // String must contain exactly 1 character
+z.string().length(3).safeParse('1234') // String must contain exactly 3 characters
 ```
 
 ## Custom error messages

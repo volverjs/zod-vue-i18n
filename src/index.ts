@@ -1,98 +1,77 @@
 import type {
-    ComposerDateTimeFormatting,
     ComposerTranslation,
     I18n,
 } from 'vue-i18n'
-import type { ErrorMapCtx, ZodErrorMap, ZodIssueOptionalMessage } from 'zod'
+import type { ErrorMapCtx, ZodErrorMap, ZodIssueOptionalMessage } from 'zod/v3'
+import type { TranslateLabelOptions, TranslateOptions } from './types'
 import {
     defaultErrorMap,
     z,
     ZodIssueCode,
     ZodParsedType,
-} from 'zod'
-import { joinValues, jsonStringifyReplacer } from './utils'
+    util
+} from 'zod/v3'
+import { retrieveCount } from './utils'
 
 const zDate = z.string().regex(/(\d{4})-\d{2}-(\d{2})/)
 
-type i18nOptions = {
-    [key: string]: unknown
-}
-
-const PLURAL_KEYS = [
-    'count',
-    'minimum',
-    'maximum',
-    'keys',
-    'value',
-]
-
-function retrieveCount(options: i18nOptions): number | undefined {
-    for (const key of PLURAL_KEYS) {
-        if (key in options && typeof options[key] === 'number') {
-            return options[key]
-        }
-    }
-    return undefined
-}
-
 function makeZodI18nMap(i18n: I18n, key = 'errors'): ZodErrorMap {
+    const t = i18n.global.t as ComposerTranslation
+    const te = i18n.global.te
+    const d = i18n.global.d
+    const n = i18n.global.n
+
+    const translateLabel = (label: string, { named = {}, prefix, count }: TranslateLabelOptions = {}) => {
+        const hasCount = count ?? retrieveCount(named)
+        const completeLabel = `${prefix ? `${prefix}.` : ''}${label}`
+        const messageKey = [
+            `${key}${completeLabel}WithPath`,
+            `${key}.${completeLabel}`,
+            completeLabel,
+        ].find(k => te(k))
+
+        if (!messageKey)
+            return label
+
+        return hasCount !== undefined
+            ? t(messageKey, hasCount, { named })
+            : t(messageKey, named)
+    }
+
     return (issue: ZodIssueOptionalMessage, ctx: ErrorMapCtx): { message: string } => {
-        let message: string
-        message = defaultErrorMap(issue, ctx).message
-
-        let options = {} as i18nOptions
-
-        const t = i18n.global.t as ComposerTranslation
-        const te = i18n.global.te
-        const d = i18n.global.d as ComposerDateTimeFormatting
-
-        const translateLabel = (message: string, named: i18nOptions) => {
-            const count = retrieveCount(named)
-
-            const messageKey = [
-                `${key}.${message}WithPath`,
-                `${key}.${message}`,
-                message,
-            ].find(k => te(k))
-
-            if (!messageKey)
-                return message
-
-            return count !== undefined
-                ? t(messageKey, count, { named })
-                : t(messageKey, named)
-        }
+        let message = defaultErrorMap(issue, ctx).message
+        let options: TranslateLabelOptions = {}
 
         switch (issue.code) {
             case ZodIssueCode.invalid_type:
                 if (issue.received === ZodParsedType.undefined) {
                     message = 'invalidTypeReceivedUndefined'
                 }
+                else if (issue.received === ZodParsedType.null) {
+                    message = 'invalidTypeReceivedNull'
+                }
                 else {
                     message = 'invalidType'
-                    options = {
-                        expected: te(`types.${issue.expected}`)
-                            ? t(`types.${issue.expected}`)
-                            : issue.expected,
-                        received: te(`types.${issue.received}`)
-                            ? t(`types.${issue.received}`)
-                            : issue.received,
+                    options.named = {
+                        expected: translateLabel(issue.expected, { prefix: 'types' }),
+                        received: translateLabel(issue.received, { prefix: 'types' }),
                     }
                 }
                 break
             case ZodIssueCode.invalid_literal:
                 message = 'invalidLiteral'
-                options = {
+                options.named = {
                     expected: JSON.stringify(
                         issue.expected,
-                        jsonStringifyReplacer,
+                        util.jsonStringifyReplacer,
                     ),
                 }
                 break
             case ZodIssueCode.unrecognized_keys:
                 message = 'unrecognizedKeys'
-                options = {
-                    keys: joinValues(issue.keys, ', '),
+                options.count = issue.keys.length
+                options.named = {
+                    keys: util.joinValues(issue.keys, ', '),
                 }
                 break
             case ZodIssueCode.invalid_union:
@@ -100,14 +79,15 @@ function makeZodI18nMap(i18n: I18n, key = 'errors'): ZodErrorMap {
                 break
             case ZodIssueCode.invalid_union_discriminator:
                 message = 'invalidUnionDiscriminator'
-                options = {
-                    options: joinValues(issue.options),
+                options.count = issue.options.length
+                options.named = {
+                    options: util.joinValues(issue.options),
                 }
                 break
             case ZodIssueCode.invalid_enum_value:
                 message = 'invalidEnumValue'
-                options = {
-                    options: joinValues(issue.options),
+                options.named = {
+                    options: util.joinValues(issue.options),
                     received: issue.received,
                 }
                 break
@@ -124,53 +104,57 @@ function makeZodI18nMap(i18n: I18n, key = 'errors'): ZodErrorMap {
                 if (typeof issue.validation === 'object') {
                     if ('startsWith' in issue.validation) {
                         message = `invalidString.startsWith`
-                        options = {
+                        options.named = {
                             startsWith: issue.validation.startsWith,
                         }
                     }
                     else if ('endsWith' in issue.validation) {
                         message = `invalidString.endsWith`
-                        options = {
+                        options.named = {
                             endsWith: issue.validation.endsWith,
                         }
                     }
                 }
                 else {
                     message = `invalidString.${issue.validation}`
-                    options = {
-                        validation: t(`validations.${issue.validation}`),
+                    options.named = {
+                        validation: translateLabel(issue.validation, { prefix: 'validations' }),
                     }
                 }
                 break
             case ZodIssueCode.too_small:
-                message = `tooSmall.${issue.type}.${
-                    issue.exact
-                        ? 'exact'
-                        : issue.inclusive
-                            ? 'inclusive'
-                            : 'notInclusive'
-                }`
-                options = {
-                    minimum:
-						issue.type === 'date'
-						    ? d(new Date(issue.minimum as string | number))
-						    : issue.minimum,
+                const minimum = issue.type === 'date'
+                    ? d(new Date(issue.minimum.toString()))
+                    : typeof issue.minimum === 'bigint'
+                        ? issue.minimum
+                        : n(issue.minimum)
+                options.count = typeof issue.minimum === 'bigint' ? undefined : issue.minimum
+                message = `tooSmall.${issue.type}.${issue.exact
+                    ? 'exact'
+                    : issue.inclusive
+                        ? 'inclusive'
+                        : 'notInclusive'
+                    }`
+                options.named = {
+                    minimum
                 }
 
                 break
             case ZodIssueCode.too_big:
-                message = `tooBig.${issue.type}.${
-                    issue.exact
-                        ? 'exact'
-                        : issue.inclusive
-                            ? 'inclusive'
-                            : 'notInclusive'
-                }`
-                options = {
-                    maximum:
-						issue.type === 'date'
-						    ? d(new Date(issue.maximum as string | number))
-						    : issue.maximum,
+                const maximum = issue.type === 'date'
+                    ? d(new Date(issue.maximum.toString()))
+                    : typeof issue.maximum === 'bigint'
+                        ? issue.maximum
+                        : n(issue.maximum)
+                options.count = typeof issue.maximum === 'bigint' ? undefined : issue.maximum
+                message = `tooBig.${issue.type}.${issue.exact
+                    ? 'exact'
+                    : issue.inclusive
+                        ? 'inclusive'
+                        : 'notInclusive'
+                    }`
+                options.named = {
+                    maximum
                 }
                 break
             case ZodIssueCode.custom:
@@ -196,7 +180,7 @@ function makeZodI18nMap(i18n: I18n, key = 'errors'): ZodErrorMap {
                 break
             case ZodIssueCode.not_multiple_of:
                 message = 'notMultipleOf'
-                options = {
+                options.named = {
                     multipleOf: issue.multipleOf,
                 }
                 break
@@ -204,10 +188,11 @@ function makeZodI18nMap(i18n: I18n, key = 'errors'): ZodErrorMap {
                 message = 'notFinite'
                 break
         }
-        options.path = issue.path.join('.') || ''
-        message = translateLabel(message, options)
-
-        return { message }
+        options.named = {
+            ...options.named,
+            path: issue.path?.join('.') || ''
+        }
+        return { message: translateLabel(message, options) }
     }
 }
 
