@@ -1,0 +1,67 @@
+import { makeZodI18nMap } from '../../src/v4'
+import { createI18n } from 'vue-i18n'
+import { z, ZodSafeParseResult } from 'zod/v4'
+
+const messages = {
+    en: {
+        errors: {
+            tooSmall: {
+                string: {
+                    exact: 'Must be exactly {minimum} character | Must be exactly {minimum} characters',
+                    inclusive: 'Must be at least {minimum} characters',
+                    notInclusive: 'Must be more than {minimum} characters',
+                },
+            },
+        },
+    },
+}
+
+const getErrorMessage = (
+    parsed: ZodSafeParseResult<unknown>
+) => {
+    if (!parsed.success) {
+        if (parsed.error.issues.length === 0) {
+            throw new Error('No validation issues found')
+        }
+        return parsed.error.issues[0].message
+    }
+    throw new Error('Expected validation to fail, but it succeeded')
+}
+
+describe('makeZodI18nMap', () => {
+    it('should return a function', () => {
+        const i18n = createI18n({
+            legacy: false,
+            locale: 'en',
+        })
+        i18n.global.setLocaleMessage('en', messages.en)
+        expect(makeZodI18nMap(i18n)).toBeInstanceOf(Function)
+    })
+
+    it('Should use correct translation', () => {
+        const i18n = createI18n({
+            legacy: false,
+            locale: 'en',
+        })
+        i18n.global.setLocaleMessage('en', messages.en)
+        expect(makeZodI18nMap(i18n)).toBeInstanceOf(Function)
+        z.config({ localeError: makeZodI18nMap(i18n)})
+        const result = getErrorMessage(z.string().min(5).safeParse('12'))
+        expect(result).toEqual('Must be at least 5 characters')
+    })
+
+    it('Should use support plurals translation', () => {
+        const i18n = createI18n({
+            legacy: false,
+            locale: 'en',
+        })
+        i18n.global.setLocaleMessage('en', messages.en)
+        z.config({localeError: makeZodI18nMap(i18n)})
+        expect(getErrorMessage(z.string().length(1).safeParse(''))).toEqual(
+            'Must be exactly 1 character',
+        )
+        expect(getErrorMessage(z.string().length(3).safeParse('12'))).toEqual(
+            'Must be exactly 3 characters',
+        )
+    })
+})

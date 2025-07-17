@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.0.7] - 2025-07-17
+
+### Added
+
+- Added support for `zod` version 4.0.0 and above (#195). Thanks to @LudoFont for the contribution.
+
 ## [0.0.6] - 2025-07-16
 
 ### Added

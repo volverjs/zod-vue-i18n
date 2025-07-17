@@ -25,9 +25,11 @@
             "types": "./dist/index.d.ts",
             "import": "./dist/index.js"
         },
-        "./src/*": "./src/*",
-        "./locales/*": "./locales/*",
-        "./dist/*": "./dist/*"
+        "./v4": {
+            "types": "./dist/v4/index.d.ts",
+            "import": "./dist/v4/index.js"
+        },
+        "./locales/*": "./locales/*"
     },
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
@@ -41,8 +43,7 @@
     "files": [
         "*.d.ts",
         "dist",
-        "locales",
-        "src"
+        "locales"
     ],
     "engines": {
         "node": ">= 16.x"
@@ -58,7 +59,7 @@
     "peerDependencies": {
         "vue": "^3.5.x",
         "vue-i18n": "^11.x",
-        "zod": "^3.x"
+        "zod": "^3.25.x || ^4.0.x"
     },
     "devDependencies": {
         "@antfu/eslint-config": "^4.17.0",
@@ -78,6 +79,6 @@
         "typescript": "^5.8.3",
         "vue": "^3.5.x",
         "vue-i18n": "^11.x",
-        "zod": "^3.x"
+        "zod": "^4.0.x"
     }
 }

@@ -1,6 +1,6 @@
 import { makeZodI18nMap } from '../src'
 import { createI18n } from 'vue-i18n'
-import { type SafeParseReturnType, z } from 'zod'
+import { type SafeParseReturnType, z } from 'zod/v3'
 
 const messages = {
 	en: {
@@ -19,10 +19,13 @@ const messages = {
 const getErrorMessage = (
 	parsed: SafeParseReturnType<unknown, unknown>,
 ) => {
-	if (parsed && 'error' in parsed) {
-		return parsed?.error?.issues[0].message
+	if (!parsed.success) {
+		if (parsed.error.issues.length === 0) {
+			throw new Error('No validation issues found')
+		}
+		return parsed.error.issues[0].message
 	}
-	throw new Error()
+	throw new Error('Expected validation to fail, but it succeeded')
 }
 
 describe('makeZodI18nMap', () => {

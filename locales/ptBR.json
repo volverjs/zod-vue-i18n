@@ -1,6 +1,7 @@
 {
     "invalidType": "Tipo inválido. Esperado {expected}, recebido {received}",
     "invalidTypeReceivedUndefined": "Obrigatório",
+    "invalidTypeReceivedNull": "Obrigatório",
     "invalidLiteral": "Valor inválido. Esperado {expected}",
     "unrecognizedKeys": "Chaves não reconhecidas: {keys}",
     "invalidUnion": "Valor inválido",
@@ -76,5 +77,35 @@
             "inclusive": "A data deve ser anterior ou igual a {maximum}",
             "notInclusive": "A data deve ser anterior a {maximum}"
         }
+    },
+    "types": {
+        "array": "array",
+        "bigint": "bigint",
+        "boolean": "boolean",
+        "date": "date",
+        "float": "float",
+        "function": "function",
+        "integer": "integer",
+        "map": "map",
+        "nan": "nan",
+        "never": "never",
+        "null": "null",
+        "number": "number",
+        "object": "object",
+        "promise": "promise",
+        "set": "set",
+        "string": "string",
+        "symbol": "symbol",
+        "undefined": "undefined",
+        "unknown": "unknown",
+        "void": "void"
+    },
+    "validations": {
+        "cuid": "CUID",
+        "datetime": "Data e hora",
+        "email": "Email",
+        "regex": "regex",
+        "url": "URL",
+        "uuid": "UUID"
     }
 }
