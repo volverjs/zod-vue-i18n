@@ -58,11 +58,16 @@ function makeZodI18nMap(i18n: I18n, key = 'errors'): $ZodErrorMap {
                 }
                 break
             case 'too_big': {
-                const maximum = issue.origin === 'date'
-                    ? d(new Date(issue.maximum.toString()))
-                    : typeof issue.maximum === 'bigint'
-                        ? issue.maximum
-                        : n(issue.maximum)
+                let maximum
+                if (issue.type === 'date') {
+                    maximum = d(new Date(issue.maximum.toString()))
+                }
+                else if (typeof issue.maximum === 'bigint') {
+                    maximum = issue.maximum
+                }
+                else {
+                    maximum = n(issue.maximum)
+                }
                 options.count = typeof issue.maximum === 'bigint' ? undefined : issue.maximum
                 message = `tooBig.${issue.origin}.${issue.exact
                     ? 'exact'
@@ -76,11 +81,16 @@ function makeZodI18nMap(i18n: I18n, key = 'errors'): $ZodErrorMap {
                 break
             }
             case 'too_small': {
-                const minimum = issue.origin === 'date'
-                    ? d(new Date(issue.minimum.toString()))
-                    : typeof issue.minimum === 'bigint'
-                        ? issue.minimum
-                        : n(issue.minimum)
+                let minimum
+                if (issue.type === 'date') {
+                    minimum = d(new Date(issue.minimum.toString()))
+                }
+                else if (typeof issue.minimum === 'bigint') {
+                    minimum = issue.minimum
+                }
+                else {
+                    minimum = n(issue.minimum)
+                }
                 options.count = typeof issue.minimum === 'bigint' ? undefined : issue.minimum
                 message = `tooSmall.${issue.origin}.${issue.exact
                     ? 'exact'

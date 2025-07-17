@@ -18,18 +18,20 @@ export function retrieveCount(options: TranslateOptions): number | undefined {
     return undefined
 }
 
-
-export const translateLabelFactory = (i18n: I18n, key: string) => {
+export function translateLabelFactory(i18n: I18n, key: string) {
     const t = i18n.global.t as ComposerTranslation
     const te = i18n.global.te
 
     return (label: string, { named = {}, prefix, count }: TranslateLabelOptions = {}) => {
         const hasCount = count ?? retrieveCount(named)
-        const completeLabel = `${prefix ? `${prefix}.` : ''}${label}`
+        let labelWithPrefix = label
+        if (prefix) {
+            labelWithPrefix = `${prefix}.${label}`
+        }
         const messageKey = [
-            `${key}${completeLabel}WithPath`,
-            `${key}.${completeLabel}`,
-            completeLabel,
+            `${key}${labelWithPrefix}WithPath`,
+            `${key}.${labelWithPrefix}`,
+            labelWithPrefix,
         ].find(k => te(k))
 
         if (!messageKey)
