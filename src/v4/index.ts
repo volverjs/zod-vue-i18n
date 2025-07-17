@@ -1,5 +1,4 @@
 import type {
-    ComposerTranslation,
     I18n,
 } from 'vue-i18n'
 import type { $ZodErrorMap } from 'zod/v4/core'
@@ -7,34 +6,17 @@ import type { TranslateLabelOptions } from '../types'
 import { z } from 'zod/v4'
 import { util } from 'zod/v4/core'
 import { en } from 'zod/v4/locales'
-import { retrieveCount } from '../utils'
+import { translateLabelFactory } from '../utils'
 
 const defaultErrorMap = en().localeError
 
 const zDate = z.string().regex(/(\d{4})-\d{2}-(\d{2})/)
 
 function makeZodI18nMap(i18n: I18n, key = 'errors'): $ZodErrorMap {
-    const t = i18n.global.t as ComposerTranslation
-    const te = i18n.global.te
     const d = i18n.global.d
     const n = i18n.global.n
 
-    const translateLabel = (label: string, { named = {}, prefix, count }: TranslateLabelOptions = {}) => {
-        const hasCount = count ?? retrieveCount(named)
-        const completeLabel = `${prefix ? `${prefix}.` : ''}${label}`
-        const messageKey = [
-            `${key}${completeLabel}WithPath`,
-            `${key}.${completeLabel}`,
-            completeLabel,
-        ].find(k => te(k))
-
-        if (!messageKey)
-            return label
-
-        return hasCount !== undefined
-            ? t(messageKey, hasCount, { named })
-            : t(messageKey, named)
-    }
+    const translateLabel = translateLabelFactory(i18n, key)
 
     return (issue) => {
         let message: string = ''

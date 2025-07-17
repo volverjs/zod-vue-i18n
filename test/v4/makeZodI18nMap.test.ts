@@ -19,10 +19,13 @@ const messages = {
 const getErrorMessage = (
     parsed: ZodSafeParseResult<unknown>
 ) => {
-    if (parsed && 'error' in parsed) {
-        return parsed?.error?.issues[0].message
+    if (!parsed.success) {
+        if (parsed.error.issues.length === 0) {
+            throw new Error('No validation issues found')
+        }
+        return parsed.error.issues[0].message
     }
-    throw new Error()
+    throw new Error('Expected validation to fail, but it succeeded')
 }
 
 describe('makeZodI18nMap', () => {
