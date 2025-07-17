@@ -1,7 +1,7 @@
 {
     "invalidType": "Expected {expected}, received {received}",
-    "invalidTypeReceivedUndefined": "Mandadory",
-    "invalidTypeReceivedNull": "Mandadory",
+    "invalidTypeReceivedUndefined": "Mandatory",
+    "invalidTypeReceivedNull": "Mandatory",
     "invalidLiteral": "Invalid value, expected {expected}",
     "unrecognizedKeys": "'Keys doesn't recognized {keys}'",
     "invalidUnion": "Invalid value",
