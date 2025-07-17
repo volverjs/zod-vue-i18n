@@ -116,12 +116,13 @@ function makeZodI18nMap(i18n: I18n, key = 'errors'): ZodErrorMap {
                     minimum = n(issue.minimum)
                 }
                 options.count = typeof issue.minimum === 'bigint' ? undefined : issue.minimum
-                message = `tooSmall.${issue.type}.${issue.exact
-                    ? 'exact'
-                    : issue.inclusive
-                        ? 'inclusive'
-                        : 'notInclusive'
-                }`
+                message = `tooSmall.${issue.type}.`
+                if (issue.exact) {
+                    message += 'exact'
+                }
+                else {
+                    message += issue.inclusive ? 'inclusive' : 'notInclusive'
+                }
                 options.named = {
                     minimum,
                 }
@@ -140,12 +141,13 @@ function makeZodI18nMap(i18n: I18n, key = 'errors'): ZodErrorMap {
                     maximum = n(issue.maximum)
                 }
                 options.count = typeof issue.maximum === 'bigint' ? undefined : issue.maximum
-                message = `tooBig.${issue.type}.${issue.exact
-                    ? 'exact'
-                    : issue.inclusive
-                        ? 'inclusive'
-                        : 'notInclusive'
-                }`
+                message = `tooBig.${issue.type}.`
+                if (issue.exact) {
+                    message += 'exact'
+                }
+                else {
+                    message += issue.inclusive ? 'inclusive' : 'notInclusive'
+                }
                 options.named = {
                     maximum,
                 }
