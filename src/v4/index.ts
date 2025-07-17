@@ -75,7 +75,7 @@ function makeZodI18nMap(i18n: I18n, key = 'errors'): $ZodErrorMap {
                         : util.joinValues(issue.values, '|'),
                 }
                 break
-            case 'too_big':
+            case 'too_big': {
                 const maximum = issue.origin === 'date'
                     ? d(new Date(issue.maximum.toString()))
                     : typeof issue.maximum === 'bigint'
@@ -83,15 +83,17 @@ function makeZodI18nMap(i18n: I18n, key = 'errors'): $ZodErrorMap {
                         : n(issue.maximum)
                 options.count = typeof issue.maximum === 'bigint' ? undefined : issue.maximum
                 message = `tooBig.${issue.origin}.${issue.exact
-                    ? 'exact' : issue.inclusive
+                    ? 'exact'
+                    : issue.inclusive
                         ? 'inclusive'
                         : 'notInclusive'
-                    }`
+                }`
                 options.named = {
-                    maximum
+                    maximum,
                 }
                 break
-            case 'too_small':
+            }
+            case 'too_small': {
                 const minimum = issue.origin === 'date'
                     ? d(new Date(issue.minimum.toString()))
                     : typeof issue.minimum === 'bigint'
@@ -99,14 +101,16 @@ function makeZodI18nMap(i18n: I18n, key = 'errors'): $ZodErrorMap {
                         : n(issue.minimum)
                 options.count = typeof issue.minimum === 'bigint' ? undefined : issue.minimum
                 message = `tooSmall.${issue.origin}.${issue.exact
-                    ? 'exact' : issue.inclusive
+                    ? 'exact'
+                    : issue.inclusive
                         ? 'inclusive'
                         : 'notInclusive'
-                    }`
+                }`
                 options.named = {
-                    minimum
+                    minimum,
                 }
                 break
+            }
             case 'invalid_format':
                 message = ['starts_with', 'ends_with', 'includes', 'regex'].includes(issue.format)
                     ? `invalidFormat.${issue.format}`
@@ -116,7 +120,7 @@ function makeZodI18nMap(i18n: I18n, key = 'errors'): $ZodErrorMap {
                     suffix: issue.suffix,
                     includes: issue.includes,
                     pattern: issue.pattern,
-                    format: translateLabel(issue.format, { prefix: 'types' })
+                    format: translateLabel(issue.format, { prefix: 'types' }),
                 }
                 break
             case 'not_multiple_of':
@@ -167,7 +171,7 @@ function makeZodI18nMap(i18n: I18n, key = 'errors'): $ZodErrorMap {
         }
         options.named = {
             ...options.named,
-            path: issue.path?.join('.') || ''
+            path: issue.path?.join('.') || '',
         }
         return { message: translateLabel(message, options) }
     }

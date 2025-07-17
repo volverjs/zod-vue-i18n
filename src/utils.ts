@@ -1,4 +1,4 @@
-import type { TranslateOptions } from "./types"
+import type { TranslateOptions } from './types'
 
 const PLURAL_KEYS = [
     'count',

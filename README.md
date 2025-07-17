@@ -66,8 +66,8 @@ If you are using Zod 4, you can import the `makeZodI18nMap` from the `v4` subpat
 
 ```typescript
 import { createI18n } from 'vue-i18n'
-import { z } from 'zod/v4' // zod@3.25.x || zod@4.0.x
 import { makeZodI18nMap } from 'zod-vue-i18n/v4'
+import { z } from 'zod/v4' // zod@3.25.x || zod@4.0.x
 
 const i18n = createI18n({
     locale: 'en',

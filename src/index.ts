@@ -3,13 +3,13 @@ import type {
     I18n,
 } from 'vue-i18n'
 import type { ErrorMapCtx, ZodErrorMap, ZodIssueOptionalMessage } from 'zod/v3'
-import type { TranslateLabelOptions, TranslateOptions } from './types'
+import type { TranslateLabelOptions } from './types'
 import {
     defaultErrorMap,
+    util,
     z,
     ZodIssueCode,
     ZodParsedType,
-    util
 } from 'zod/v3'
 import { retrieveCount } from './utils'
 
@@ -122,7 +122,7 @@ function makeZodI18nMap(i18n: I18n, key = 'errors'): ZodErrorMap {
                     }
                 }
                 break
-            case ZodIssueCode.too_small:
+            case ZodIssueCode.too_small: {
                 const minimum = issue.type === 'date'
                     ? d(new Date(issue.minimum.toString()))
                     : typeof issue.minimum === 'bigint'
@@ -134,13 +134,14 @@ function makeZodI18nMap(i18n: I18n, key = 'errors'): ZodErrorMap {
                     : issue.inclusive
                         ? 'inclusive'
                         : 'notInclusive'
-                    }`
+                }`
                 options.named = {
-                    minimum
+                    minimum,
                 }
 
                 break
-            case ZodIssueCode.too_big:
+            }
+            case ZodIssueCode.too_big: {
                 const maximum = issue.type === 'date'
                     ? d(new Date(issue.maximum.toString()))
                     : typeof issue.maximum === 'bigint'
@@ -152,11 +153,12 @@ function makeZodI18nMap(i18n: I18n, key = 'errors'): ZodErrorMap {
                     : issue.inclusive
                         ? 'inclusive'
                         : 'notInclusive'
-                    }`
+                }`
                 options.named = {
-                    maximum
+                    maximum,
                 }
                 break
+            }
             case ZodIssueCode.custom:
                 message = 'custom'
                 if (issue.params?.i18n) {
@@ -190,7 +192,7 @@ function makeZodI18nMap(i18n: I18n, key = 'errors'): ZodErrorMap {
         }
         options.named = {
             ...options.named,
-            path: issue.path?.join('.') || ''
+            path: issue.path?.join('.') || '',
         }
         return { message: translateLabel(message, options) }
     }
