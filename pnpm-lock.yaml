@@ -30,11 +30,11 @@ importers:
         specifier: ^9.31.0
         version: 9.31.0
       eslint-config-prettier:
-        specifier: ^10.1.5
-        version: 10.1.5(eslint@9.31.0)
+        specifier: ^10.1.8
+        version: 10.1.8(eslint@9.31.0)
       eslint-plugin-prettier:
-        specifier: ^5.5.1
-        version: 5.5.1(@types/eslint@9.6.1)(eslint-config-prettier@10.1.5(eslint@9.31.0))(eslint@9.31.0)(prettier@3.6.2)
+        specifier: ^5.5.3
+        version: 5.5.3(@types/eslint@9.6.1)(eslint-config-prettier@10.1.8(eslint@9.31.0))(eslint@9.31.0)(prettier@3.6.2)
       jest:
         specifier: ^30.0.4
         version: 30.0.4(@types/node@20.8.7)
@@ -49,7 +49,7 @@ importers:
         version: 3.6.2
       ts-jest:
         specifier: ^29.4.0
-        version: 29.4.0(@babel/core@7.28.0)(@jest/transform@30.0.4)(@jest/types@30.0.1)(babel-jest@30.0.4(@babel/core@7.28.0))(jest-util@30.0.2)(jest@30.0.4(@types/node@20.8.7))(typescript@5.8.3)
+        version: 29.4.0(@babel/core@7.23.2)(@jest/transform@30.0.4)(@jest/types@30.0.1)(babel-jest@30.0.4(@babel/core@7.23.2))(jest-util@30.0.2)(jest@30.0.4(@types/node@20.8.7))(typescript@5.8.3)
       typescript:
         specifier: ^5.8.3
         version: 5.8.3
@@ -58,7 +58,7 @@ importers:
         version: 3.5.17(typescript@5.8.3)
       vue-i18n:
         specifier: ^11.x
-        version: 11.1.10(vue@3.5.17(typescript@5.8.3))
+        version: 11.1.11(vue@3.5.17(typescript@5.8.3))
       zod:
         specifier: ^4.0.x
         version: 4.0.5
@@ -494,16 +494,16 @@ packages:
     resolution: {integrity: sha512-bV0Tgo9K4hfPCek+aMAn81RppFKv2ySDQeMoSZuvTASywNTnVJCArCZE2FWqpvIatKu7VMRLWlR1EazvVhDyhQ==}
     engines: {node: '>=18.18'}
 
-  '@intlify/core-base@11.1.10':
-    resolution: {integrity: sha512-JhRb40hD93Vk0BgMgDc/xMIFtdXPHoytzeK6VafBNOj6bb6oUZrGamXkBKecMsmGvDQQaPRGG2zpa25VCw8pyw==}
+  '@intlify/core-base@11.1.11':
+    resolution: {integrity: sha512-1Z0N8jTfkcD2Luq9HNZt+GmjpFe4/4PpZF3AOzoO1u5PTtSuXZcfhwBatywbfE2ieB/B5QHIoOFmCXY2jqVKEQ==}
     engines: {node: '>= 16'}
 
-  '@intlify/message-compiler@11.1.10':
-    resolution: {integrity: sha512-TABl3c8tSLWbcD+jkQTyBhrnW251dzqW39MPgEUCsd69Ua3ceoimsbIzvkcPzzZvt1QDxNkenMht+5//V3JvLQ==}
+  '@intlify/message-compiler@11.1.11':
+    resolution: {integrity: sha512-7PC6neomoc/z7a8JRjPBbu0T2TzR2MQuY5kn2e049MP7+o32Ve7O8husylkA7K9fQRe4iNXZWTPnDJ6vZdtS1Q==}
     engines: {node: '>= 16'}
 
-  '@intlify/shared@11.1.10':
-    resolution: {integrity: sha512-6ZW/f3Zzjxfa1Wh0tYQI5pLKUtU+SY7l70pEG+0yd0zjcsYcK0EBt6Fz30Dy0tZhEqemziQQy2aNU3GJzyrMUA==}
+  '@intlify/shared@11.1.11':
+    resolution: {integrity: sha512-RIBFTIqxZSsxUqlcyoR7iiC632bq7kkOwYvZlvcVObHfrF4NhuKc4FKvu8iPCrEO+e3XsY7/UVpfgzg+M7ETzA==}
     engines: {node: '>= 16'}
 
   '@isaacs/cliui@8.0.2':
@@ -640,8 +640,8 @@ packages:
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
 
-  '@pkgr/core@0.2.7':
-    resolution: {integrity: sha512-YLT9Zo3oNPJoBjBc4q8G2mjU4tqIbf5CEOORbUUr48dCD9q3umJ3IPlVqOqDakPfd2HuwccBaqlGhN4Gmr5OWg==}
+  '@pkgr/core@0.2.9':
+    resolution: {integrity: sha512-QNqXyfVS2wm9hweSYD2O7F0G06uurj9kZ96TRQE5Y9hU7+tgdZwIkbAKc5Ocy1HxEY2kuDQa6cQ1WRs/O5LFKA==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
 
   '@sinclair/typebox@0.34.38':
@@ -913,8 +913,8 @@ packages:
   '@vue/compiler-ssr@3.5.17':
     resolution: {integrity: sha512-hkDbA0Q20ZzGgpj5uZjb9rBzQtIHLS78mMilwrlpWk2Ep37DYntUz0PonQ6kr113vfOEdM+zTBuJDaceNIW0tQ==}
 
-  '@vue/devtools-api@6.5.1':
-    resolution: {integrity: sha512-+KpckaAQyfbvshdDW5xQylLni1asvNSGme1JFs8I1+/H5pHEhqUKMEQD/qn3Nx5+/nycBq11qAEi8lk+LXI2dA==}
+  '@vue/devtools-api@6.6.4':
+    resolution: {integrity: sha512-sGhTPMuXqZ1rVOk32RylztWkfXTRhuS7vgAKv0zjqk8gbsHkJ7xfFf+jbySxt7tWObEJwyKaHMikV/WGDiQm8g==}
 
   '@vue/reactivity@3.5.17':
     resolution: {integrity: sha512-l/rmw2STIscWi7SNJp708FK4Kofs97zc/5aEPQh4bOsReD/8ICuBcEmS7KGwDj5ODQLYWVN2lNibKJL1z5b+Lw==}
@@ -1344,8 +1344,8 @@ packages:
     peerDependencies:
       eslint: ^9.5.0
 
-  eslint-config-prettier@10.1.5:
-    resolution: {integrity: sha512-zc1UmCpNltmVY34vuLRV61r1K27sWuX39E+uyUnY8xS2Bex88VV9cugG+UZbRSRGtGyFboj+D8JODyme1plMpw==}
+  eslint-config-prettier@10.1.8:
+    resolution: {integrity: sha512-82GZUjRS0p/jganf6q1rEO25VSoHH0hKPCTrgillPjdI/3bgBhAE1QzHrHTizjpRvy6pGAvKjDJtk2pF9NDq8w==}
     hasBin: true
     peerDependencies:
       eslint: '>=7.0.0'
@@ -1428,8 +1428,8 @@ packages:
     peerDependencies:
       eslint: ^9.0.0
 
-  eslint-plugin-prettier@5.5.1:
-    resolution: {integrity: sha512-dobTkHT6XaEVOo8IO90Q4DOSxnm3Y151QxPJlM/vKC0bVy+d6cVWQZLlFiuZPP0wS6vZwSKeJgKkcS+KfMBlRw==}
+  eslint-plugin-prettier@5.5.3:
+    resolution: {integrity: sha512-NAdMYww51ehKfDyDhv59/eIItUVzU0Io9H2E8nHNGKEeeqlnci+1gCvrHib6EmZdf6GxF+LCV5K7UC65Ezvw7w==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       '@types/eslint': '>=8.0.0'
@@ -1723,6 +1723,7 @@ packages:
 
   glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
+    deprecated: Glob versions prior to v9 are no longer supported
 
   global-modules@0.2.3:
     resolution: {integrity: sha512-JeXuCbvYzYXcwE6acL9V2bAOeSIGl4dD+iwLY9iUx2VBJJ80R18HCn+JCwHM9Oegdfya3lEkGCdaRkSyc10hDA==}
@@ -1804,6 +1805,7 @@ packages:
 
   inflight@1.0.6:
     resolution: {integrity: sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA==}
+    deprecated: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
 
   inherits@2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
@@ -1818,6 +1820,7 @@ packages:
   is-accessor-descriptor@0.1.6:
     resolution: {integrity: sha512-e1BM1qnDbMRG3ll2U9dSK0UMHuWOs3pY3AtcFsmvwPtKL3MML/Q86i+GilLfvqEs4GW+ExB91tQ3Ig9noDIZ+A==}
     engines: {node: '>=0.10.0'}
+    deprecated: Please upgrade to v0.1.7
 
   is-arrayish@0.2.1:
     resolution: {integrity: sha512-zz06S8t0ozoDXMG+ube26zeCTNXcKIPJZJi8hBrF4idCLms4CG9QtK7qBl1boi5ODzFpjswb5JPmHCbMpjaYzg==}
@@ -1832,6 +1835,7 @@ packages:
   is-data-descriptor@0.1.4:
     resolution: {integrity: sha512-+w9D5ulSoBNlmw9OHn3U2v51SyoCd0he+bB3xMl62oijhrspxowjU+AIcDY0N3iEJbUEkB15IlMASQsxYigvXg==}
     engines: {node: '>=0.10.0'}
+    deprecated: Please upgrade to v0.1.5
 
   is-descriptor@0.1.6:
     resolution: {integrity: sha512-avDYr0SB3DwO9zsMov0gKCESFYqCnE4hq/4z3TdUlukEy5t9C0YRq7HLrsN52NAcqXKaepeCD0n+B0arnVG3Hg==}
@@ -2782,8 +2786,8 @@ packages:
     resolution: {integrity: sha512-MpUEN2OodtUzxvKQl72cUF7RQ5EiHsGvSsVG0ia9c5RbWGL2CI4C7EpPS8UTBIplnlzZiNuV56w+FuNxy3ty2Q==}
     engines: {node: '>=10'}
 
-  synckit@0.11.8:
-    resolution: {integrity: sha512-+XZ+r1XGIJGeQk3VvXhT6xx/VpbHsRzsTkGgF6E5RX9TTXD0118l87puaEBZ566FhqblC6U0d4XnubznJDm30A==}
+  synckit@0.11.11:
+    resolution: {integrity: sha512-MeQTA1r0litLUf0Rp/iisCaL8761lKAZHaimlbGK4j0HysC4PLfqygQj9srcs0m2RdtDYnF8UuYyKpbjHYp7Jw==}
     engines: {node: ^14.18.0 || >=16.0.0}
 
   synckit@0.6.2:
@@ -2949,8 +2953,8 @@ packages:
     peerDependencies:
       eslint: ^8.57.0 || ^9.0.0
 
-  vue-i18n@11.1.10:
-    resolution: {integrity: sha512-C+IwnSg8QDSOAox0gdFYP5tsKLx5jNWxiawNoiNB/Tw4CReXmM1VJMXbduhbrEzAFLhreqzfDocuSVjGbxQrag==}
+  vue-i18n@11.1.11:
+    resolution: {integrity: sha512-LvyteQoXeQiuILbzqv13LbyBna/TEv2Ha+4ZWK2AwGHUzZ8+IBaZS0TJkCgn5izSPLcgZwXy9yyTrewCb2u/MA==}
     engines: {node: '>= 16'}
     peerDependencies:
       vue: ^3.0.0
@@ -3278,35 +3282,77 @@ snapshots:
     dependencies:
       '@babel/types': 7.28.1
 
+  '@babel/plugin-syntax-async-generators@7.8.4(@babel/core@7.23.2)':
+    dependencies:
+      '@babel/core': 7.23.2
+      '@babel/helper-plugin-utils': 7.22.5
+    optional: true
+
   '@babel/plugin-syntax-async-generators@7.8.4(@babel/core@7.28.0)':
     dependencies:
       '@babel/core': 7.28.0
       '@babel/helper-plugin-utils': 7.22.5
+
+  '@babel/plugin-syntax-bigint@7.8.3(@babel/core@7.23.2)':
+    dependencies:
+      '@babel/core': 7.23.2
+      '@babel/helper-plugin-utils': 7.22.5
+    optional: true
 
   '@babel/plugin-syntax-bigint@7.8.3(@babel/core@7.28.0)':
     dependencies:
       '@babel/core': 7.28.0
       '@babel/helper-plugin-utils': 7.22.5
 
+  '@babel/plugin-syntax-class-properties@7.12.13(@babel/core@7.23.2)':
+    dependencies:
+      '@babel/core': 7.23.2
+      '@babel/helper-plugin-utils': 7.22.5
+    optional: true
+
   '@babel/plugin-syntax-class-properties@7.12.13(@babel/core@7.28.0)':
     dependencies:
       '@babel/core': 7.28.0
       '@babel/helper-plugin-utils': 7.22.5
+
+  '@babel/plugin-syntax-class-static-block@7.14.5(@babel/core@7.23.2)':
+    dependencies:
+      '@babel/core': 7.23.2
+      '@babel/helper-plugin-utils': 7.22.5
+    optional: true
 
   '@babel/plugin-syntax-class-static-block@7.14.5(@babel/core@7.28.0)':
     dependencies:
       '@babel/core': 7.28.0
       '@babel/helper-plugin-utils': 7.22.5
 
+  '@babel/plugin-syntax-import-attributes@7.27.1(@babel/core@7.23.2)':
+    dependencies:
+      '@babel/core': 7.23.2
+      '@babel/helper-plugin-utils': 7.27.1
+    optional: true
+
   '@babel/plugin-syntax-import-attributes@7.27.1(@babel/core@7.28.0)':
     dependencies:
       '@babel/core': 7.28.0
       '@babel/helper-plugin-utils': 7.27.1
 
+  '@babel/plugin-syntax-import-meta@7.10.4(@babel/core@7.23.2)':
+    dependencies:
+      '@babel/core': 7.23.2
+      '@babel/helper-plugin-utils': 7.22.5
+    optional: true
+
   '@babel/plugin-syntax-import-meta@7.10.4(@babel/core@7.28.0)':
     dependencies:
       '@babel/core': 7.28.0
       '@babel/helper-plugin-utils': 7.22.5
+
+  '@babel/plugin-syntax-json-strings@7.8.3(@babel/core@7.23.2)':
+    dependencies:
+      '@babel/core': 7.23.2
+      '@babel/helper-plugin-utils': 7.22.5
+    optional: true
 
   '@babel/plugin-syntax-json-strings@7.8.3(@babel/core@7.28.0)':
     dependencies:
@@ -3318,40 +3364,88 @@ snapshots:
       '@babel/core': 7.28.0
       '@babel/helper-plugin-utils': 7.27.1
 
+  '@babel/plugin-syntax-logical-assignment-operators@7.10.4(@babel/core@7.23.2)':
+    dependencies:
+      '@babel/core': 7.23.2
+      '@babel/helper-plugin-utils': 7.22.5
+    optional: true
+
   '@babel/plugin-syntax-logical-assignment-operators@7.10.4(@babel/core@7.28.0)':
     dependencies:
       '@babel/core': 7.28.0
       '@babel/helper-plugin-utils': 7.22.5
+
+  '@babel/plugin-syntax-nullish-coalescing-operator@7.8.3(@babel/core@7.23.2)':
+    dependencies:
+      '@babel/core': 7.23.2
+      '@babel/helper-plugin-utils': 7.22.5
+    optional: true
 
   '@babel/plugin-syntax-nullish-coalescing-operator@7.8.3(@babel/core@7.28.0)':
     dependencies:
       '@babel/core': 7.28.0
       '@babel/helper-plugin-utils': 7.22.5
 
+  '@babel/plugin-syntax-numeric-separator@7.10.4(@babel/core@7.23.2)':
+    dependencies:
+      '@babel/core': 7.23.2
+      '@babel/helper-plugin-utils': 7.22.5
+    optional: true
+
   '@babel/plugin-syntax-numeric-separator@7.10.4(@babel/core@7.28.0)':
     dependencies:
       '@babel/core': 7.28.0
       '@babel/helper-plugin-utils': 7.22.5
+
+  '@babel/plugin-syntax-object-rest-spread@7.8.3(@babel/core@7.23.2)':
+    dependencies:
+      '@babel/core': 7.23.2
+      '@babel/helper-plugin-utils': 7.22.5
+    optional: true
 
   '@babel/plugin-syntax-object-rest-spread@7.8.3(@babel/core@7.28.0)':
     dependencies:
       '@babel/core': 7.28.0
       '@babel/helper-plugin-utils': 7.22.5
 
+  '@babel/plugin-syntax-optional-catch-binding@7.8.3(@babel/core@7.23.2)':
+    dependencies:
+      '@babel/core': 7.23.2
+      '@babel/helper-plugin-utils': 7.22.5
+    optional: true
+
   '@babel/plugin-syntax-optional-catch-binding@7.8.3(@babel/core@7.28.0)':
     dependencies:
       '@babel/core': 7.28.0
       '@babel/helper-plugin-utils': 7.22.5
+
+  '@babel/plugin-syntax-optional-chaining@7.8.3(@babel/core@7.23.2)':
+    dependencies:
+      '@babel/core': 7.23.2
+      '@babel/helper-plugin-utils': 7.22.5
+    optional: true
 
   '@babel/plugin-syntax-optional-chaining@7.8.3(@babel/core@7.28.0)':
     dependencies:
       '@babel/core': 7.28.0
       '@babel/helper-plugin-utils': 7.22.5
 
+  '@babel/plugin-syntax-private-property-in-object@7.14.5(@babel/core@7.23.2)':
+    dependencies:
+      '@babel/core': 7.23.2
+      '@babel/helper-plugin-utils': 7.22.5
+    optional: true
+
   '@babel/plugin-syntax-private-property-in-object@7.14.5(@babel/core@7.28.0)':
     dependencies:
       '@babel/core': 7.28.0
       '@babel/helper-plugin-utils': 7.22.5
+
+  '@babel/plugin-syntax-top-level-await@7.14.5(@babel/core@7.23.2)':
+    dependencies:
+      '@babel/core': 7.23.2
+      '@babel/helper-plugin-utils': 7.22.5
+    optional: true
 
   '@babel/plugin-syntax-top-level-await@7.14.5(@babel/core@7.28.0)':
     dependencies:
@@ -3555,17 +3649,17 @@ snapshots:
 
   '@humanwhocodes/retry@0.4.3': {}
 
-  '@intlify/core-base@11.1.10':
+  '@intlify/core-base@11.1.11':
     dependencies:
-      '@intlify/message-compiler': 11.1.10
-      '@intlify/shared': 11.1.10
+      '@intlify/message-compiler': 11.1.11
+      '@intlify/shared': 11.1.11
 
-  '@intlify/message-compiler@11.1.10':
+  '@intlify/message-compiler@11.1.11':
     dependencies:
-      '@intlify/shared': 11.1.10
+      '@intlify/shared': 11.1.11
       source-map-js: 1.2.1
 
-  '@intlify/shared@11.1.10': {}
+  '@intlify/shared@11.1.11': {}
 
   '@isaacs/cliui@8.0.2':
     dependencies:
@@ -3809,7 +3903,7 @@ snapshots:
   '@pkgjs/parseargs@0.11.0':
     optional: true
 
-  '@pkgr/core@0.2.7': {}
+  '@pkgr/core@0.2.9': {}
 
   '@sinclair/typebox@0.34.38': {}
 
@@ -4107,7 +4201,7 @@ snapshots:
       '@vue/compiler-dom': 3.5.17
       '@vue/shared': 3.5.17
 
-  '@vue/devtools-api@6.5.1': {}
+  '@vue/devtools-api@6.6.4': {}
 
   '@vue/reactivity@3.5.17':
     dependencies:
@@ -4201,6 +4295,20 @@ snapshots:
 
   async@3.2.6: {}
 
+  babel-jest@30.0.4(@babel/core@7.23.2):
+    dependencies:
+      '@babel/core': 7.23.2
+      '@jest/transform': 30.0.4
+      '@types/babel__core': 7.20.5
+      babel-plugin-istanbul: 7.0.0
+      babel-preset-jest: 30.0.1(@babel/core@7.23.2)
+      chalk: 4.1.2
+      graceful-fs: 4.2.11
+      slash: 3.0.0
+    transitivePeerDependencies:
+      - supports-color
+    optional: true
+
   babel-jest@30.0.4(@babel/core@7.28.0):
     dependencies:
       '@babel/core': 7.28.0
@@ -4230,6 +4338,26 @@ snapshots:
       '@babel/types': 7.28.1
       '@types/babel__core': 7.20.5
 
+  babel-preset-current-node-syntax@1.1.0(@babel/core@7.23.2):
+    dependencies:
+      '@babel/core': 7.23.2
+      '@babel/plugin-syntax-async-generators': 7.8.4(@babel/core@7.23.2)
+      '@babel/plugin-syntax-bigint': 7.8.3(@babel/core@7.23.2)
+      '@babel/plugin-syntax-class-properties': 7.12.13(@babel/core@7.23.2)
+      '@babel/plugin-syntax-class-static-block': 7.14.5(@babel/core@7.23.2)
+      '@babel/plugin-syntax-import-attributes': 7.27.1(@babel/core@7.23.2)
+      '@babel/plugin-syntax-import-meta': 7.10.4(@babel/core@7.23.2)
+      '@babel/plugin-syntax-json-strings': 7.8.3(@babel/core@7.23.2)
+      '@babel/plugin-syntax-logical-assignment-operators': 7.10.4(@babel/core@7.23.2)
+      '@babel/plugin-syntax-nullish-coalescing-operator': 7.8.3(@babel/core@7.23.2)
+      '@babel/plugin-syntax-numeric-separator': 7.10.4(@babel/core@7.23.2)
+      '@babel/plugin-syntax-object-rest-spread': 7.8.3(@babel/core@7.23.2)
+      '@babel/plugin-syntax-optional-catch-binding': 7.8.3(@babel/core@7.23.2)
+      '@babel/plugin-syntax-optional-chaining': 7.8.3(@babel/core@7.23.2)
+      '@babel/plugin-syntax-private-property-in-object': 7.14.5(@babel/core@7.23.2)
+      '@babel/plugin-syntax-top-level-await': 7.14.5(@babel/core@7.23.2)
+    optional: true
+
   babel-preset-current-node-syntax@1.1.0(@babel/core@7.28.0):
     dependencies:
       '@babel/core': 7.28.0
@@ -4248,6 +4376,13 @@ snapshots:
       '@babel/plugin-syntax-optional-chaining': 7.8.3(@babel/core@7.28.0)
       '@babel/plugin-syntax-private-property-in-object': 7.14.5(@babel/core@7.28.0)
       '@babel/plugin-syntax-top-level-await': 7.14.5(@babel/core@7.28.0)
+
+  babel-preset-jest@30.0.1(@babel/core@7.23.2):
+    dependencies:
+      '@babel/core': 7.23.2
+      babel-plugin-jest-hoist: 30.0.1
+      babel-preset-current-node-syntax: 1.1.0(@babel/core@7.23.2)
+    optional: true
 
   babel-preset-jest@30.0.1(@babel/core@7.28.0):
     dependencies:
@@ -4503,7 +4638,7 @@ snapshots:
       '@eslint/compat': 1.2.5(eslint@9.31.0)
       eslint: 9.31.0
 
-  eslint-config-prettier@10.1.5(eslint@9.31.0):
+  eslint-config-prettier@10.1.8(eslint@9.31.0):
     dependencies:
       eslint: 9.31.0
 
@@ -4612,15 +4747,15 @@ snapshots:
       tinyglobby: 0.2.14
       yaml-eslint-parser: 1.3.0
 
-  eslint-plugin-prettier@5.5.1(@types/eslint@9.6.1)(eslint-config-prettier@10.1.5(eslint@9.31.0))(eslint@9.31.0)(prettier@3.6.2):
+  eslint-plugin-prettier@5.5.3(@types/eslint@9.6.1)(eslint-config-prettier@10.1.8(eslint@9.31.0))(eslint@9.31.0)(prettier@3.6.2):
     dependencies:
       eslint: 9.31.0
       prettier: 3.6.2
       prettier-linter-helpers: 1.0.0
-      synckit: 0.11.8
+      synckit: 0.11.11
     optionalDependencies:
       '@types/eslint': 9.6.1
-      eslint-config-prettier: 10.1.5(eslint@9.31.0)
+      eslint-config-prettier: 10.1.8(eslint@9.31.0)
 
   eslint-plugin-regexp@2.9.0(eslint@9.31.0):
     dependencies:
@@ -5443,7 +5578,7 @@ snapshots:
       jest-util: 30.0.2
       pretty-format: 30.0.2
       semver: 7.7.2
-      synckit: 0.11.8
+      synckit: 0.11.11
     transitivePeerDependencies:
       - supports-color
 
@@ -6319,9 +6454,9 @@ snapshots:
     dependencies:
       has-flag: 4.0.0
 
-  synckit@0.11.8:
+  synckit@0.11.11:
     dependencies:
-      '@pkgr/core': 0.2.7
+      '@pkgr/core': 0.2.9
 
   synckit@0.6.2:
     dependencies:
@@ -6383,7 +6518,7 @@ snapshots:
       picomatch: 4.0.2
       typescript: 5.8.3
 
-  ts-jest@29.4.0(@babel/core@7.28.0)(@jest/transform@30.0.4)(@jest/types@30.0.1)(babel-jest@30.0.4(@babel/core@7.28.0))(jest-util@30.0.2)(jest@30.0.4(@types/node@20.8.7))(typescript@5.8.3):
+  ts-jest@29.4.0(@babel/core@7.23.2)(@jest/transform@30.0.4)(@jest/types@30.0.1)(babel-jest@30.0.4(@babel/core@7.23.2))(jest-util@30.0.2)(jest@30.0.4(@types/node@20.8.7))(typescript@5.8.3):
     dependencies:
       bs-logger: 0.2.6
       ejs: 3.1.10
@@ -6397,10 +6532,10 @@ snapshots:
       typescript: 5.8.3
       yargs-parser: 21.1.1
     optionalDependencies:
-      '@babel/core': 7.28.0
+      '@babel/core': 7.23.2
       '@jest/transform': 30.0.4
       '@jest/types': 30.0.1
-      babel-jest: 30.0.4(@babel/core@7.28.0)
+      babel-jest: 30.0.4(@babel/core@7.23.2)
       jest-util: 30.0.2
 
   tslib@2.8.1: {}
@@ -6508,11 +6643,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  vue-i18n@11.1.10(vue@3.5.17(typescript@5.8.3)):
+  vue-i18n@11.1.11(vue@3.5.17(typescript@5.8.3)):
     dependencies:
-      '@intlify/core-base': 11.1.10
-      '@intlify/shared': 11.1.10
-      '@vue/devtools-api': 6.5.1
+      '@intlify/core-base': 11.1.11
+      '@intlify/shared': 11.1.11
+      '@vue/devtools-api': 6.6.4
       vue: 3.5.17(typescript@5.8.3)
 
   vue@3.5.17(typescript@5.8.3):
