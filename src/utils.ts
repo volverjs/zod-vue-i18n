@@ -22,20 +22,23 @@ export function translateLabelFactory(i18n: I18n, key: string) {
     const t = i18n.global.t as ComposerTranslation
     const te = i18n.global.te
 
-    return (label: string, { named = {}, prefix, count }: TranslateLabelOptions = {}) => {
+    return (label: unknown, { named = {}, prefix, count }: TranslateLabelOptions = {}): string => {
         const hasCount = count ?? retrieveCount(named)
-        let labelWithPrefix = label
+
+        let labelWithPrefix = `${label}`
         if (prefix) {
             labelWithPrefix = `${prefix}.${label}`
         }
+
         const messageKey = [
             `${key}${labelWithPrefix}WithPath`,
             `${key}.${labelWithPrefix}`,
             labelWithPrefix,
         ].find(k => te(k))
 
-        if (!messageKey)
-            return label
+        if (!messageKey) {
+            return `${label}`
+        }
 
         return hasCount !== undefined
             ? t(messageKey, hasCount, { named })
