@@ -1,0 +1,133 @@
+{
+    "invalidType": "Esperado {expected}, recebido {received}",
+    "invalidTypeReceivedUndefined": "Obrigatório",
+    "invalidTypeReceivedNull": "Obrigatório",
+    "invalidValue": "Valor inválido, esperado {expected} | Valor inválido, esperado um dos {expected}",
+    "unrecognizedKeys": "Chaves não reconhecidas: {keys}",
+    "invalidKey": "Chave inválida em {origin}",
+    "invalidUnion": "Valor inválido",
+    "invalidElement": "Valor inválido em {origin}",
+    "custom": "Valor inválido",
+    "notMultipleOf": "O número deve ser múltiplo de {multipleOf}",
+    "invalidFormat": {
+        "starts_with": "Deve começar com {prefix}",
+        "ends_with": "Deve terminar com {suffix}",
+        "includes": "Deve incluir {includes}",
+        "regex": "Deve corresponder ao padrão {pattern}",
+        "default": "Formato inválido, esperado {format}"
+    },
+    "tooSmall": {
+        "number": {
+            "exact": "Insira exatamente {minimum}",
+            "inclusive": "Insira um valor maior ou igual a {minimum}",
+            "notInclusive": "Insira um valor maior que {minimum}"
+        },
+        "int": {
+            "exact": "Insira exatamente {minimum}",
+            "inclusive": "Insira um valor maior ou igual a {minimum}",
+            "notInclusive": "Insira um valor maior que {minimum}"
+        },
+        "bigint": {
+            "exact": "Insira exatamente {minimum}",
+            "inclusive": "Insira um valor maior ou igual a {minimum}",
+            "notInclusive": "Insira um valor maior que {minimum}"
+        },
+        "date": {
+            "exact": "A data deve ser exatamente {minimum}",
+            "inclusive": "A data deve ser posterior ou igual a {minimum}",
+            "notInclusive": "A data deve ser posterior a {minimum}"
+        },
+        "string": {
+            "exact": "Insira exatamente {minimum} caractere(s)",
+            "inclusive": "Comprimento mínimo de {minimum} caractere(s)",
+            "notInclusive": "Insira mais de {minimum} caractere(s)"
+        },
+        "array": {
+            "exact": "Insira exatamente {minimum} elemento(s)",
+            "inclusive": "Insira pelo menos {minimum} elemento(s)",
+            "notInclusive": "Insira mais de {minimum} elemento(s)"
+        },
+        "set": {
+            "exact": "Insira exatamente {minimum} elemento(s)",
+            "inclusive": "Insira pelo menos {minimum} elemento(s)",
+            "notInclusive": "Insira mais de {minimum} elemento(s)"
+        },
+        "file": {
+            "exact": "Envie um arquivo de exatamente {minimum} bytes",
+            "inclusive": "Envie um arquivo de pelo menos {minimum} bytes",
+            "notInclusive": "Envie um arquivo de mais de {minimum} bytes"
+        }
+    },
+    "tooBig": {
+        "number": {
+            "exact": "Insira exatamente {maximum}",
+            "inclusive": "Insira um valor menor ou igual a {maximum}",
+            "notInclusive": "Insira um valor menor que {maximum}"
+        },
+        "int": {
+            "exact": "Insira exatamente {maximum}",
+            "inclusive": "Insira um valor menor ou igual a {maximum}",
+            "notInclusive": "Insira um valor menor que {maximum}"
+        },
+        "bigint": {
+            "exact": "Insira exatamente {maximum}",
+            "inclusive": "Insira um valor menor ou igual a {maximum}",
+            "notInclusive": "Insira um valor menor que {maximum}"
+        },
+        "date": {
+            "exact": "A data deve ser exatamente {maximum}",
+            "inclusive": "A data deve ser anterior ou igual a {maximum}",
+            "notInclusive": "A data deve ser anterior a {maximum}"
+        },
+        "string": {
+            "exact": "Insira exatamente {maximum} caractere(s)",
+            "inclusive": "Comprimento máximo de {maximum} caractere(s)",
+            "notInclusive": "Insira menos de {maximum} caractere(s)"
+        },
+        "array": {
+            "exact": "Insira exatamente {maximum} elemento(s)",
+            "inclusive": "Insira no máximo {maximum} elemento(s)",
+            "notInclusive": "Insira menos de {maximum} elemento(s)"
+        },
+        "set": {
+            "exact": "Insira exatamente {maximum} elemento(s)",
+            "inclusive": "Insira no máximo {maximum} elemento(s)",
+            "notInclusive": "Insira menos de {maximum} elemento(s)"
+        },
+        "file": {
+            "exact": "Envie um arquivo de exatamente {maximum} bytes",
+            "inclusive": "Envie um arquivo de no máximo {maximum} bytes",
+            "notInclusive": "Envie um arquivo de menos de {maximum} bytes"
+        }
+    },
+    "types": {
+        "regex": "entrada",
+        "email": "endereço de e-mail",
+        "url": "URL",
+        "emoji": "emoji",
+        "uuid": "UUID",
+        "uuidv4": "UUIDv4",
+        "uuidv6": "UUIDv6",
+        "nanoid": "nanoid",
+        "guid": "GUID",
+        "cuid": "cuid",
+        "cuid2": "cuid2",
+        "ulid": "ULID",
+        "xid": "XID",
+        "ksuid": "KSUID",
+        "datetime": "data e hora ISO",
+        "date": "data ISO",
+        "time": "hora ISO",
+        "duration": "duração ISO",
+        "ipv4": "endereço IPv4",
+        "ipv6": "endereço IPv6",
+        "cidrv4": "intervalo IPv4",
+        "cidrv6": "intervalo IPv6",
+        "base64": "string codificada em base64",
+        "base64url": "URL codificada em base64",
+        "json_string": "string JSON",
+        "e164": "número E.164",
+        "jwt": "JWT",
+        "template_literal": "entrada"
+    }
+}
