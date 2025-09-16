@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [0.0.7] - 2025-07-17
+## [0.0.7] - 2025-09-16
 
 ### Added
 
@@ -76,6 +76,7 @@ All notable changes to this project will be documented in this file.
 
 - `makeZodI18nMap` a function to use vue-i18n with zod validation error.
 
+[0.0.7]: https://github.com/volverjs/zod-vue-i18n/compare/v0.0.6...v0.0.7
 [0.0.6]: https://github.com/volverjs/zod-vue-i18n/compare/v0.0.5...v0.0.6
 [0.0.5]: https://github.com/volverjs/zod-vue-i18n/compare/v0.0.4...v0.0.5
 [0.0.4]: https://github.com/volverjs/zod-vue-i18n/compare/v0.0.3...v0.0.4
