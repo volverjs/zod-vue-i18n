@@ -12,7 +12,7 @@
         "module": "ESNext",
         "moduleResolution": "Node",
         "resolveJsonModule": true,
-        "types": ["@types/qs", "jest"],
+        "types": ["@types/qs", "vitest/globals"],
         "strict": true,
         "strictBindCallApply": true,
         "strictFunctionTypes": true,
