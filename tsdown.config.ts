@@ -15,6 +15,9 @@ export default defineConfig({
 	outDir: 'dist',
 	copy: 'locales',
 	// Note: exports are managed manually in package.json
-	// tsdown's auto export generation doesn't fully support
-	// locale wildcard exports, so we handle this separately
+	// tsdown's export generation has limitations with:
+	// 1. Wildcard locale exports (./locales/*, ./locales/v4/*)
+	// 2. Complex export configurations mixing entry points and file globs
+	// Therefore, we handle exports management separately in package.json
+	// and rely on tsdown only for code bundling, minification, and copying assets.
 })
