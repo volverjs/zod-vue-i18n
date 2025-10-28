@@ -13,6 +13,7 @@ export default defineConfig({
 	minify: true,
 	platform: 'neutral',
 	outDir: 'dist',
+	copy: 'locales',
 	// Note: exports are managed manually in package.json
 	// tsdown's auto export generation doesn't fully support
 	// locale wildcard exports, so we handle this separately
