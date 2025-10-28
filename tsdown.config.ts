@@ -12,8 +12,8 @@ export default defineConfig({
 	sourcemap: true,
 	minify: true,
 	platform: 'neutral',
-	exports: {
-		auto: true,
-	},
 	outDir: 'dist',
+	// Note: exports are managed manually in package.json
+	// tsdown's auto export generation doesn't fully support
+	// locale wildcard exports, so we handle this separately
 })

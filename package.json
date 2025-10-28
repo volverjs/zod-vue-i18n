@@ -23,6 +23,8 @@
   "exports": {
     ".": "./dist/index.js",
     "./v4": "./dist/v4.js",
+    "./locales/*": "./locales/*",
+    "./locales/v4/*": "./locales/v4/*",
     "./package.json": "./package.json"
   },
   "files": [
