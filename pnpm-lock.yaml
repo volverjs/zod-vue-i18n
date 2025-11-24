@@ -58,7 +58,7 @@ importers:
         version: 3.5.22(typescript@5.9.3)
       vue-i18n:
         specifier: ^11.1.12
-        version: 11.1.12(vue@3.5.22(typescript@5.9.3))
+        version: 11.2.1(vue@3.5.22(typescript@5.9.3))
       zod:
         specifier: ^4.1.12
         version: 4.1.12
@@ -404,16 +404,16 @@ packages:
     resolution: {integrity: sha512-bV0Tgo9K4hfPCek+aMAn81RppFKv2ySDQeMoSZuvTASywNTnVJCArCZE2FWqpvIatKu7VMRLWlR1EazvVhDyhQ==}
     engines: {node: '>=18.18'}
 
-  '@intlify/core-base@11.1.12':
-    resolution: {integrity: sha512-whh0trqRsSqVLNEUCwU59pyJZYpU8AmSWl8M3Jz2Mv5ESPP6kFh4juas2NpZ1iCvy7GlNRffUD1xr84gceimjg==}
+  '@intlify/core-base@11.2.1':
+    resolution: {integrity: sha512-2V1A4yaN9ElAnQ6ih3HHEc+jZ+sHV6BlQHjCsnIVlOotL5NCUgJElIxgUFiJs6zV4puoAq3hHuQIfWNp+J+8yQ==}
     engines: {node: '>= 16'}
 
-  '@intlify/message-compiler@11.1.12':
-    resolution: {integrity: sha512-Fv9iQSJoJaXl4ZGkOCN1LDM3trzze0AS2zRz2EHLiwenwL6t0Ki9KySYlyr27yVOj5aVz0e55JePO+kELIvfdQ==}
+  '@intlify/message-compiler@11.2.1':
+    resolution: {integrity: sha512-J2454D3Agg3Kvgaj14gxTleJU8/H06Sisz7C2BwiHF0/i5Soyfb5ySpwn8GCL6yscDbOGj6xM+lUe6gO6BFQyg==}
     engines: {node: '>= 16'}
 
-  '@intlify/shared@11.1.12':
-    resolution: {integrity: sha512-Om86EjuQtA69hdNj3GQec9ZC0L0vPSAnXzB3gP/gyJ7+mA7t06d9aOAiqMZ+xEOsumGP4eEBlfl8zF2LOTzf2A==}
+  '@intlify/shared@11.2.1':
+    resolution: {integrity: sha512-O67LZM4dbfr70WCsZLW+g+pIXdgQ66laLVd/FicW7iYgP/RuH0X1FDGSh+Hr9Gou/8TeldUE6KmTGdLwX2ufIA==}
     engines: {node: '>= 16'}
 
   '@isaacs/cliui@8.0.2':
@@ -1612,6 +1612,7 @@ packages:
 
   glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
+    deprecated: Glob versions prior to v9 are no longer supported
 
   global-modules@0.2.3:
     resolution: {integrity: sha512-JeXuCbvYzYXcwE6acL9V2bAOeSIGl4dD+iwLY9iUx2VBJJ80R18HCn+JCwHM9Oegdfya3lEkGCdaRkSyc10hDA==}
@@ -1693,6 +1694,7 @@ packages:
 
   inflight@1.0.6:
     resolution: {integrity: sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA==}
+    deprecated: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
 
   inherits@2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
@@ -1707,6 +1709,7 @@ packages:
   is-accessor-descriptor@0.1.6:
     resolution: {integrity: sha512-e1BM1qnDbMRG3ll2U9dSK0UMHuWOs3pY3AtcFsmvwPtKL3MML/Q86i+GilLfvqEs4GW+ExB91tQ3Ig9noDIZ+A==}
     engines: {node: '>=0.10.0'}
+    deprecated: Please upgrade to v0.1.7
 
   is-arrayish@0.2.1:
     resolution: {integrity: sha512-zz06S8t0ozoDXMG+ube26zeCTNXcKIPJZJi8hBrF4idCLms4CG9QtK7qBl1boi5ODzFpjswb5JPmHCbMpjaYzg==}
@@ -1721,6 +1724,7 @@ packages:
   is-data-descriptor@0.1.4:
     resolution: {integrity: sha512-+w9D5ulSoBNlmw9OHn3U2v51SyoCd0he+bB3xMl62oijhrspxowjU+AIcDY0N3iEJbUEkB15IlMASQsxYigvXg==}
     engines: {node: '>=0.10.0'}
+    deprecated: Please upgrade to v0.1.5
 
   is-descriptor@0.1.6:
     resolution: {integrity: sha512-avDYr0SB3DwO9zsMov0gKCESFYqCnE4hq/4z3TdUlukEy5t9C0YRq7HLrsN52NAcqXKaepeCD0n+B0arnVG3Hg==}
@@ -2834,8 +2838,8 @@ packages:
     peerDependencies:
       eslint: ^8.57.0 || ^9.0.0
 
-  vue-i18n@11.1.12:
-    resolution: {integrity: sha512-BnstPj3KLHLrsqbVU2UOrPmr0+Mv11bsUZG0PyCOzsawCivk8W00GMXHeVUWIDOgNaScCuZah47CZFE+Wnl8mw==}
+  vue-i18n@11.2.1:
+    resolution: {integrity: sha512-cc3Wx4eJZac9WMS8mxhfYiCipm9PBQ2Dz15piWYm7DwNcCehaKRgpolEdiqrjjT27T3Wijz3xJ7NeIc8ofIWAA==}
     engines: {node: '>= 16'}
     peerDependencies:
       vue: ^3.0.0
@@ -3310,17 +3314,17 @@ snapshots:
 
   '@humanwhocodes/retry@0.4.3': {}
 
-  '@intlify/core-base@11.1.12':
+  '@intlify/core-base@11.2.1':
     dependencies:
-      '@intlify/message-compiler': 11.1.12
-      '@intlify/shared': 11.1.12
+      '@intlify/message-compiler': 11.2.1
+      '@intlify/shared': 11.2.1
 
-  '@intlify/message-compiler@11.1.12':
+  '@intlify/message-compiler@11.2.1':
     dependencies:
-      '@intlify/shared': 11.1.12
+      '@intlify/shared': 11.2.1
       source-map-js: 1.2.1
 
-  '@intlify/shared@11.1.12': {}
+  '@intlify/shared@11.2.1': {}
 
   '@isaacs/cliui@8.0.2':
     dependencies:
@@ -6286,10 +6290,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  vue-i18n@11.1.12(vue@3.5.22(typescript@5.9.3)):
+  vue-i18n@11.2.1(vue@3.5.22(typescript@5.9.3)):
     dependencies:
-      '@intlify/core-base': 11.1.12
-      '@intlify/shared': 11.1.12
+      '@intlify/core-base': 11.2.1
+      '@intlify/shared': 11.2.1
       '@vue/devtools-api': 6.6.4
       vue: 3.5.22(typescript@5.9.3)
 
