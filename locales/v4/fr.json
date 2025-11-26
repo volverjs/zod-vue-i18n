@@ -1,0 +1,133 @@
+{
+    "invalidType": "{expected} attendu, {received} reçu",
+    "invalidTypeReceivedUndefined": "Champ requis",
+    "invalidTypeReceivedNull": "Champ requis",
+    "invalidValue": "Valeur invalide, attendu {expected}",
+    "unrecognizedKeys": "Clés non reconnues : {keys}",
+    "invalidKey": "Clé invalide dans {origin}",
+    "invalidUnion": "Valeur invalide",
+    "invalidElement": "Valeur invalide dans {origin}",
+    "custom": "Valeur invalide",
+    "notMultipleOf": "Le nombre doit être un multiple de {multipleOf}",
+    "invalidFormat": {
+        "starts_with": "Doit commencer par {prefix}",
+        "ends_with": "Doit se terminer par {suffix}",
+        "includes": "Doit contenir {includes}",
+        "regex": "Doit correspondre au format {pattern}",
+        "default": "Format invalide, attendu {format}"
+    },
+    "tooSmall": {
+        "number": {
+            "exact": "Entrez exactement {minimum}",
+            "inclusive": "Entrez une valeur supérieure ou égale à {minimum}",
+            "notInclusive": "Entrez une valeur supérieure à {minimum}"
+        },
+        "int": {
+            "exact": "Entrez exactement {minimum}",
+            "inclusive": "Entrez une valeur supérieure ou égale à {minimum}",
+            "notInclusive": "Entrez une valeur supérieure à {minimum}"
+        },
+        "bigint": {
+            "exact": "Entrez exactement {minimum}",
+            "inclusive": "Entrez une valeur supérieure ou égale à {minimum}",
+            "notInclusive": "Entrez une valeur supérieure à {minimum}"
+        },
+        "date": {
+            "exact": "La date doit être exactement {minimum}",
+            "inclusive": "La date doit être le {minimum} ou après",
+            "notInclusive": "La date doit être après {minimum}"
+        },
+        "string": {
+            "exact": "Entrez exactement {minimum} caractère(s)",
+            "inclusive": "Minimum {minimum} caractère(s)",
+            "notInclusive": "Entrez plus de {minimum} caractère(s)"
+        },
+        "array": {
+            "exact": "Entrez exactement {minimum} élément(s)",
+            "inclusive": "Entrez au moins {minimum} élément(s)",
+            "notInclusive": "Entrez plus de {minimum} élément(s)"
+        },
+        "set": {
+            "exact": "Entrez exactement {minimum} élément(s)",
+            "inclusive": "Entrez au moins {minimum} élément(s)",
+            "notInclusive": "Entrez plus de {minimum} élément(s)"
+        },
+        "file": {
+            "exact": "Le fichier doit faire exactement {minimum} octets",
+            "inclusive": "Le fichier doit faire au moins {minimum} octets",
+            "notInclusive": "Le fichier doit faire plus de {minimum} octets"
+        }
+    },
+    "tooBig": {
+        "number": {
+            "exact": "Entrez exactement {maximum}",
+            "inclusive": "Entrez une valeur inférieure ou égale à {maximum}",
+            "notInclusive": "Entrez une valeur inférieure à {maximum}"
+        },
+        "int": {
+            "exact": "Entrez exactement {maximum}",
+            "inclusive": "Entrez une valeur inférieure ou égale à {maximum}",
+            "notInclusive": "Entrez une valeur inférieure à {maximum}"
+        },
+        "bigint": {
+            "exact": "Entrez exactement {maximum}",
+            "inclusive": "Entrez une valeur inférieure ou égale à {maximum}",
+            "notInclusive": "Entrez une valeur inférieure à {maximum}"
+        },
+        "date": {
+            "exact": "La date doit être exactement {maximum}",
+            "inclusive": "La date doit être le {maximum} ou avant",
+            "notInclusive": "La date doit être avant {maximum}"
+        },
+        "string": {
+            "exact": "Entrez exactement {maximum} caractère(s)",
+            "inclusive": "Maximum {maximum} caractère(s)",
+            "notInclusive": "Entrez moins de {maximum} caractère(s)"
+        },
+        "array": {
+            "exact": "Entrez exactement {maximum} élément(s)",
+            "inclusive": "Entrez au plus {maximum} élément(s)",
+            "notInclusive": "Entrez moins de {maximum} élément(s)"
+        },
+        "set": {
+            "exact": "Entrez exactement {maximum} élément(s)",
+            "inclusive": "Entrez au plus {maximum} élément(s)",
+            "notInclusive": "Entrez moins de {maximum} élément(s)"
+        },
+        "file": {
+            "exact": "Le fichier doit faire exactement {maximum} octets",
+            "inclusive": "Le fichier doit faire au plus {maximum} octets",
+            "notInclusive": "Le fichier doit faire moins de {maximum} octets"
+        }
+    },
+    "types": {
+        "regex": "valeur",
+        "email": "adresse email",
+        "url": "URL",
+        "emoji": "emoji",
+        "uuid": "UUID",
+        "uuidv4": "UUIDv4",
+        "uuidv6": "UUIDv6",
+        "nanoid": "nanoid",
+        "guid": "GUID",
+        "cuid": "cuid",
+        "cuid2": "cuid2",
+        "ulid": "ULID",
+        "xid": "XID",
+        "ksuid": "KSUID",
+        "datetime": "date et heure ISO",
+        "date": "date ISO",
+        "time": "heure ISO",
+        "duration": "durée ISO",
+        "ipv4": "adresse IPv4",
+        "ipv6": "adresse IPv6",
+        "cidrv4": "plage IPv4",
+        "cidrv6": "plage IPv6",
+        "base64": "chaîne encodée en base64",
+        "base64url": "URL encodée en base64",
+        "json_string": "chaîne JSON",
+        "e164": "numéro E.164",
+        "jwt": "JWT",
+        "template_literal": "valeur"
+    }
+}
