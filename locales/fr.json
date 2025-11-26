@@ -1,0 +1,111 @@
+{
+    "invalidType": "Attendu {expected}, reçu {received}",
+    "invalidTypeReceivedUndefined": "Obligatoire",
+    "invalidTypeReceivedNull": "Obligatoire",
+    "invalidLiteral": "Valeur invalide, attendu {expected}",
+    "unrecognizedKeys": "Clés non reconnues : {keys}",
+    "invalidUnion": "Valeur invalide",
+    "invalidUnionDiscriminator": "Discriminant invalide. Attendu : {options}",
+    "invalidEnumValue": "Option invalide. Attendu : {options}",
+    "invalidArguments": "Paramètres de fonction invalides",
+    "invalidReturnType": "Valeur de retour de fonction invalide",
+    "invalidDate": "Date invalide",
+    "custom": "Valeur invalide",
+    "invalidIntersectionTypes": "Les résultats d'intersection n'ont pas pu être fusionnés",
+    "notMultipleOf": "Le nombre doit être un multiple de {multipleOf}",
+    "notFinite": "Le nombre doit être fini",
+    "invalidString": {
+        "email": "{validation} invalide",
+        "url": "{validation} invalide",
+        "uuid": "{validation} invalide",
+        "cuid": "{validation} invalide",
+        "regex": "Format invalide",
+        "datetime": "{validation} invalide",
+        "startsWith": "Doit commencer par « {startsWith} »",
+        "endsWith": "Doit se terminer par « {endsWith} »"
+    },
+    "tooSmall": {
+        "array": {
+            "exact": "Doit contenir exactement {minimum} éléments",
+            "inclusive": "Doit contenir au moins {minimum} éléments",
+            "notInclusive": "Doit contenir plus de {minimum} éléments"
+        },
+        "string": {
+            "exact": "Doit contenir exactement {minimum} caractères",
+            "inclusive": "{minimum} caractères minimum",
+            "notInclusive": "Doit contenir plus de {minimum} caractères"
+        },
+        "number": {
+            "exact": "Doit être égal à {minimum}",
+            "inclusive": "Doit être supérieur ou égal à {minimum}",
+            "notInclusive": "Doit être supérieur à {minimum}"
+        },
+        "set": {
+            "exact": "Valeur invalide",
+            "inclusive": "Valeur invalide",
+            "notInclusive": "Valeur invalide"
+        },
+        "date": {
+            "exact": "La date doit être le {minimum}",
+            "inclusive": "La date doit être le {minimum} ou après",
+            "notInclusive": "La date doit être après le {minimum}"
+        }
+    },
+    "tooBig": {
+        "array": {
+            "exact": "Doit contenir exactement {maximum} éléments",
+            "inclusive": "Doit contenir au maximum {maximum} éléments",
+            "notInclusive": "Doit contenir moins de {maximum} éléments"
+        },
+        "string": {
+            "exact": "Doit contenir exactement {maximum} caractères",
+            "inclusive": "{maximum} caractères maximum",
+            "notInclusive": "Doit contenir moins de {maximum} caractères"
+        },
+        "number": {
+            "exact": "Doit être égal à {maximum}",
+            "inclusive": "Doit être inférieur ou égal à {maximum}",
+            "notInclusive": "Doit être inférieur à {maximum}"
+        },
+        "set": {
+            "exact": "Valeur invalide",
+            "inclusive": "Valeur invalide",
+            "notInclusive": "Valeur invalide"
+        },
+        "date": {
+            "exact": "La date doit être le {maximum}",
+            "inclusive": "La date doit être le {maximum} ou avant",
+            "notInclusive": "La date doit être avant le {maximum}"
+        }
+    },
+    "types": {
+        "array": "tableau",
+        "bigint": "grand entier",
+        "boolean": "booléen",
+        "date": "date",
+        "float": "nombre décimal",
+        "function": "fonction",
+        "integer": "entier",
+        "map": "map",
+        "nan": "nan",
+        "never": "never",
+        "null": "null",
+        "number": "nombre",
+        "object": "objet",
+        "promise": "promesse",
+        "set": "ensemble",
+        "string": "chaîne de caractères",
+        "symbol": "symbole",
+        "undefined": "non défini",
+        "unknown": "inconnu",
+        "void": "void"
+    },
+    "validations": {
+        "cuid": "CUID",
+        "datetime": "date et heure",
+        "email": "Email",
+        "regex": "expression régulière",
+        "url": "URL",
+        "uuid": "UUID"
+    }
+}
