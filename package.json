@@ -1,83 +1,64 @@
 {
-    "name": "@volverjs/zod-vue-i18n",
-    "type": "module",
-    "version": "0.0.0",
-    "packageManager": "pnpm@10.18.1",
-    "description": "Translating zod error messages with vue-i18n.",
-    "author": "8 Wave",
-    "license": "MIT",
-    "homepage": "https://github.com/volverjs/zod-vue-i18n",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/volverjs/zod-vue-i18n"
-    },
-    "bugs": {
-        "url": "https://github.com/volverjs/zod-vue-i18n/issues"
-    },
-    "keywords": [
-        "zod",
-        "vue3",
-        "i18n",
-        "vue-i18n"
-    ],
-    "exports": {
-        ".": {
-            "types": "./dist/index.d.ts",
-            "import": "./dist/index.js"
-        },
-        "./v4": {
-            "types": "./dist/v4/index.d.ts",
-            "import": "./dist/v4/index.js"
-        },
-        "./locales/*": "./locales/*"
-    },
-    "main": "./dist/index.js",
-    "types": "./dist/index.d.ts",
-    "typesVersions": {
-        "*": {
-            "*": [
-                "dist/index.d.ts"
-            ]
-        }
-    },
-    "files": [
-        "*.d.ts",
-        "dist",
-        "locales"
-    ],
-    "engines": {
-        "node": ">= 16.x"
-    },
-    "scripts": {
-        "lint": "eslint .",
-        "lint:fix": "eslint . --fix",
-        "type-check": "tsc --noEmit",
-        "build": "tsc && copy src/**/*.d.ts dist",
-        "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --detectOpenHandles",
-        "credits": "npx @opengovsg/credits-generator"
-    },
-    "peerDependencies": {
-        "vue-i18n": "^11.1.0",
-        "zod": "^3.25.0 || ^4.0.0"
-    },
-    "devDependencies": {
-        "@antfu/eslint-config": "^5.4.1",
-        "@types/jest": "^30.0.0",
-        "@types/qs": "^6.14.0",
-        "@typescript-eslint/eslint-plugin": "^8.46.0",
-        "@typescript-eslint/parser": "^8.46.0",
-        "copy": "^0.3.2",
-        "eslint": "^9.37.0",
-        "eslint-config-prettier": "^10.1.8",
-        "eslint-plugin-prettier": "^5.5.4",
-        "jest": "^30.2.0",
-        "jest-fetch-mock": "^3.0.3",
-        "jest-localstorage-mock": "^2.4.26",
-        "prettier": "^3.6.2",
-        "ts-jest": "^29.4.4",
-        "typescript": "^5.9.3",
-        "vue": "^3.5.22",
-        "vue-i18n": "^11.1.12",
-        "zod": "^4.1.12"
-    }
+  "name": "@volverjs/zod-vue-i18n",
+  "type": "module",
+  "version": "0.0.0",
+  "packageManager": "pnpm@10.18.1",
+  "description": "Translating zod error messages with vue-i18n.",
+  "author": "8 Wave",
+  "license": "MIT",
+  "homepage": "https://github.com/volverjs/zod-vue-i18n",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/volverjs/zod-vue-i18n"
+  },
+  "bugs": {
+    "url": "https://github.com/volverjs/zod-vue-i18n/issues"
+  },
+  "keywords": [
+    "zod",
+    "vue3",
+    "i18n",
+    "vue-i18n"
+  ],
+  "exports": {
+    ".": "./dist/index.js",
+    "./v4": "./dist/v4.js",
+    "./locales/*": "./locales/*",
+    "./locales/v4/*": "./locales/v4/*",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "*.d.ts",
+    "dist",
+    "locales"
+  ],
+  "engines": {
+    "node": ">= 16.x"
+  },
+  "scripts": {
+    "lint": "oxlint .",
+    "lint:fix": "oxlint . --fix",
+    "type-check": "tsc --noEmit",
+    "build": "tsdown",
+    "test": "vitest",
+    "credits": "npx @opengovsg/credits-generator"
+  },
+  "peerDependencies": {
+    "vue-i18n": "^11.1.0",
+    "zod": "^3.25.0 || ^4.0.0"
+  },
+  "devDependencies": {
+    "@types/qs": "^6.14.0",
+    "oxlint": "^1.24.0",
+    "prettier": "^3.6.2",
+    "tsdown": "^0.15.11",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.4",
+    "vue": "^3.5.22",
+    "vue-i18n": "^11.1.12",
+    "zod": "^4.1.12"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts"
 }

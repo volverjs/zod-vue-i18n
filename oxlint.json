@@ -1,0 +1,14 @@
+{
+  "env": {
+    "node": true,
+    "es2021": true
+  },
+  "rules": {
+    "no-console": "off",
+    "no-debugger": "off",
+    "no-tabs": "off",
+    "no-mixed-spaces-and-tabs": "warn",
+    "sort-imports": "off"
+  },
+  "ignorePatterns": [".vscode", "dist", "node_modules", "coverage", "test"]
+}
