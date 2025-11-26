@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.0.8] - 2025-11-26
+
+### Added
+
+- Added french (fr) translations. Thanks to @CharnaceRegis for the contribution.
+
+### Fixed
+
+- Replaced `jest` with `vitest` for testing framework. Thanks to @wonderbeel for the contribution.
+
 ## [0.0.7] - 2025-09-16
 
 ### Added
