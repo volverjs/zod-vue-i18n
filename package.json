@@ -22,21 +22,21 @@
     ],
     "exports": {
         ".": {
-            "types": "./dist/index.d.ts",
-            "import": "./dist/index.js"
+            "types": "./dist/index.d.mts",
+            "import": "./dist/index.mjs"
         },
         "./v4": {
-            "types": "./dist/v4/index.d.ts",
-            "import": "./dist/v4/index.js"
+            "types": "./dist/v4/index.d.mts",
+            "import": "./dist/v4/index.mjs"
         },
         "./locales/*": "./locales/*"
     },
-    "main": "./dist/index.js",
-    "types": "./dist/index.d.ts",
+    "main": "./dist/index.mjs",
+    "types": "./dist/index.d.mts",
     "typesVersions": {
         "*": {
             "*": [
-                "dist/index.d.ts"
+                "dist/index.d.mts"
             ]
         }
     },
@@ -52,7 +52,7 @@
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
         "type-check": "tsc --noEmit",
-        "build": "tsc && copy src/**/*.d.ts dist",
+        "build": "tsdown",
         "test": "vitest run",
         "test:watch": "vitest",
         "credits": "npx @opengovsg/credits-generator"
@@ -63,14 +63,8 @@
     },
     "devDependencies": {
         "@antfu/eslint-config": "^6.2.0",
-        "@types/qs": "^6.14.0",
-        "@typescript-eslint/eslint-plugin": "^8.48.0",
-        "@typescript-eslint/parser": "^8.48.0",
-        "copy": "^0.3.2",
         "eslint": "^9.39.1",
-        "eslint-config-prettier": "^10.1.8",
-        "eslint-plugin-prettier": "^5.5.4",
-        "prettier": "^3.6.2",
+        "tsdown": "^0.16.7",
         "typescript": "^5.9.3",
         "vitest": "^4.0.14",
         "vue": "^3.5.25",
