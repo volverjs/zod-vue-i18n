@@ -1,0 +1,29 @@
+{
+  "skill_name": "volverjs-zod-vue-i18n",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "We use Zod 4 (import { z } from 'zod/v4') with vue-i18n in our Vue 3 app and our form errors are still showing up in English. I want them translated to Italian and English via @volverjs/zod-vue-i18n. Wire it up and load the bundled locales.",
+      "expected_output": "Imports makeZodI18nMap from '@volverjs/zod-vue-i18n/v4', registers it with z.config({ localeError: ... }), and loads the /locales/v4 bundled JSON under the `errors` namespace of each locale.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "With @volverjs/zod-vue-i18n (zod 4) I have z.string().min(8) for a password field and z.email() for email. I want a custom translated message on each — like 'password.tooShort' and 'email.invalid' keys — without rewriting them as refine(). How?",
+      "expected_output": "Uses makeZodI18nLabel(i18n) to produce label('key', ...) and passes it as the second argument to .min()/.email(); explains it resolves lazily/reactively.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Using @volverjs/zod-vue-i18n with a z.object({ email: z.string().email(), age: z.number().min(18) }), I want the validation messages to mention the field name, e.g. 'The email field is required'. How do I set up the translation keys for that?",
+      "expected_output": "Explains the WithPath key convention (e.g. invalidTypeWithPath) and the {path} parameter available in messages, placed under the `errors` namespace.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "I'm on plain Zod 3 (import { z } from 'zod') with vue-i18n. Add @volverjs/zod-vue-i18n so errors are translated, and I also need to override just the 'too small' message for strings to say 'Minimo {minimum} caratteri' in Italian. Keep everything else default.",
+      "expected_output": "Uses the v3 entry point with z.setErrorMap(makeZodI18nMap(i18n)), and overrides only errors.tooSmall.string.* in the it locale, relying on fallback for the rest.",
+      "files": []
+    }
+  ]
+}
