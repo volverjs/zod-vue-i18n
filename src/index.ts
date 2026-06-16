@@ -1,8 +1,5 @@
-import type {
-    I18n,
-} from 'vue-i18n'
 import type { ErrorMapCtx, ZodErrorMap, ZodIssueOptionalMessage } from 'zod/v3'
-import type { TranslateLabelOptions } from './types'
+import type { AnyI18n, TranslateLabelOptions } from './types'
 import {
     defaultErrorMap,
     util,
@@ -10,19 +7,45 @@ import {
     ZodIssueCode,
     ZodParsedType,
 } from 'zod/v3'
-import { translateLabelFactory } from './utils'
+import { boundarySuffix, resolveCustomMessage, translateLabelFactory } from './utils'
 
-const zDate = z.string().regex(/(\d{4})-\d{2}-(\d{2})/)
+/**
+ * A zod schema that validates ISO calendar dates in `YYYY-MM-DD` format
+ * (e.g. `2026-06-16`). Useful for `<input type="date">` values, which are
+ * exchanged as strings rather than `Date` objects.
+ *
+ * @example
+ * ```ts
+ * zDate.parse('2026-06-16') // ok
+ * zDate.parse('16/06/2026') // throws
+ * ```
+ */
+const zDate = z.string().regex(/^\d{4}-\d{2}-\d{2}$/)
 
-function makeZodI18nMap(i18n: I18n, key = 'errors'): ZodErrorMap {
+function makeZodI18nMap(i18n: AnyI18n, key = 'errors'): ZodErrorMap {
     const d = i18n.global.d
     const n = i18n.global.n
 
     const translateLabel = translateLabelFactory(i18n, key)
 
+    // Formats a `too_small`/`too_big` boundary: dates through `d`, plain
+    // numbers through `n`, while bigints are passed through untouched.
+    const formatBoundary = (value: number | bigint, type: string): string | bigint => {
+        if (type === 'date') {
+            return d(new Date(Number(value)))
+        }
+        if (typeof value === 'bigint') {
+            return value
+        }
+        return n(value)
+    }
+    const boundaryCount = (value: number | bigint): number | undefined =>
+        typeof value === 'bigint' ? undefined : value
+
     return (issue: ZodIssueOptionalMessage, ctx: ErrorMapCtx): { message: string } => {
-        let message = defaultErrorMap(issue, ctx).message
-        let options: TranslateLabelOptions = {}
+        const defaultMessage = defaultErrorMap(issue, ctx).message
+        let message = defaultMessage
+        const options: TranslateLabelOptions = {}
 
         switch (issue.code) {
             case ZodIssueCode.invalid_type:
@@ -104,72 +127,22 @@ function makeZodI18nMap(i18n: I18n, key = 'errors'): ZodErrorMap {
                     }
                 }
                 break
-            case ZodIssueCode.too_small: {
-                let minimum
-                if (issue.type === 'date') {
-                    minimum = d(new Date(issue.minimum.toString()))
-                }
-                else if (typeof issue.minimum === 'bigint') {
-                    minimum = issue.minimum
-                }
-                else {
-                    minimum = n(issue.minimum)
-                }
-                options.count = typeof issue.minimum === 'bigint' ? undefined : issue.minimum
-                message = `tooSmall.${issue.type}.`
-                if (issue.exact) {
-                    message += 'exact'
-                }
-                else {
-                    message += issue.inclusive ? 'inclusive' : 'notInclusive'
-                }
+            case ZodIssueCode.too_small:
+                options.count = boundaryCount(issue.minimum)
+                message = `tooSmall.${issue.type}.${boundarySuffix(issue)}`
                 options.named = {
-                    minimum,
-                }
-
-                break
-            }
-            case ZodIssueCode.too_big: {
-                let maximum
-                if (issue.type === 'date') {
-                    maximum = d(new Date(issue.maximum.toString()))
-                }
-                else if (typeof issue.maximum === 'bigint') {
-                    maximum = issue.maximum
-                }
-                else {
-                    maximum = n(issue.maximum)
-                }
-                options.count = typeof issue.maximum === 'bigint' ? undefined : issue.maximum
-                message = `tooBig.${issue.type}.`
-                if (issue.exact) {
-                    message += 'exact'
-                }
-                else {
-                    message += issue.inclusive ? 'inclusive' : 'notInclusive'
-                }
-                options.named = {
-                    maximum,
+                    minimum: formatBoundary(issue.minimum, issue.type),
                 }
                 break
-            }
+            case ZodIssueCode.too_big:
+                options.count = boundaryCount(issue.maximum)
+                message = `tooBig.${issue.type}.${boundarySuffix(issue)}`
+                options.named = {
+                    maximum: formatBoundary(issue.maximum, issue.type),
+                }
+                break
             case ZodIssueCode.custom:
-                message = 'custom'
-                if (issue.params?.i18n) {
-                    if (typeof issue.params.i18n === 'string') {
-                        message = issue.params.i18n
-                        break
-                    }
-                    if (
-                        typeof issue.params.i18n === 'object'
-                        && issue.params.i18n?.key
-                    ) {
-                        message = issue.params.i18n.key
-                        if (issue.params.i18n?.options) {
-                            options = issue.params.i18n.options
-                        }
-                    }
-                }
+                message = resolveCustomMessage(issue.params, options)
                 break
             case ZodIssueCode.invalid_intersection_types:
                 message = 'invalidIntersectionTypes'
@@ -188,7 +161,7 @@ function makeZodI18nMap(i18n: I18n, key = 'errors'): ZodErrorMap {
             ...options.named,
             path: issue.path?.join('.') || '',
         }
-        return { message: translateLabel(message, options) }
+        return { message: translateLabel(message, { ...options, fallback: defaultMessage }) }
     }
 }
 
