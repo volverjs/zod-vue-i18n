@@ -22,21 +22,21 @@
     ],
     "exports": {
         ".": {
-            "types": "./dist/index.d.mts",
-            "import": "./dist/index.mjs"
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js"
         },
         "./v4": {
-            "types": "./dist/v4/index.d.mts",
-            "import": "./dist/v4/index.mjs"
+            "types": "./dist/v4/index.d.ts",
+            "import": "./dist/v4/index.js"
         },
         "./locales/*": "./locales/*"
     },
-    "main": "./dist/index.mjs",
-    "types": "./dist/index.d.mts",
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
     "typesVersions": {
         "*": {
             "*": [
-                "dist/index.d.mts"
+                "dist/index.d.ts"
             ]
         }
     },
