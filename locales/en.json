@@ -3,11 +3,11 @@
     "invalidTypeReceivedUndefined": "Mandatory",
     "invalidTypeReceivedNull": "Mandatory",
     "invalidLiteral": "Invalid value, expected {expected}",
-    "unrecognizedKeys": "'Keys doesn't recognized {keys}'",
+    "unrecognizedKeys": "Unrecognized keys: {keys}",
     "invalidUnion": "Invalid value",
     "invalidUnionDiscriminator": "Invalid discriminator value. Expected {options}",
     "invalidEnumValue": "Invalid option. Expected: {options}",
-    "invalidArguments": "Invalid funciont parameters",
+    "invalidArguments": "Invalid function parameters",
     "invalidReturnType": "Invalid function value returned",
     "invalidDate": "Invalid date",
     "custom": "Invalid value",
@@ -32,7 +32,7 @@
         },
         "string": {
             "exact": "The length must be of {minimum} characters",
-            "inclusive": "Minumum length {minimum} characters",
+            "inclusive": "Minimum length {minimum} characters",
             "notInclusive": "Insert more of {minimum} characters"
         },
         "number": {
@@ -58,7 +58,7 @@
             "notInclusive": "Insert less of {maximum} elements"
         },
         "string": {
-            "exact": "The length must be of {minimum} characters",
+            "exact": "The length must be of {maximum} characters",
             "inclusive": "Maximum length {maximum} characters",
             "notInclusive": "Insert less of {maximum} characters"
         },
