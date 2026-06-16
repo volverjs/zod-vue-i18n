@@ -2,7 +2,7 @@
     "name": "@volverjs/zod-vue-i18n",
     "type": "module",
     "version": "0.0.0",
-    "packageManager": "pnpm@10.23.0",
+    "packageManager": "pnpm@11.7.0",
     "description": "Translating zod error messages with vue-i18n.",
     "author": "8 Wave",
     "license": "MIT",
@@ -62,13 +62,13 @@
         "zod": "^3.25.0 || ^4.0.0"
     },
     "devDependencies": {
-        "@antfu/eslint-config": "^6.2.0",
-        "eslint": "^9.39.1",
-        "tsdown": "^0.16.7",
-        "typescript": "^5.9.3",
-        "vitest": "^4.0.14",
-        "vue": "^3.5.25",
-        "vue-i18n": "^11.2.2",
-        "zod": "^4.1.13"
+        "@antfu/eslint-config": "^9.0.0",
+        "eslint": "^10.5.0",
+        "tsdown": "^0.22.2",
+        "typescript": "^6.0.3",
+        "vitest": "^4.1.9",
+        "vue": "^3.5.38",
+        "vue-i18n": "^11.4.5",
+        "zod": "^4.4.3"
     }
 }
