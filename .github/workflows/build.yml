@@ -2,37 +2,57 @@ name: Build library
 
 on:
     workflow_call:
+        inputs:
+            release-tag:
+                description: 'Release tag name used to bump the package version (skipped when empty)'
+                required: false
+                default: ''
+                type: string
 
 jobs:
     build:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
+
             - uses: pnpm/action-setup@v4
-            - name: Use Node.js ${{ matrix.node-version }}
+
+            - name: Use Node.js 24
               uses: actions/setup-node@v4
               with:
-                  node-version: ${{ matrix.node-version }}
+                  node-version: 24
                   cache: 'pnpm'
+
             - name: Install dependencies
               run: pnpm install --no-frozen-lockfile
+
             - name: Build release
               run: pnpm build
+
             - name: Bump version with release tag name
-              run: pnpm version --no-git-tag-version ${{ github.event.release.tag_name }}
+              if: inputs.release-tag != ''
+              env:
+                  RELEASE_TAG: ${{ inputs.release-tag }}
+              run: pnpm version --no-git-tag-version "${RELEASE_TAG#v}"
+
             - name: Pack package
               run: pnpm pack
+
             - name: Upload artifact
               uses: actions/upload-artifact@v4
               with:
                   name: package
                   path: 'volverjs-zod-vue-i18n-*.tgz'
+
             - name: Replace name for alias
               run: sed -i -e 's/@volverjs\///g' package.json
+
             - name: Update package-lock alias
               run: pnpm install --no-frozen-lockfile
+
             - name: Pack package alias
               run: pnpm pack
+
             - name: Upload artifact alias
               uses: actions/upload-artifact@v4
               with:

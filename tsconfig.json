@@ -8,11 +8,10 @@
         "jsx": "preserve",
         "lib": ["ESNext", "DOM", "DOM.Iterable"],
         "useDefineForClassFields": true,
-        "baseUrl": ".",
         "module": "ESNext",
-        "moduleResolution": "Node",
+        "moduleResolution": "Bundler",
         "resolveJsonModule": true,
-        "types": ["@types/qs", "vitest/globals"],
+        "types": ["vitest/globals"],
         "strict": true,
         "strictBindCallApply": true,
         "strictFunctionTypes": true,
@@ -27,8 +26,7 @@
         "noImplicitThis": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
-        "declaration": true,
-        "outDir": "dist",
+        "noEmit": true,
         // Recommended
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
@@ -36,5 +34,5 @@
         "isolatedModules": true,
         "skipLibCheck": true
     },
-    "include": ["src/**/*"]
+    "include": ["src/**/*", "test/**/*"]
 }

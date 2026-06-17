@@ -3,7 +3,7 @@
     "invalidTypeReceivedUndefined": "Obbligatorio",
     "invalidTypeReceivedNull": "Obbligatorio",
     "invalidValue": "Valore non valido, previsto {expected} | Valore non valido, atteso uno tra {expected}",
-    "unrecognizedKeys": "'Chiavi non riconosciute: {keys}'",
+    "unrecognizedKeys": "Chiavi non riconosciute: {keys}",
     "invalidKey": "Chiave non valida in {origin}",
     "invalidUnion": "Valore non valido",
     "invalidElement": "Valore non valido in {origin}",
@@ -35,7 +35,7 @@
         "date": {
             "exact": "La data dev'essere esattamente il {minimum}",
             "inclusive": "La data dev'essere successiva o uguale al {minimum}",
-            "notInclusive": "La data dev'essere successiva al {minimum}}"
+            "notInclusive": "La data dev'essere successiva al {minimum}"
         },
         "string": {
             "exact": "Inserire esattamente {minimum} carattere/i",

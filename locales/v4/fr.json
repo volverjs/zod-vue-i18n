@@ -2,7 +2,7 @@
     "invalidType": "{expected} attendu, {received} reçu",
     "invalidTypeReceivedUndefined": "Champ requis",
     "invalidTypeReceivedNull": "Champ requis",
-    "invalidValue": "Valeur invalide, attendu {expected}",
+    "invalidValue": "Valeur invalide, attendu {expected} | Valeur invalide, attendu l'un des {expected}",
     "unrecognizedKeys": "Clés non reconnues : {keys}",
     "invalidKey": "Clé invalide dans {origin}",
     "invalidUnion": "Valeur invalide",
