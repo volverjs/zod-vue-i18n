@@ -12,6 +12,8 @@ jobs:
 
     build:
         uses: ./.github/workflows/build.yml
+        with:
+            release-tag: ${{ github.event.release.tag_name }}
 
     test:
         needs: build
