@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.0.10] - 2026-06-17
+
+### Added
+
+- `makeZodI18nLabel` (Zod 4): attach a translated message to any validation — built-in (`.min`, `.email`, …) or `refine` — via Zod's native `error` option, resolved lazily on every parse so static schemas react to locale changes;
+- Documented the `zDate` helper for `YYYY-MM-DD` validation;
+- Installable Claude Code plugin/skill (`volverjs-zod-vue-i18n`) to help AI agents integrate the library.
+
+### Fixed
+
+- `WithPath` lookup was missing the namespace separator, so per-field messages never matched;
+- a missing translation key now falls back to Zod's default message instead of leaking the raw key;
+- date `too_small`/`too_big` boundaries rendered as `Invalid Date` (both versions), and the Zod 4 map read the wrong issue fields (`origin`, `divisor`, `received`);
+- locale fixes: wrong `{minimum}`/`{maximum}` placeholders, literal quotes breaking vue-i18n parsing, stray braces, typos, and completed it/ptBR translations;
+- the `zDate` regex is now anchored;
+- package entry points pointed at non-existent `.mjs`/`.d.mts` files after the `tsdown` upgrade.
+
+### Changed
+
+- The accepted vue-i18n instance type is widened so strongly-typed `createI18n({ messages })` instances are assignable;
+- internal refactor of the v3/v4 error maps (shared helpers);
+- CI: skip the version bump on PR builds, replace the deprecated `release-tag` action with the `gh` CLI, and bump CI Node.js to 24.
+
 ## [0.0.9] - 2025-11-27
 
 ### Changed
@@ -97,6 +120,7 @@ All notable changes to this project will be documented in this file.
 
 - `makeZodI18nMap` a function to use vue-i18n with zod validation error.
 
+[0.0.10]: https://github.com/volverjs/zod-vue-i18n/compare/v0.0.9...v0.0.10
 [0.0.9]: https://github.com/volverjs/zod-vue-i18n/compare/v0.0.8...v0.0.9
 [0.0.8]: https://github.com/volverjs/zod-vue-i18n/compare/v0.0.7...v0.0.8
 [0.0.7]: https://github.com/volverjs/zod-vue-i18n/compare/v0.0.6...v0.0.7
