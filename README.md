@@ -218,6 +218,36 @@ z.string()
 > **Note**
 > To use this functionality you need to add the `i18n` key to the `params` object.
 
+### Custom labels on any validation (Zod 4)
+
+The `params.i18n` channel only works on `refine`/`superRefine`/`custom`. To attach a translated message to **any** validation — including built-ins like `.min()` or `.email()` — Zod 4 users can use `makeZodI18nLabel`, which wires the translation into Zod's native `error` option.
+
+```typescript
+import { createI18n } from 'vue-i18n'
+import { makeZodI18nLabel } from 'zod-vue-i18n/v4'
+import { z } from 'zod/v4'
+
+const i18n = createI18n({
+    locale: 'en',
+    messages: {
+        en: {
+            errors: {
+                nameTooShort: 'Name too short: at least {min} characters',
+                invalidEmail: 'This email is not valid'
+            }
+        }
+    }
+})
+
+const label = makeZodI18nLabel(i18n)
+
+z.string().min(5, label('nameTooShort', { min: 5 }))
+z.email(label('invalidEmail'))
+z.string().refine(() => false, label('nameTooShort'))
+```
+
+The message is resolved **lazily on every parse**, so statically-defined schemas keep producing the right text when the active locale changes — no need to recreate the schema. The lookup goes through the same key resolution as the error map (so the `errors.` namespace, fallbacks and plurals all apply), and accepts an optional `count` for pluralization: `label('key', { count: n }, n)`.
+
 ## Use `WithPath` to validate zod schema
 
 When you use `z.object` to create a schema, you can handle the object key to customize the error message.
@@ -233,7 +263,7 @@ const i18n = createI18n({
         en: {
             errors: {
                 invalidType: 'Expected {expected}, received {received}',
-                invalitTypeWithPath:
+                invalidTypeWithPath:
           'The {path} property expected {expected}, received {received}'
             }
         }
@@ -251,6 +281,29 @@ z.object({
 
 If `WithPath` is suffixed to the key of the message, that message will be adopted in the case of an object type schema.
 If there is no message key with \WithPath, fall back to the normal error message.
+
+## `zDate` helper
+
+The package also exports `zDate`, a ready-made schema that validates ISO calendar dates in `YYYY-MM-DD` format. This is handy for `<input type="date">` values, which the browser exposes as strings rather than `Date` objects.
+
+```typescript
+import { zDate } from 'zod-vue-i18n'
+// import { zDate } from 'zod-vue-i18n/v4' // when using Zod 4
+
+zDate.parse('2026-06-16') // ok
+zDate.parse('16/06/2026') // throws
+```
+
+## Claude Code skill
+
+This repo ships an installable [Claude Code](https://docs.claude.com/en/docs/claude-code) plugin that teaches AI agents how to integrate `@volverjs/zod-vue-i18n`. Install it from Claude Code:
+
+```text
+/plugin marketplace add volverjs/zod-vue-i18n
+/plugin install volverjs-zod-vue-i18n@volverjs-zod-vue-i18n
+```
+
+See [`skills/README.md`](./skills/README.md) for details and manual installation.
 
 ## Acknoledgements
 

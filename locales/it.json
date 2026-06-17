@@ -3,10 +3,10 @@
     "invalidTypeReceivedUndefined": "Obbligatorio",
     "invalidTypeReceivedNull": "Obbligatorio",
     "invalidLiteral": "Valore non valido, previsto {expected}",
-    "unrecognizedKeys": "'Chiavi non riconosciute: {keys}'",
+    "unrecognizedKeys": "Chiavi non riconosciute: {keys}",
     "invalidUnion": "Valore non valido",
     "invalidUnionDiscriminator": "Discriminatore non valido. Previsti: {options}",
-    "invalidEnumValue": "'Opzione non valida. Previste: {options}'",
+    "invalidEnumValue": "Opzione non valida. Previste: {options}",
     "invalidArguments": "Parametri della funzione non validi",
     "invalidReturnType": "Il valore restituito dalla funzione non è valido",
     "invalidDate": "Data non valida",
@@ -22,7 +22,7 @@
         "regex": "Il valore inserito non è valido",
         "datetime": "{validation} non valide",
         "startsWith": "Valore non valido: deve iniziare con {startsWith}",
-        "endsWith": "Valore non valido: deve terminare com {endsWith}"
+        "endsWith": "Valore non valido: deve terminare con {endsWith}"
     },
     "tooSmall": {
         "array": {
@@ -48,7 +48,7 @@
         "date": {
             "exact": "La data dev'essere {minimum}",
             "inclusive": "La data dev'essere successiva o uguale al {minimum}",
-            "notInclusive": "La data dev'essere successiva al {minimum}}"
+            "notInclusive": "La data dev'essere successiva al {minimum}"
         }
     },
     "tooBig": {
@@ -65,7 +65,7 @@
         "number": {
             "exact": "Il valore dev'essere {maximum}",
             "inclusive": "Inserire un valore minore o uguale a {maximum}",
-            "notInclusive": "Inserie un valore minore di {maximum}"
+            "notInclusive": "Inserire un valore minore di {maximum}"
         },
         "set": {
             "exact": "Valore non valido",
@@ -80,31 +80,31 @@
     },
     "types": {
         "array": "array",
-        "bigint": "bigint",
-        "boolean": "boolean",
-        "date": "date",
-        "float": "float",
-        "function": "function",
-        "integer": "integer",
+        "bigint": "intero grande",
+        "boolean": "booleano",
+        "date": "data",
+        "float": "numero decimale",
+        "function": "funzione",
+        "integer": "intero",
         "map": "map",
         "nan": "nan",
         "never": "never",
         "null": "null",
-        "number": "number",
-        "object": "object",
-        "promise": "promise",
-        "set": "set",
-        "string": "string",
-        "symbol": "symbol",
-        "undefined": "undefined",
-        "unknown": "unknown",
+        "number": "numero",
+        "object": "oggetto",
+        "promise": "promessa",
+        "set": "insieme",
+        "string": "stringa",
+        "symbol": "simbolo",
+        "undefined": "non definito",
+        "unknown": "sconosciuto",
         "void": "void"
     },
     "validations": {
         "cuid": "CUID",
-        "datetime": "Data e ora",
-        "email": "Email",
-        "regex": "regex",
+        "datetime": "data e ora",
+        "email": "email",
+        "regex": "espressione regolare",
         "url": "URL",
         "uuid": "UUID"
     }

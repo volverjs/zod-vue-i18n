@@ -8,6 +8,7 @@ export default defineConfig({
     format: 'esm',
     clean: true,
     dts: true,
+    tsconfig: './tsconfig.build.json',
     minify: true,
     platform: 'neutral',
 })

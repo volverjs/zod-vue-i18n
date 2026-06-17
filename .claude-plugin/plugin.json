@@ -1,0 +1,13 @@
+{
+    "name": "volverjs-zod-vue-i18n",
+    "description": "Agent skill for integrating @volverjs/zod-vue-i18n — translating Zod validation errors with vue-i18n in Vue 3.",
+    "version": "0.1.0",
+    "author": {
+        "name": "8 Wave",
+        "url": "https://8wave.it"
+    },
+    "homepage": "https://github.com/volverjs/zod-vue-i18n",
+    "repository": "https://github.com/volverjs/zod-vue-i18n",
+    "license": "MIT",
+    "keywords": ["zod", "vue3", "i18n", "vue-i18n"]
+}
