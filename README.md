@@ -296,14 +296,13 @@ zDate.parse('16/06/2026') // throws
 
 ## Claude Code skill
 
-This repo ships an installable [Claude Code](https://docs.claude.com/en/docs/claude-code) plugin that teaches AI agents how to integrate `@volverjs/zod-vue-i18n`. Install it from Claude Code:
+This repo ships an installable [Claude Code](https://docs.claude.com/en/docs/claude-code) skill that teaches AI agents how to integrate `@volverjs/zod-vue-i18n`. Install it from your terminal:
 
-```text
-/plugin marketplace add volverjs/zod-vue-i18n
-/plugin install volverjs-zod-vue-i18n@volverjs-zod-vue-i18n
+```bash
+npx skills add volverjs/zod-vue-i18n
 ```
 
-See [`skills/README.md`](./skills/README.md) for details and manual installation.
+See [`skills/volverjs-zod-vue-i18n/README.md`](./skills/volverjs-zod-vue-i18n/README.md) for details.
 
 ## Acknoledgements
 
