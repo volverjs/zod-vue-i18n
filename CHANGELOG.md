@@ -5,11 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.0.10] - 2026-09-17
 
 ### Fixed
 
 - `WithPath` message variants were preferred whenever the key existed, with no check on the issue path, so a root-level failure (for example `z.string().parse(1)`, or an object schema parsed with a non-object) rendered `{path}` as an empty string. The variant is now only a candidate when the issue carries a path.
+
+### Changed
+
+- Dependency updates: `vitest` 4 to 5, `tsdown` 0.22 to 0.23, `pnpm` 11 to 12, plus `zod`, `vue`, `vue-i18n`, `eslint` and `@antfu/eslint-config`. `typescript` stays on 6.x because `typescript-eslint` does not support the TypeScript 7 API yet;
+- the bundled Claude Code skill was restructured into a short `SKILL.md` plus four topical references (`setup`, `messages`, `custom`, `message-keys`), and two inaccurate claims were corrected;
+- documented the development Node.js floor (`^22.18 || ^24.11 || >=26`) in the README. `engines` keeps declaring `>= 16.x`, which describes the published package;
+- the `author` field now reads "Eight Wave".
 
 ## [0.0.9] - 2026-06-17
 
@@ -121,6 +128,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `makeZodI18nMap` a function to use vue-i18n with zod validation error.
 
+[0.0.10]: https://github.com/volverjs/zod-vue-i18n/compare/v0.0.9...v0.0.10
 [0.0.9]: https://github.com/volverjs/zod-vue-i18n/compare/v0.0.8...v0.0.9
 [0.0.8]: https://github.com/volverjs/zod-vue-i18n/compare/v0.0.7...v0.0.8
 [0.0.7]: https://github.com/volverjs/zod-vue-i18n/compare/v0.0.6...v0.0.7
