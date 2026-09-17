@@ -14,24 +14,23 @@ This adds the skill to your Claude Code configuration.
 
 The skill is specialized for real `@volverjs/zod-vue-i18n` implementation patterns:
 
-- **Entry point selection**: matching the build to the project's Zod major — Zod 3 (`z.setErrorMap(makeZodI18nMap(i18n))`) vs Zod 4 (`z.config({ localeError: makeZodI18nMap(i18n) })`).
-- **Bundled locales**: loading the shipped `en`, `it`, `fr`, `ptBR` JSON files (and their `/v4` variants) under the `errors` namespace.
-- **Custom error messages**: overriding or adding keys, and routing custom checks through `params.i18n` on `.refine()`/`.superRefine()`/`.custom()`.
-- **Custom labels (`makeZodI18nLabel`)**: attaching translated, locale-reactive messages to any built-in validation in Zod 4 without rewriting it as a `refine`.
-- **Per-field `WithPath` labels**: field-aware message variants that receive `{path}`.
-- **Pluralization**: vue-i18n `|` plural syntax driven by `count`, `minimum`, `maximum`, `keys` or `value`.
-- **`zDate` helper**: ready-made `YYYY-MM-DD` ISO date schema for `<input type="date">` values.
-- **Gotchas**: entry-point mismatches, namespace placement, raw `message` strings bypassing the map, and keeping the i18n instance reactive.
+- **Setup**: matching the build to the Zod major the schemas use (`@volverjs/zod-vue-i18n` on `zod/v3`, `@volverjs/zod-vue-i18n/v4` on `zod/v4`), global registration with `z.setErrorMap` / `z.config({ localeError })`, per-parse registration, message precedence, and what the map needs from the `createI18n()` instance.
+- **Messages**: the key resolution order (`WithPath` variant, namespaced key, root key, Zod default), the bundled `en`, `it`, `fr`, `ptBR` locales and their `/v4` variants, overriding a single key, adding a language, the `types.*` / `validations.*` lookup tables.
+- **Per-field `WithPath` variants**: field-aware messages receiving `{path}`, and when they do (and do not) apply.
+- **Pluralization and formatting**: vue-i18n `|` plural syntax driven by the issue's numeric data, and boundaries formatted through `numberFormats` / `datetimeFormats`.
+- **Custom messages**: `params.i18n` on `.refine()` / `.superRefine()` / `z.custom()` (string and object forms), and `makeZodI18nLabel` to attach a translated, locale-reactive message to any Zod 4 validation without rewriting it as a refine.
+- **`zDate` helper**: the `YYYY-MM-DD` shape check for `<input type="date">` values, and how to add calendar validity.
+- **Gotchas**: entry-point mismatches, composer vs instance, raw strings bypassing the map, how partial locales resolve through `fallbackLocale` before Zod's default, `customError` hiding the map.
 
 ## Usage
 
 Once installed, Claude Code should automatically use this skill when you ask to:
 
 - Render Zod validation errors through the active vue-i18n locale.
-- Wire up the error map for a Zod 3 or Zod 4 project.
-- Load or merge the bundled locale files.
-- Override built-in messages or add custom error keys.
-- Attach translated labels to validations or per-field `WithPath` variants.
+- Wire up the error map for a Zod 3 or Zod 4 project, or migrate between them.
+- Load, merge or override the bundled locale files, or add a new language.
+- Attach a translated message to a specific validation or to a custom check.
+- Write field-aware (`WithPath`) or pluralized messages.
 
 ### Example Prompts
 
@@ -44,7 +43,7 @@ Add @volverjs/zod-vue-i18n and make the form validation messages localized in en
 ```
 
 ```text
-My Zod errors stay in English after switching locale — wire up the error map correctly.
+My Zod errors stay in English after switching locale. Wire up the error map correctly.
 ```
 
 ```text
@@ -55,19 +54,25 @@ Attach a translated message to z.string().min(5) without rewriting it as a refin
 Add a per-field message that includes the field name using a WithPath key.
 ```
 
+```text
+Why does my z.string().min(3, 'Too short') error say "Too short" in every locale?
+```
+
 ## Source of Truth
 
 When coding, verify implementation details directly from the library source:
 
-- `src/index.ts`, `src/utils.ts`, `src/types.ts` (Zod 3 error map and helpers)
-- `src/v4/` (Zod 4 error map, `makeZodI18nLabel`)
-- `locales/` and `locales/v4/` (bundled message JSON)
+- `src/index.ts`: Zod 3 error map, `zDate`
+- `src/v4/index.ts`: Zod 4 error map, `makeZodI18nLabel`, `zDate`
+- `src/utils.ts`: key resolution (`translateLabelFactory`), plural count detection, `params.i18n` parsing
+- `src/types.ts`: `AnyI18n`, `TranslateOptions`, `TranslateLabelOptions`
+- `locales/` and `locales/v4/`: bundled message JSON, one file per language and build
 
 ## Documentation
 
 - [Volver Zod Vue I18n Repository](https://github.com/volverjs/zod-vue-i18n)
 - [Skill Specification](./SKILL.md)
-- [Full message-key reference](./references/message-keys.md)
+- [Setup reference](./references/setup.md), [Messages reference](./references/messages.md), [Custom messages reference](./references/custom.md), [Message-key reference](./references/message-keys.md)
 
 ## License
 
