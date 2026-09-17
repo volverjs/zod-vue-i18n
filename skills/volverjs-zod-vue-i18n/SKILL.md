@@ -178,8 +178,6 @@ zDate.parse('2026-06-16') // ok — throws on anything that isn't YYYY-MM-DD
 - **Entry point must match the Zod major** — a v3 map against `zod/v4` (or vice
   versa) silently misreads issues.
 - **Messages go under `errors`** (or your custom namespace), not the locale root.
-- **`WithPath` is not conditional on the path** — it wins over the base key even
-  when the issue is root-level and `{path}` renders empty.
 - **A custom per-validation `message`/`error: 'literal'` bypasses the error map** —
   use `makeZodI18nLabel` (or `params.i18n`) instead of a raw string if you want it translated.
 - **Keep the i18n instance reactive**: build the map once from your app's `i18n`

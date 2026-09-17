@@ -7,9 +7,7 @@ Zod's built-in default message.
 - `{path}` (the dot-joined field path, e.g. `address.city`) is available as a
   named parameter in **every** message.
 - Appending `WithPath` to any key (e.g. `invalidTypeWithPath`) defines a variant
-  preferred over the base key. It is picked whenever it exists, including for
-  root-level issues where `{path}` is empty, so only define it for keys that can
-  realistically fail inside an object.
+  used when the issue has a non-empty path; it falls back to the base key.
 - Numeric data (`count`, `minimum`, `maximum`, `keys`, `value`) drives vue-i18n
   pluralization — use the `a | b` pipe syntax.
 
