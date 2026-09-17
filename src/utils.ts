@@ -68,8 +68,13 @@ export function translateLabelFactory(i18n: AnyI18n, key: string) {
             labelWithPrefix = `${prefix}.${label}`
         }
 
+        // The `WithPath` variant interpolates `{path}`, so it is only a candidate
+        // when the issue actually carries one: root-level issues have an empty
+        // path and would render the message with a hole in it.
+        const hasPath = Boolean(named.path)
+
         const messageKey = [
-            `${key}.${labelWithPrefix}WithPath`,
+            ...(hasPath ? [`${key}.${labelWithPrefix}WithPath`] : []),
             `${key}.${labelWithPrefix}`,
             labelWithPrefix,
         ].find(k => te(k))

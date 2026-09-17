@@ -294,6 +294,22 @@ zDate.parse('2026-06-16') // ok
 zDate.parse('16/06/2026') // throws
 ```
 
+## Development
+
+The published package targets Node.js 16 and up, as declared in `engines`. Working
+**on** this repository needs a newer runtime: `vitest` requires
+`^22.12.0 || ^24.0.0 || >=26.0.0` and `tsdown` requires
+`^22.18.0 || ^24.11.0 || >=26.0.0`, so use Node.js `^22.18`, `^24.11` or `>=26`.
+CI runs the latest 24.x.
+
+```bash
+pnpm install
+pnpm test        # vitest
+pnpm type-check  # tsc --noEmit
+pnpm lint        # eslint
+pnpm build       # tsdown
+```
+
 ## Claude Code skill
 
 This repo ships an installable [Claude Code](https://docs.claude.com/en/docs/claude-code) skill that teaches AI agents how to integrate `@volverjs/zod-vue-i18n`. Install it from your terminal:

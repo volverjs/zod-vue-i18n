@@ -170,6 +170,14 @@ describe('withPath behaviour', () => {
         )
         expect(result).toEqual('Expected string, received number')
     })
+
+    it('ignores the WithPath message for a root-level issue', () => {
+        createInstance(withPathMessages)
+        // an empty path would interpolate as "The  property expected ..."
+        expect(getErrorMessage(z.string().safeParse(1))).toEqual(
+            'Expected string, received number',
+        )
+    })
 })
 
 describe('custom error messages', () => {

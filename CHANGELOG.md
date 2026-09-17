@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Fixed
+
+- `WithPath` message variants were preferred whenever the key existed, with no check on the issue path, so a root-level failure (for example `z.string().parse(1)`, or an object schema parsed with a non-object) rendered `{path}` as an empty string. The variant is now only a candidate when the issue carries a path.
+
 ## [0.0.9] - 2026-06-17
 
 ### Added
