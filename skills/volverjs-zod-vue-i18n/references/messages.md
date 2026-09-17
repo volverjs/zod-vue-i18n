@@ -71,15 +71,17 @@ element of an array". The base key stays in use for root-level issues.
 }
 ```
 
+With both keys defined, `result.error.issues[0].message` reads:
+
 ```ts
 z.object({ name: z.string() }).safeParse({ name: 1 })
-// "The name field expected string, received number"
+// => "The name field expected string, received number"
 
 z.string().safeParse(1)
-// "Expected string, received number"
+// => "Expected string, received number"
 
 z.object({ name: z.string() }).safeParse(undefined)
-// root-level issue, path is empty: "Expected object, received undefined"
+// => "Expected object, received undefined" (root-level issue, empty path)
 ```
 
 Rules:
