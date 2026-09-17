@@ -47,16 +47,18 @@ shapes won't line up.
 Zod 3:
 
 ```typescript
-import { z } from 'zod'
 import { makeZodI18nMap } from '@volverjs/zod-vue-i18n'
+import { z } from 'zod'
+
 z.setErrorMap(makeZodI18nMap(i18n)) // i18n = your createI18n() instance
 ```
 
 Zod 4:
 
 ```typescript
-import { z } from 'zod/v4'
 import { makeZodI18nMap } from '@volverjs/zod-vue-i18n/v4'
+import { z } from 'zod/v4'
+
 z.config({ localeError: makeZodI18nMap(i18n) })
 ```
 
@@ -70,9 +72,9 @@ is the **bundled locale files** (en, it, fr, ptBR), which already cover every
 built-in Zod issue. Use the `/v4` variants with the Zod 4 entry point.
 
 ```typescript
-import { createI18n } from 'vue-i18n'
-import en from '@volverjs/zod-vue-i18n/locales/en.json'       // or /locales/v4/en.json
+import en from '@volverjs/zod-vue-i18n/locales/en.json' // or /locales/v4/en.json
 import it from '@volverjs/zod-vue-i18n/locales/it.json'
+import { createI18n } from 'vue-i18n'
 
 const i18n = createI18n({
     locale: 'en',
@@ -137,13 +139,17 @@ When an object field fails, append `WithPath` to a key to get a variant that
 receives the field's `{path}`. If the `WithPath` key is missing, the normal key
 is used. The path is also available as `{path}` in every message.
 
-```typescript
-errors: {
-    invalidType: 'Expected {expected}, received {received}',
-    invalidTypeWithPath: 'The {path} field expected {expected}, received {received}',
+```json
+{
+    "errors": {
+        "invalidType": "Expected {expected}, received {received}",
+        "invalidTypeWithPath": "The {path} field expected {expected}, received {received}"
+    }
 }
-// z.object({ name: z.string() }).parse({ name: 1 }) => "The name field expected string, received number"
 ```
+
+`z.object({ name: z.string() }).parse({ name: 1 })` then yields
+"The name field expected string, received number".
 
 ## Pluralization
 
@@ -161,7 +167,9 @@ The package also exports `zDate` (both entry points): a ready-made schema for IS
 calendar dates in `YYYY-MM-DD` form, handy for `<input type="date">` string values.
 
 ```typescript
-import { zDate } from '@volverjs/zod-vue-i18n' // or '/v4'
+// with the Zod 4 entry point: '@volverjs/zod-vue-i18n/v4'
+import { zDate } from '@volverjs/zod-vue-i18n'
+
 zDate.parse('2026-06-16') // ok — throws on anything that isn't YYYY-MM-DD
 ```
 
@@ -170,6 +178,8 @@ zDate.parse('2026-06-16') // ok — throws on anything that isn't YYYY-MM-DD
 - **Entry point must match the Zod major** — a v3 map against `zod/v4` (or vice
   versa) silently misreads issues.
 - **Messages go under `errors`** (or your custom namespace), not the locale root.
+- **`WithPath` is not conditional on the path** — it wins over the base key even
+  when the issue is root-level and `{path}` renders empty.
 - **A custom per-validation `message`/`error: 'literal'` bypasses the error map** —
   use `makeZodI18nLabel` (or `params.i18n`) instead of a raw string if you want it translated.
 - **Keep the i18n instance reactive**: build the map once from your app's `i18n`
