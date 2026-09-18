@@ -65,9 +65,9 @@
         "@antfu/eslint-config": "^9.5.1",
         "eslint": "^10.10.0",
         "tsdown": "^0.23.0",
-        "typescript": "^6.0.3",
+        "typescript": "^7.0.2",
         "vitest": "^5.0.1",
-        "vue": "^3.5.43",
+        "vue": "^3.5.42",
         "vue-i18n": "^11.4.12",
         "zod": "^4.6.5"
     }
